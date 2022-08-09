@@ -1,0 +1,27 @@
+{
+  "files": {
+    "main.css": "/LikeMe/static/css/main.f1cdf1c5.css",
+    "main.js": "/LikeMe/static/js/main.64650e57.js",
+    "static/js/787.71df535f.chunk.js": "/LikeMe/static/js/787.71df535f.chunk.js",
+    "static/media/img2.jpg": "/LikeMe/static/media/img2.b9b2ae74871bf67a6e70.jpg",
+    "static/media/img1.jpg": "/LikeMe/static/media/img1.eaa0a1e5443cc032ed1d.jpg",
+    "static/media/img3.jpg": "/LikeMe/static/media/img3.290a5805229d4cfd5b20.jpg",
+    "static/media/img4.jpg": "/LikeMe/static/media/img4.5c0944e25a383237054b.jpg",
+    "static/media/self-improvement.png": "/LikeMe/static/media/self-improvement.158616bdde680cee010b.png",
+    "static/media/dumbbell.png": "/LikeMe/static/media/dumbbell.0ac15bdeb727cf9ce105.png",
+    "static/media/exercise.png": "/LikeMe/static/media/exercise.b2d87d445cd262383cf7.png",
+    "static/media/warrior.png": "/LikeMe/static/media/warrior.3b7e12613d12d767deb9.png",
+    "static/media/slick.svg": "/LikeMe/static/media/slick.2630a3e3eab21c607e21.svg",
+    "static/media/slick.eot": "/LikeMe/static/media/slick.a4e97f5a2a64f0ab1323.eot",
+    "static/media/slick.ttf": "/LikeMe/static/media/slick.c94f7671dcc99dce43e2.ttf",
+    "static/media/slick.woff": "/LikeMe/static/media/slick.295183786cd8a1389865.woff",
+    "index.html": "/LikeMe/index.html",
+    "main.f1cdf1c5.css.map": "/LikeMe/static/css/main.f1cdf1c5.css.map",
+    "main.64650e57.js.map": "/LikeMe/static/js/main.64650e57.js.map",
+    "787.71df535f.chunk.js.map": "/LikeMe/static/js/787.71df535f.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.f1cdf1c5.css",
+    "static/js/main.64650e57.js"
+  ]
+}

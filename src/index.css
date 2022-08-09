@@ -47,3 +47,26 @@ code {
   background-size: cover;
   height: 85vh;
 }
+
+.content1 {
+  background-image: url(/src/assets/images/img1.jpg);
+  background-size: cover;
+  height: 85vh;
+}
+
+.content1-label{
+  display: flex;
+  flex-basis: 100%;
+  align-items: center;
+  margin: 8px 0px;
+}
+
+.content1-label::after{
+  content: "";
+  flex-grow: 1;
+  background: white;
+  height: 3px;
+  font-size: 0px;
+  line-height: 0px;
+  margin: 0px 16px;
+}

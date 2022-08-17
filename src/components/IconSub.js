@@ -62,8 +62,8 @@ const IconSub = () => {
 
         <div className="flex w-full h-full m-auto bg-white justify-center p-[10rem] space-x-12">
             <div className="w-[25rem] flex flex-col text-right pb-6">
-                <Label className=" text-[#f5dbd7] text-[60px] font-bold">Lorem Ipsum!</Label>
-                <Label className=" text-[#f5dbd7] text-[35px] ">Lorem Ipsum is simply</Label>
+                <Label className=" text-[#dce3f7] text-[60px] font-bold">Lorem Ipsum!</Label>
+                <Label className=" text-[#dce3f7] text-[35px] ">Lorem Ipsum is simply</Label>
 
                 <div className="mt-6 flex flex-col space-y-6">
                     <span>
@@ -79,7 +79,7 @@ const IconSub = () => {
                 </div>
             </div>
 
-            <div className="w-[40rem] bg-[#625666]/[0.8] flex items-center">
+            <div className="w-[40rem] bg-[#A9BAEB]/[0.8] flex items-center">
                 <div className="w-full h-[60%] bg-[#f0f0f0]">
                     <Label className="font-bold leading-[25rem]">Img</Label>
                 </div>

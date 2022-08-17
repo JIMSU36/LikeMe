@@ -9,7 +9,7 @@ const Menu1Content = () => {
     return(
         <>
         <div className="content1 w-full h-full bg-fixed m-auto">
-            <div className="w-full h-full bg-[#625666]/[0.6]">
+            <div className="w-full h-full bg-[#A9BAEB]/[0.5]">
                 <div className="w-full z-[99] absolute py-[5rem] px-[25rem] text-white">
                     <Label className="content1-label font-medium text-[60px] ">Content Title</Label>
 
@@ -34,7 +34,7 @@ const Menu1Content = () => {
                         </div>
                     </div>
                 </div>
-                <div className="w-[40rem] h-full bg-[#625666]/[0.9] ml-[20rem]"/>
+                <div className="w-[40rem] h-full bg-[#A9BAEB] ml-[20rem]"/>
             </div>
         </div>
         <div className="w-full h-[25rem] grid grid-cols-5">

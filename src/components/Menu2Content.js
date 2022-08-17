@@ -14,7 +14,7 @@ const Menu2Content = () => {
             </div>
 
             <div className="grid grid-cols-2 grid-rows-2 w-full h-full m-auto">
-                <div className="bg-[#f5dbd7] w-full h-[100vh] m-auto">
+                <div className="bg-[#dce3f7] w-full h-[100vh] m-auto">
                     <div className="flex flex-col space-y-6 pt-[5rem] pb-[5rem]">
                         <Label className="text-[#625666] font-bold text-[40px]">Sub Title 1</Label>
                         <span className="w-[50%] m-auto font-medium text-[20px]">
@@ -39,7 +39,7 @@ const Menu2Content = () => {
                 <div className="bg-[#f0f0f0] w-full ">
                     <Label className="font-bold leading-[100vh]">Img</Label>
                 </div>
-                <div className="bg-[#f5dbd7] w-full  h-[100vh]">
+                <div className="bg-[#dce3f7] w-full  h-[100vh]">
                     <div className="mt-32 flex flex-col space-y-6">
                             <Label className="text-[#625666] font-bold text-[40px]">Sub Title 2</Label>
                             <Label className="text-[#625666] font-medium text-[40px]">Sub </Label>

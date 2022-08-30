@@ -1,21 +1,36 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Contact from '../components/Contact';
 import Header from '../components/Header';
 import IconSub from '../components/IconSub';
 import Menu1Content from '../components/Menu1Content';
 import Menu2Content from '../components/Menu2Content';
 import Slider from '../components/Slider';
+import Video from '../components/Video';
+import Footer from '../components/Footer';
+import ViewMap from '../components/ViewMap';
+
+import SideDot from '../components/SideDot';
+import MiddleContents from './MiddleContents';
+
+import { ResultContextProvider } from '../Contexts/ScrollNumContext';
 
 const MainPage = () => {
+    const [num, setNum] = useState(1);
+    const parentFunction = (x) => {
+        setNum(x);
+    };
+
     return(
-        <div>
-            <Header/>
-            <Slider/>
-            <IconSub/>
-            <Menu1Content/>
-            <Menu2Content/>
-            <Contact/>
-        </div>
+        <ResultContextProvider>
+            <Header scrollNum={num}/>
+            {/* <Header/> */}
+            <div className='w-full flex-cols'>        
+                <MiddleContents />
+                <SideDot parentFunction={parentFunction}/>
+                {/* <SideDot/> */}
+            </div>
+            <Footer/>
+        </ResultContextProvider>
     )
 }
 

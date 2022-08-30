@@ -24,79 +24,82 @@ const Contact = () => {
     };
   
     return (
-        <div className="w-full h-full bg-white">
-            <div className="font-bold text-[40px] py-[4rem] ">
-                <Label>Contact Us</Label>
-            </div>
+        <div className="w-full h-[100vh] bg-white">
+            <div className="my-auto h-full">
+                <div className="font-bold text-[40px] pt-[25vh] my-auto">
+                    <Label>Contact Us</Label>
+                </div>
 
-            <div className="pb-12 w-[40%] m-auto">
-                <form ref={form} onSubmit={sendEmail}>
-                    <Table className="border border-[2px] border-black m-auto w-[100%]">
-                        <tr className="border border-[2px] border-black">
-                            <td className="border border-[2px] border-black">
-                                <input 
-                                    className="w-full h-[40px] p-4"
-                                    type="text" 
-                                    name="user_name" 
-                                    placeholder="이름"
-                                />
-                            </td>
-                            <td className="border border-[2px] border-black">
-                                <input 
-                                    className="w-full h-[40px] p-4"
-                                    type="text" 
-                                    name="user_position" 
-                                    placeholder="직책"
-                                />
-                            </td>
-                        </tr>
-                        <tr className="border border-[2px] border-black ">
-                            <td colspan="2">
-                                <input 
-                                    className="w-full h-[40px] p-4"
-                                    type="email" 
-                                    name="user_email" 
-                                    placeholder="이메일"
-                                />
-                            </td>
-                        </tr>
-                        <tr className="border border-[2px] border-black">
-                            <td colspan="2">
-                                <input 
-                                    className="w-full h-[40px] p-4"
-                                    type="phone" 
-                                    name="user_phone" 
-                                    placeholder="전화번호"
-                                />
-                            </td>
-                        </tr>
-                        <tr className="border border-[2px] border-black">
-                            <td colspan="2">
-                                <input 
-                                    className="w-full h-[40px] p-4"
-                                    type="text" 
-                                    name="area" 
-                                    placeholder="지역"
-                                />
-                            </td>
-                        </tr>
-                        <tr className="border border-[2px] border-black">
-                            <td colspan="2">
-                                <textarea 
-                                    className="w-full h-[10rem] p-4"
-                                    name="message" 
-                                    placeholder="Message"
-                                />
-                            </td>
-                        </tr>
-                    </Table>
-                    <input 
-                        type="submit" 
-                        value="Send" 
-                        className="bg-[#A9BAEB] w-[20%] h-[3rem] my-6 text-white text-[15px] font-bold rounded-lg cursor-pointer hover:bg-[#625666]/[0.9]"
-                    />
-                </form>
+                <div className="py-12 w-[40%] m-auto">
+                    <form ref={form} onSubmit={sendEmail}>
+                        <Table className="border border-[2px] border-black m-auto w-[100%]">
+                            <tr className="border border-[2px] border-black">
+                                <td className="border border-[2px] border-black">
+                                    <input 
+                                        className="w-full h-[40px] p-4"
+                                        type="text" 
+                                        name="user_name" 
+                                        placeholder="이름"
+                                    />
+                                </td>
+                                <td className="border border-[2px] border-black">
+                                    <input 
+                                        className="w-full h-[40px] p-4"
+                                        type="text" 
+                                        name="user_position" 
+                                        placeholder="직책"
+                                    />
+                                </td>
+                            </tr>
+                            <tr className="border border-[2px] border-black ">
+                                <td colspan="2">
+                                    <input 
+                                        className="w-full h-[40px] p-4"
+                                        type="email" 
+                                        name="user_email" 
+                                        placeholder="이메일"
+                                    />
+                                </td>
+                            </tr>
+                            <tr className="border border-[2px] border-black">
+                                <td colspan="2">
+                                    <input 
+                                        className="w-full h-[40px] p-4"
+                                        type="phone" 
+                                        name="user_phone" 
+                                        placeholder="전화번호"
+                                    />
+                                </td>
+                            </tr>
+                            <tr className="border border-[2px] border-black">
+                                <td colspan="2">
+                                    <input 
+                                        className="w-full h-[40px] p-4"
+                                        type="text" 
+                                        name="area" 
+                                        placeholder="지역"
+                                    />
+                                </td>
+                            </tr>
+                            <tr className="border border-[2px] border-black">
+                                <td colspan="2">
+                                    <textarea 
+                                        className="w-full h-[10rem] p-4"
+                                        name="message" 
+                                        placeholder="Message"
+                                    />
+                                </td>
+                            </tr>
+                        </Table>
+                        <input 
+                            type="submit" 
+                            value="Send" 
+                            className="bg-[#A9BAEB] w-[20%] h-[3rem] my-6 text-white text-[15px] font-bold rounded-lg cursor-pointer hover:bg-[#625666]/[0.9]"
+                        />
+                    </form>
+                </div>
             </div>
+            
             
             {/* <form ref={form} onSubmit={sendEmail}>
                 <label>Name</label>

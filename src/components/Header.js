@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Link } from 'react-router-dom';
+
 import mainLogo from '../assets/images/LOGO.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
 import Select from 'react-select'
@@ -23,7 +24,7 @@ const Header = () =>{
         <>
         <div
             data-text-content="true"
-            className={(scrollNum == 1 ? "text-white" : "white-menu bg-white") +" !z-[99999] fixed border-b border-white inset-x-0 top-0 m-auto grid text-base text-lg whitespace-pre-wrap break-all w-full h-[6rem]"}
+            className={(scrollNum == 1 ? "basic-menu text-white" : "white-menu bg-white") +" !z-[99999] fixed border-b border-white inset-x-0 top-0 m-auto grid text-base text-lg whitespace-pre-wrap break-all w-full h-[6rem]"}
         >
             <div className="flex w-[90%] m-auto">
                 <div className="p-0 m-0 w-[10%] h-16 m-4 ml-4cursor-pointer">
@@ -32,18 +33,27 @@ const Header = () =>{
                     </Link>
                 </div>
                 <div className={"flex m-auto ml-auto mr-4 place-content-center w-[80%] h-16 font-semibold"}>
-                    <div className="mr-12 leading-[64px] cursor-pointer">
-                       <span>라이크미</span>
-                    </div>
-                    <div className="mr-12 leading-[64px] cursor-pointer">
-                       <span>프로그램</span>
-                    </div>
-                    <div className="mr-12 leading-[64px] cursor-pointer">
-                       <span>아카데미</span>
-                    </div>
-                    <div className="mr-12 leading-[64px] cursor-pointer">
-                       <span>스튜디오</span>
-                    </div>
+                    <Link to="/LikeMe">
+                        <div className="mr-12 leading-[64px] cursor-pointer">
+                        <span>라이크미</span>
+                        </div>
+                    </Link>
+                    <Link to="/Program">
+                        <div className="mr-12 leading-[64px] cursor-pointer">
+                        <span>프로그램</span>
+                        </div>
+                    </Link>
+                    <Link to="/Academy">
+                        <div className="mr-12 leading-[64px] cursor-pointer">
+                        <span>아카데미</span>
+                        </div>
+                    </Link>
+                    <Link to="/Studio">
+                        <div className="mr-12 leading-[64px] cursor-pointer">
+                        <span>스튜디오</span>
+                        </div>
+                    </Link>
+                    
                     <div className="my-auto">
                         <Select 
                             className="place-select text-black"

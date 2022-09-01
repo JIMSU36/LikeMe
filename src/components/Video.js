@@ -1,12 +1,11 @@
 import React from "react";
 import mainVideo from '../assets/images/mainVideo.mp4';
-import thumb from '../assets/images/mainVideo_thumb.jpg';
 import ReactPlayer from 'react-player'
 
 const Video = () => {
     return(
         <>
-        <div class="-mt-[10vh] h-[113Rvh]">
+        <div class="-mt-[10vh] h-[113vh]">
             <ReactPlayer
                 className=""
                 width={'100%'}

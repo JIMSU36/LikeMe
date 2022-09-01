@@ -13,7 +13,7 @@ const ViewMap = () => {
     const [zoomable, setZoomable] = useState(true)
     const [selectPlace, setSelectPlace] = useState("");
     const places = [
-        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 2층', lat:37.559249, lng:126.826098},
+        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', lat:37.559249, lng:126.826098},
         { value: '우장산역점', label: '우장산역점', tel: '00-0000-0000', address:'address input' },
     ]
 
@@ -31,7 +31,7 @@ const ViewMap = () => {
                 <MapMarker position={{ lat: selectPlace.lat, lng:selectPlace.lng }}/>
             </Map>
    
-            <div className='w-[20%] max-h-[70%] h-auto z-[99] bg-white relative -top-[80vh] left-[5vw] shadow-xl'>
+            <div className='w-[25%] max-h-[70%] h-auto z-[99] bg-white relative -top-[80vh] left-[5vw] shadow-xl'>
                 <div className='w-full h-[10vh] p-6 pt-12 text-left'>
                     <Label className='text-3xl font-bold'>지점 위치</Label>
                 </div>

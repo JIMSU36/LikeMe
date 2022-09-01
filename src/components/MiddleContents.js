@@ -1,8 +1,8 @@
 import React from 'react';
-import Contact from '../components/Contact';
-import Slider from '../components/Slider';
-import Video from '../components/Video';
-import ViewMap from '../components/ViewMap';
+import Contact from './Contact';
+import Slider from './Slider';
+import Video from './Video';
+import ViewMap from './ViewMap';
 
 import styled from "styled-components"
 

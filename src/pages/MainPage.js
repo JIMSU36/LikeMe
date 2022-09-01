@@ -10,7 +10,7 @@ import Footer from '../components/Footer';
 import ViewMap from '../components/ViewMap';
 
 import SideDot from '../components/SideDot';
-import MiddleContents from './MiddleContents';
+import MiddleContents from '../components/MiddleContents';
 
 import { ResultContextProvider } from '../Contexts/ScrollNumContext';
 
@@ -23,11 +23,9 @@ const MainPage = () => {
     return(
         <ResultContextProvider>
             <Header scrollNum={num}/>
-            {/* <Header/> */}
             <div className='w-full flex-cols'>        
                 <MiddleContents />
                 <SideDot parentFunction={parentFunction}/>
-                {/* <SideDot/> */}
             </div>
             <Footer/>
         </ResultContextProvider>

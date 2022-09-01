@@ -84,8 +84,8 @@ code {
 .css-12pg3nc-control{
   border: none !important;
 }
-#react-select-3-placeholder{
-  color: white !important;
+.basic-menu > div > div > div > div > div > div > div{
+  color: white !important
 }
 .white-menu > div > div > div > div > div > div > #react-select-3-placeholder{
   color: black !important

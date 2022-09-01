@@ -1,16 +1,13 @@
 import React from 'react';
-import Contact from './Contact';
-import Slider from './Slider';
-import Video from './Video';
-import ViewMap from './ViewMap';
-
-import styled from "styled-components"
+import Contact from '../Contact';
+import Slider from '../Slider';
+import Video from '../Video';
+import ViewMap from '../ViewMap';
 
 
 const MiddleContents = () => {
     return(
         <>
-        
         <div id="1" name="1" className='content'>
             <Video/>
         </div>

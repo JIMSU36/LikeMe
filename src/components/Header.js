@@ -6,30 +6,27 @@ import mainWhiteLogo from '../assets/images/logo_white.png';
 import Select from 'react-select'
 import {AiOutlineInstagram, AiFillYoutube} from "react-icons/ai";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import { isCompositeComponent } from "react-dom/test-utils";
-
+import { useLocation } from 'react-router-dom';
 import { useResultContext } from "../Contexts/ScrollNumContext";
 
-const Header = () =>{
+const MainHeader = () =>{
     const {scrollNum} = useResultContext();
-
     const options = [
         { value: '마곡역점', label: '마곡역점' },
         { value: '우장산역점', label: '우장산역점' },
     ]
     
-    console.log(scrollNum)
     
     return(
         <>
         <div
             data-text-content="true"
-            className={(scrollNum == 1 ? "basic-menu text-white" : "white-menu bg-white") +" !z-[99999] fixed border-b border-white inset-x-0 top-0 m-auto grid text-base text-lg whitespace-pre-wrap break-all w-full h-[6rem]"}
+            className={(scrollNum == 1 ? "basic-menu text-white" : scrollNum == 5 ? "basic-menu bg-black/[0.4] text-white" : "white-menu bg-white") +" !z-[99999] fixed border-b border-white inset-x-0 top-0 m-auto grid text-base text-lg whitespace-pre-wrap break-all w-full h-[6rem]"}
         >
             <div className="flex w-[90%] m-auto">
                 <div className="p-0 m-0 w-[10%] h-16 m-4 ml-4cursor-pointer">
                     <Link to="/">
-                        <img className="object-cover h-16" alt="main_logo" src={scrollNum != 1 ? mainLogo : mainWhiteLogo} />
+                        <img className="object-cover h-16" alt="main_logo" src={scrollNum == 1 || scrollNum == 5 ? mainWhiteLogo : mainLogo } />
                     </Link>
                 </div>
                 <div className={"flex m-auto ml-auto mr-4 place-content-center w-[80%] h-16 font-semibold"}>
@@ -62,7 +59,7 @@ const Header = () =>{
                             styles={{
                                 // Fixes the overlapping problem of the component
                                 menu: (options) => ({ ...options, zIndex: 99999 }),
-                                control: (base, state) => ({ ...base,background: "none", borderColor: scrollNum != 1 && "white", cursor:"pointer",}),
+                                control: (base, state) => ({ ...base,background: "none", borderColor: scrollNum != 1 && "white", cursor:"pointer", }),
                               }}
                         />
                     </div>
@@ -84,4 +81,4 @@ const Header = () =>{
     )
 }
 
-export default Header;
+export default MainHeader;

@@ -1,12 +1,11 @@
 import React, { useState } from "react"
 import { Link } from "react-scroll"
 import { BsDot } from "react-icons/bs";
-import Header from "./Header";
 import ReactScrollWheelHandler from "react-scroll-wheel-handler";
 
-import { useResultContext } from "../Contexts/ScrollNumContext";
+import { useResultContext } from "../../Contexts/ScrollNumContext";
 
-const SideDot = ({ parentFunction }) => {
+const MainSideDot = () => {
     const { setScrollNum } = useResultContext();
     const { scrollNum } = useResultContext();
 
@@ -20,7 +19,7 @@ const SideDot = ({ parentFunction }) => {
   return (
     <>
     
-    <div className="relative bg-blue-300 z-[9999999]">
+    <div className="relative z-[9999999]">
         <div className="fixed w-[3%] inset-y-1/2 right-0">
             <Link activeClass="active" className="1 cursor-pointer" to="1" spy={true} smooth={true} onSetActive={handleSetActive}>
                 <BsDot color={scrollNum == 1 ? "white" : "black"} size={30}/>
@@ -40,4 +39,4 @@ const SideDot = ({ parentFunction }) => {
   )
 }
 
-export default SideDot;
+export default MainSideDot;

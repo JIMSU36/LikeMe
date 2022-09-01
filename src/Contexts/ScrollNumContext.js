@@ -1,5 +1,5 @@
 // context.js
-import { createContext, useContext, useState } from 'react';
+import React,{createContext, useContext, useState} from 'react';
 
 export const ResultContext = createContext(undefined); 
 // createContext 선언

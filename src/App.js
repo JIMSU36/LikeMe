@@ -9,22 +9,32 @@ import Program from './pages/Program';
 import Academy from './pages/Academy';
 import Studio from './pages/Studio';
 
+import { createGlobalStyle } from 'styled-components'
+import reset from 'styled-reset'
+
+const GlobalStyle = createGlobalStyle`
+  ${reset}
+  /* other styles */
+`
 function App() {
   return (
-    <div className="App">
-      <BrowserRouter>
-        <Routes>
-          {/* {userRoutes.map((route)=>{
-            return <Route path={route.path} element={route.component()} key={route.path}/>
-          })} */}
-          <Route path="/" element={<MainPage/>}/>
-          <Route path="/LikeMe" element={<LikeMe/>}/>
-          <Route path="/Program" element={<Program/>}/>
-          <Route path="/Academy" element={<Academy/>}/>
-          <Route path="/Studio" element={<Studio/>}/>
-        </Routes>
-      </BrowserRouter>
-    </div>
+    <React.Fragment>
+      <GlobalStyle />
+      <div className="App">
+        <BrowserRouter>
+          <Routes>
+            {/* {userRoutes.map((route)=>{
+              return <Route path={route.path} element={route.component()} key={route.path}/>
+            })} */}
+            <Route path="/" element={<MainPage/>}/>
+            <Route path="/LikeMe" element={<LikeMe/>}/>
+            <Route path="/Program" element={<Program/>}/>
+            <Route path="/Academy" element={<Academy/>}/>
+            <Route path="/Studio" element={<Studio/>}/>
+          </Routes>
+        </BrowserRouter>
+      </div>
+    </React.Fragment>
   );
 }
 

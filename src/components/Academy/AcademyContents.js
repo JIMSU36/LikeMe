@@ -49,7 +49,7 @@ const AcademyContents = () => {
             </div>
             <div className='w-full h-full py-20 bg-white'>
                 <Label className='font-bold text-4xl'>{selectTab}</Label>
-                <div className='w-full h-full py-20'>
+                <div className='w-full h-full py-10'>
                     {selectTab === "강사양성과정" ? (
                         <>
                         <InstructorList/>

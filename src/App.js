@@ -1,23 +1,30 @@
 import logo from './logo.svg';
 import './App.css';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import ScrollToTop from './components/ScrollTopLoad';
+
+import MainPage from './pages/MainPage';
+import LikeMe from './pages/LikeMe';
+import Program from './pages/Program';
+import Academy from './pages/Academy';
+import Studio from './pages/Studio';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <BrowserRouter>
+        <ScrollToTop/>
+        <Routes>
+          {/* {userRoutes.map((route)=>{
+            return <Route path={route.path} element={route.component()} key={route.path}/>
+          })} */}
+          <Route path="/" element={<MainPage/>}/>
+          <Route path="/LikeMe" element={<LikeMe/>}/>
+          <Route path="/Program" element={<Program/>}/>
+          <Route path="/Academy" element={<Academy/>}/>
+          <Route path="/Studio" element={<Studio/>}/>
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

@@ -1,3 +1,8 @@
+@import-normalize;
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -10,4 +15,144 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+/* start slide */
+.slick-next {
+  display: none;
+  z-index: 9999;
+  margin-right: 2rem;  
+  width: 50px !important;
+  height: 50px !important;
+}
+.slick-arrow > polyline{
+  display: none;
+  stroke: white;
+}
+.slick-prev {
+  display: none;
+  z-index: 9999;
+  margin-left: 2rem;
+  width: 50px !important;
+  height: 50px !important;
+}
+.slick-dots{
+  bottom: 2rem !important;
+}
+.slick-dots li button:before{
+  color: white !important;
+  opacity: 0.3 !important;
+}
+.slick-dots li.slick-active button:before{
+  opacity: 1 !important;
+}
+
+.slider1{
+  /* background-image: url(/src/assets/images/img1.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+
+.slider2{
+  /* background-image: url(/src/assets/images/img2.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+.slider3{
+  /* background-image: url(/src/assets/images/exercise-free-weights.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+.slider4{
+  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+.slider5{
+  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+.slider6{
+  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-color: gray;
+  background-size: cover;
+}
+/*end slide */
+
+
+/* modal */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999999;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+.modal button {
+  outline: none;
+  cursor: pointer;
+  border: 0;
+}
+.modal > section {
+  width: 30%;
+  max-width: 30%;
+  margin: 0 auto;
+  border-radius: 0.3rem;
+  background-color: white;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-show 0.3s;
+  overflow: hidden;
+}
+.modal > section > header {
+  position: relative;
+}
+.modal > section > header button {
+  text-align: center;
+  background-color: transparent;
+}
+.modal > section > footer button {
+  color: white;
+  background-color: gray;
+  border-radius: 5px;
+}
+.modal.openModal {
+  display: flex;
+  align-items: center;
+  /* 팝업이 열릴때 스르륵 열리는 효과 */
+  animation: modal-bg-show 0.3s;
+}
+@keyframes modal-show {
+  from {
+    opacity: 0;
+    margin-top: -50px;
+  }
+  to {
+    opacity: 1;
+    margin-top: 0;
+  }
+}
+@keyframes modal-bg-show {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.basic-menu > div > div > div > div > div > div [class*="placeholder"]  {
+  color: white !important
+}
+.basic-menu > div > div > div > div > div {
+  border-color: white !important
+}
+.basic-menu > div > div > div > div > div span{
+  background-color: white !important
+}
+.basic-menu > div > div > div > div > div svg{
+  fill: white !important
 }

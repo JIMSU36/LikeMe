@@ -6,12 +6,39 @@ import {
 } from "reactstrap";
 import { BiMap, BiX } from "react-icons/bi";
 
+//editor
+import ReactQuill from 'react-quill';
+import 'react-quill/dist/quill.snow.css';
+
+const modules = {
+    toolbar: [
+        //[{ 'font': [] }],
+        [{ 'header': [1, 2, false] }],
+        ['bold', 'italic', 'underline','strike', 'blockquote'],
+        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
+        ['link', 'image'],
+        [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
+        ['clean']
+    ],
+}
+
+const formats = [
+    //'font',
+    'header',
+    'bold', 'italic', 'underline', 'strike', 'blockquote',
+    'list', 'bullet', 'indent',
+    'link', 'image',
+    'align', 'color', 'background',        
+]
+
 const ShowModal = (props) => {
     const { open, close, data } = props;
+    
+
     return (
         <div className={open ? 'openModal modal' : 'modal'}>
         {open ? (
-            <section>
+            <section className="w-full max-w-[30%]">
                 <header className="flex p-4">
                     <div className="flex">
                         <BiMap size={40} className="mr-2"/>

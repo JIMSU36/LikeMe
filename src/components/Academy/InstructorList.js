@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import {
     Label,
     Button,
     Table,
 } from "reactstrap";
 
-const InstructorList = () => {
+const InstructorList = (props) => {
+    const navigate = useNavigate();
+    const thisPage = window.location.pathname;
+
     const [rowData, setRowData] = useState([
         {
             writer:"admin",
@@ -29,7 +33,17 @@ const InstructorList = () => {
         <>
         <div className="w-[70vw] h-full m-auto">
             <div className='flex'>
-                <Button className='ml-auto my-4 px-4 py-2 bg-gray-400 rounded-lg text-white font-bold hover:bg-gray-500'>
+                <Button 
+                    className='ml-auto my-4 px-4 py-2 bg-gray-400 rounded-lg text-white font-bold hover:bg-gray-500'
+                    onClick={()=>{
+                        navigate(thisPage+"/AddNewPost", {
+                            state:{
+                                parentPageName:"아카데미",
+                                parent:"Academy"
+                            }
+                        })
+                    }}
+                >
                     + Add New
                 </Button>
             </div>

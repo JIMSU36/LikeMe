@@ -1,24 +1,25 @@
-import React, { useState } from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+import React from "react";
 import ContentSideDot from '../components/Dot/ContentSideDot';
+import EditorContents from "../components/EditorContents";
+import Footer from "../components/Footer";
+import Header from "../components/Header";
 import { ResultContextProvider } from '../Contexts/ScrollNumContext';
-import ProgramContents from '../components/Program/ProgramContents';
+import { useLocation } from "react-router-dom";
 
-
-const Program = () => {
+const AddNewPost = () => {
+    const location = useLocation();
     return(
         <>
         <ResultContextProvider>
             <Header/>
             <div className='w-full flex-col'>  
-                <ProgramContents/>      
+                <EditorContents parentPage={location.state}/>
                 <ContentSideDot/>
             </div>
             <Footer/>
         </ResultContextProvider>
         </>
     )
-};
+}
 
-export default Program;
+export default AddNewPost;

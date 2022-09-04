@@ -98,8 +98,6 @@ code {
   border: 0;
 }
 .modal > section {
-  width: 30%;
-  max-width: 30%;
   margin: 0 auto;
   border-radius: 0.3rem;
   background-color: white;
@@ -155,4 +153,10 @@ code {
 }
 .basic-menu > div > div > div > div > div svg{
   fill: white !important
+}
+
+/* editor */
+.ql-container{
+  min-height: 50vh;
+  padding: 1%;
 }

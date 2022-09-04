@@ -8,6 +8,7 @@ import LikeMe from './pages/LikeMe';
 import Program from './pages/Program';
 import Academy from './pages/Academy';
 import Studio from './pages/Studio';
+import AddNewPost from './pages/AddNewPost';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path="/Program" element={<Program/>}/>
           <Route path="/Academy" element={<Academy/>}/>
           <Route path="/Studio" element={<Studio/>}/>
+          <Route path=":page/AddNewPost" element={<AddNewPost/>}/>
         </Routes>
       </BrowserRouter>
     </div>

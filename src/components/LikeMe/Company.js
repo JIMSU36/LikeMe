@@ -12,7 +12,7 @@ const Company = () => {
         <>
         <div className="flex flex-col gap-y-24">
             <div className="w-[80vw] h-full m-auto">
-                <div className="w-full h-full border flex text-left">
+                <div className="company-group w-full h-full flex text-left">
                     <div className="ml-auto mr-[5vw] py-24">
                         <div className="">
                             <Label className="font-bold text-3xl">라이크미 소개</Label>
@@ -35,7 +35,7 @@ const Company = () => {
             </div>
 
             <div className="w-[80vw] h-full m-auto">
-                <div className="w-full h-full border flex text-left">
+                <div className="w-full h-full flex text-left">
                     <div className="ml-[5vw] py-24">
                         <div className="flex flex-col space-y-4 text-base">
                             <div className="flex flex-col">

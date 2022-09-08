@@ -2,9 +2,11 @@ import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import mainLogo from '../assets/images/main_logo.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
+import naverTalk from '../assets/images/naverTalkLogo.png';
 import { useResultContext } from "../Contexts/ScrollNumContext";
 import Select from 'react-select'
 import {AiOutlineInstagram, AiFillYoutube} from "react-icons/ai";
+import { SiNaver } from "react-icons/si";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import ShowModal from "./ShowModal";
 
@@ -84,15 +86,18 @@ const Header = () => {
                     </div>
                 </div>
                 <div className="flex space-x-2 p-0 m-0 w-[10%] m-4 ml-4 cursor-pointer">
-                    <Link to="/">
+                    <a href="https://instagram.com/likeme_pt_gym?igshid=YmMyMTA2M2Y=" target="_blank">
                         <AiOutlineInstagram size={30} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
-                    </Link>
-                    <Link to="/">
+                    </a>
+                    <a href="https://pf.kakao.com/_xfxjxgTs" target="_blank">
                         <RiKakaoTalkFill size={30} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
-                    </Link>
-                    <Link to="/">
+                    </a>
+                    <a href="https://youtube.com/channel/UCqmxSrPFHsoyVkKmorpx62w" target="_blank">
                         <AiFillYoutube size={30} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
-                    </Link>
+                    </a>
+                    <a href="https://talk.naver.com/ct/w4pont?frm=mnmb&frm=nmb_detail" target="_blank">
+                        <SiNaver size={25} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
+                    </a>
                 </div>
             </div>
         </div>

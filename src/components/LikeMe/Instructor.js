@@ -14,33 +14,7 @@ import {
 const Instructor = () => {
     return(
         <>
-        <div className="w-[80vw] h-full m-auto grid grid-cols-2 gap-y-12 ">
-            <div className="m-auto">
-                <img  alt="김택규" src={Instructor1} />
-            </div>
-            <div className="ml-auto w-[80%] text-left text-lg font-semibold my-auto ">
-                <div className="flex flex-col  space-y-4">
-                        <span>- 생활스포츠 지도자 공인자격 취득</span>
-                        <span>- 인천 연수구청 씨름단 의무 트레이너</span>
-                        <span>- 국가대표 마라토너 전담 의무 트레이너</span>
-                        <span>- 마곡 LG사이언스 임직원 건강 트레이너</span>
-                        <span>- 강서구 선발 수영선수 전담 트레이너</span>
-                        <span>- 서울시 인증 건강 운동 강사</span>
-                        <span>- 호주 BMW 임직원 건강 관리사</span>
-                </div>
-                <hr className="my-12 bg-[#727272] h-1"/>
-                <div className="flex">
-                    <Label className="font-bold text-5xl">김택규</Label>
-                    <div className="ml-auto grid grid-col-1 gap-y-2 font-bold text-2xl">
-                        <Label>체육대학 선수 출신 학사</Label>
-                        <Label>스포츠의학 선수 트레이닝 석사</Label>
-                        <Label>정부 지자체 교육 강사</Label>
-                        <Label>엘리트 선수 트레이닝</Label>
-                    </div>
-                </div>
-            </div>
-
-           
+        <div className="w-[70vw] h-full m-auto grid grid-cols-2 gap-y-12 ">
             <div className="w-[80%] text-left text-lg font-semibold my-auto ">
                 <div className="flex flex-col  space-y-4">
                     <span>- 자연치유학과 석사 학위</span>
@@ -117,6 +91,31 @@ const Instructor = () => {
             </div>
             <div className="m-auto ">
                 <img alt="권순목" src={Instructor4} />
+            </div>
+
+            <div className="m-auto">
+                <img  alt="김택규" src={Instructor1} />
+            </div>
+            <div className="ml-auto w-[80%] text-left text-lg font-semibold my-auto ">
+                <div className="flex flex-col  space-y-4">
+                        <span>- 생활스포츠 지도자 공인자격 취득</span>
+                        <span>- 인천 연수구청 씨름단 의무 트레이너</span>
+                        <span>- 국가대표 마라토너 전담 의무 트레이너</span>
+                        <span>- 마곡 LG사이언스 임직원 건강 트레이너</span>
+                        <span>- 강서구 선발 수영선수 전담 트레이너</span>
+                        <span>- 서울시 인증 건강 운동 강사</span>
+                        <span>- 호주 BMW 임직원 건강 관리사</span>
+                </div>
+                <hr className="my-12 bg-[#727272] h-1"/>
+                <div className="flex">
+                    <Label className="font-bold text-5xl">김택규</Label>
+                    <div className="ml-auto grid grid-col-1 gap-y-2 font-bold text-2xl">
+                        <Label>체육대학 선수 출신 학사</Label>
+                        <Label>스포츠의학 선수 트레이닝 석사</Label>
+                        <Label>정부 지자체 교육 강사</Label>
+                        <Label>엘리트 선수 트레이닝</Label>
+                    </div>
+                </div>
             </div>
         </div>
         </>

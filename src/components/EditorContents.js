@@ -3,6 +3,7 @@ import { useNavigate } from "react-router-dom";
 import {
     Label,
     Button,
+    Input,
 } from "reactstrap";
 import { GrEdit } from "react-icons/gr";
 import ReactQuill, { Quill } from "react-quill";
@@ -40,6 +41,7 @@ const modules = {
 const EditorContents = ({parentPage}) => {
     const navigate = useNavigate();
     const [content, setContent] = useState();
+    const [title, setTitle] = useState();
 
 
     return(
@@ -58,6 +60,17 @@ const EditorContents = ({parentPage}) => {
                     <div className="pt-20 pb-10 text-left flex">
                             <GrEdit size={30} className="my-auto mx-4"/>
                             <Label className="font-bold text-3xl">New Post From {parentPage.parent}</Label>
+                    </div>
+                    <div className="w-full h-full pb-4">
+                        <div className="w-full text-left">
+                            <Label className="font-bold text-lg p-4">Title</Label>
+                        </div>
+                        <Input
+                            className="w-full h-full border rounded-lg h-[4vh] px-4"
+                            onChange={(e)=>{
+                                setTitle(e.target.value);
+                            }}
+                        />
                     </div>
                     <div className="min-h-[50vh]">
                         <ReactQuill

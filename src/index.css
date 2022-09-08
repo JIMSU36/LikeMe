@@ -158,5 +158,29 @@ code {
 /* editor */
 .ql-container{
   min-height: 50vh;
-  padding: 1%;
+}
+
+
+.company-group{
+  background-image: url(/src/assets/images/단체배경.png);
+  background-size: cover;
+}
+
+.banner{
+  background-image: url(/src/assets/images/sport-lifestyle-fitness-male-training.jpg);
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  background-size: cover;
+}
+
+
+
+.line:after {
+  display: inline-block; 
+  height: 4px; 
+  content: " "; 
+  background-color: black; 
+  width: 30vw; 
+  margin-bottom: 1vh;
+  margin-left: 1vw;
 }

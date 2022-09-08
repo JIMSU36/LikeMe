@@ -79,15 +79,27 @@ const ShowModal = (props) => {
                     </div>
                 </main>
                 <footer className="p-4 space-x-4">
-                    <Button className="close px-4 py-2">
+                    <Button 
+                        className="close px-4 py-2"
+                        onClick={()=>{
+                            window.open('https://pf.kakao.com/_xfxjxgTs', '_blank')
+                        }}
+                    >
                         카톡상담
                     </Button>
-                    <Button className="close px-4 py-2">
+                    <Button 
+                        className="close px-4 py-2"
+                        onClick={()=>{
+                            window.open('https://naver.me/FzHyeLd7', '_blank')
+                        }}
+                    >
                         네이버 예약
                     </Button>
-                    <Button className="close px-4 py-2">
+                    {/* <Button 
+                        className="close px-4 py-2"
+                    >
                         문의하기
-                    </Button>
+                    </Button> */}
                 </footer>
             </section>
         ) : null}

@@ -1,34 +1,43 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
+import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {
     Label,
     Button,
     Table,
 } from "reactstrap";
+import moment from 'moment';
 
-const InstructorList = (props) => {
+const InstructorList = () => {
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
-
-    const [rowData, setRowData] = useState([
-        {
-            writer:"admin",
-            title:"test title 1",
-            date:"2022-09-04",
-        },
-        {
-            writer:"admin",
-            title:"test title 2",
-            date:"2022-09-04",
-        },
-        {
-            writer:"admin",
-            title:"test title 3",
-            date:"2022-09-04",
-        },
-    ]);
+    const [rowData, setRowData] = useState([]);
 
 
+    useEffect(()=>{
+        axios
+        .get("http://127.0.0.1:8000/getInstructor/")
+        .then((response) => {
+            setRowData([...response.data]);
+            console.log(response.data);
+        })
+        .catch(function (error) {
+            console.log(error);
+        });
+    },[])
+
+
+    const showDetail = (row, idx) => {
+        navigate(thisPage+"/"+row.title, {
+            state:{
+                data:row,
+                parentPageName:"아카데미",
+                parent:"Academy",
+            }
+        })
+    }
+
+    
     return(
         <>
         <div className="w-[70vw] h-full m-auto">
@@ -39,7 +48,8 @@ const InstructorList = (props) => {
                         navigate(thisPage+"/AddNewPost", {
                             state:{
                                 parentPageName:"아카데미",
-                                parent:"Academy"
+                                parent:"Academy",
+                                action:"add"
                             }
                         })
                     }}
@@ -51,8 +61,8 @@ const InstructorList = (props) => {
                 <tbody className='border-t border-gray-500'>
                     {rowData.map((row, index)=>{
                         return(
-                            <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200'>
-                                <td className='w-[20%]'>{row.date}</td>
+                            <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
+                                <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>
                                 <td className='text-left px-6'>{row.title}</td>
                                 <td className='pr-6'>
                                     <div className='w-full h-full text-center leading-[15vh] border'>

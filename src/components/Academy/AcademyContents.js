@@ -6,12 +6,14 @@ import {
     NavItem,
     NavLink
 } from "reactstrap";
+import { ApplicationContextProvider, useApplicationContext } from '../../Contexts/TabContext';
 import InstructorList from './InstructorList';
 import TrainerList from './TrainerList';
 
 const AcademyContents = () => {
-    const [selectTab, setSelectTab] = useState("강사양성과정");
-
+    const { tab } = useApplicationContext();
+    const { setTab } = useApplicationContext();
+    
     return(
         <>
         <div id="1" name="1" className='content'>
@@ -27,9 +29,9 @@ const AcademyContents = () => {
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
                     <NavItem className='px-6 py-[2vh] h-full'>
                         <NavLink 
-                            className={selectTab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
+                            className={tab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
                             onClick={() => {
-                                setSelectTab("강사양성과정")
+                                setTab("강사양성과정")
                             }}
                         >
                             강사양성과정
@@ -37,9 +39,9 @@ const AcademyContents = () => {
                     </NavItem>
                     <NavItem className='px-6 py-[2vh]'>
                         <NavLink 
-                            className={selectTab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
+                            className={tab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
                             onClick={() => {
-                                setSelectTab("트레이너교육과정")
+                                setTab("트레이너교육과정")
                             }}
                         >
                             트레이너교육과정
@@ -48,15 +50,15 @@ const AcademyContents = () => {
                 </Nav>
             </div>
             <div className='w-full h-full py-20 bg-white'>
-                <Label className='font-bold text-4xl'>{selectTab}</Label>
+                <Label className='font-bold text-4xl'>{tab}</Label>
                 <div className='w-full h-full py-10'>
-                    {selectTab === "강사양성과정" ? (
+                    {tab === "강사양성과정" ? (
                         <>
-                        <InstructorList/>
+                            <InstructorList/>
                         </>
-                    ) : selectTab === "트레이너교육과정" && (
+                    ) : tab === "트레이너교육과정" && (
                         <>
-                        <TrainerList/>
+                            <TrainerList/>
                         </>
                     )}
                 </div>

@@ -63,18 +63,32 @@ const EditorContents = ({parentPage}) => {
 
     const FetchData = () => {
         if(parentPage.action === "edit"){
-            axios.get("http://127.0.0.1:8000/getInstructor/"+parentPage.data.id)
-            .then((response)=>{
-                setDetailData(response.data);
-                setTitle(response.data.title);
-                setContent(response.data.content);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            if(parentPage.tab === "instructor"){
+                return axios.get("http://127.0.0.1:8000/getInstructor/"+parentPage.data.id)
+                .then((response)=>{
+                    setDetailData(response.data);
+                    setTitle(response.data.title);
+                    setContent(response.data.content);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            else if(parentPage.tab === "trainer"){
+                return axios.get("http://127.0.0.1:8000/getTrainer/"+parentPage.data.id)
+                .then((response)=>{
+                    setDetailData(response.data);
+                    setTitle(response.data.title);
+                    setContent(response.data.content);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
         }
     }
 
+    console.log(parentPage)
 
 	const handleChange = (value) => {
 		setTab(value);
@@ -83,36 +97,70 @@ const EditorContents = ({parentPage}) => {
 
     const addPost = () => {
         if(parentPage.parent === "Academy"){
-            axios.post("http://127.0.0.1:8000/postInstructor/", {
-                title: title,
-                content: content,
-                created_at: moment().format('YYYY-MM-DD')
-            })
-            .then(function (response) {
-                navigate(-1);
-            })
-            .catch(function (error) {
-                console.log(error);
-                alert("포스트 등록 오류")
-            });
+            if(parentPage.tab === "instructor"){
+                axios.post("http://127.0.0.1:8000/postInstructor/", {
+                    title: title,
+                    content: content,
+                    created_at: moment().format('YYYY-MM-DD')
+                })
+                .then(function (response) {
+                    navigate(-1);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("포스트 등록 오류")
+                });
+            }
+            else if(parentPage.tab === "trainer"){
+                axios.post("http://127.0.0.1:8000/postTrainer/", {
+                    title: title,
+                    content: content,
+                    created_at: moment().format('YYYY-MM-DD')
+                })
+                .then(function (response) {
+                    navigate(-1);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("포스트 등록 오류")
+                });
+            }
         }
     }
 
     const editPost = (id) => {
         if(parentPage.parent === "Academy"){
-            axios.put("http://127.0.0.1:8000/putInstructor/"+id, {
-                title: title,
-                content: content,
-                updated_at: moment().format('YYYY-MM-DD')
-            })
-            .then(function (response) {
-                console.log(response)
-                navigate(-1);
-            })
-            .catch(function (error) {
-                console.log(error);
-                alert("포스트 수정 오류")
-            });
+            if(parentPage.tab === "instructor"){
+                axios.put("http://127.0.0.1:8000/putInstructor/"+id, {
+                    title: title,
+                    content: content,
+                    updated_at: moment().format('YYYY-MM-DD')
+                })
+                .then(function (response) {
+                    console.log(response)
+                    navigate(-1);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("포스트 수정 오류")
+                });
+            }
+            else if(parentPage.tab === "trainer"){
+                axios.put("http://127.0.0.1:8000/putTrainer/"+id, {
+                    title: title,
+                    content: content,
+                    updated_at: moment().format('YYYY-MM-DD')
+                })
+                .then(function (response) {
+                    console.log(response)
+                    navigate(-1);
+                })
+                .catch(function (error) {
+                    console.log(error);
+                    alert("포스트 수정 오류")
+                });
+            }
+            
         }
     }
 

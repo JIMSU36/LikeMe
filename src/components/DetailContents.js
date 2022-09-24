@@ -19,20 +19,32 @@ const DetailContents = ({data}) => {
     const { tab } = useApplicationContext();
     const { setTab } = useApplicationContext();
     
-
     useEffect(()=>{
+        console.log({data})
         FetchData();
     },[])
 
     const FetchData = () => {
-        axios
-        .get("http://127.0.0.1:8000/getInstructor/"+data.data.id)
-        .then((response) => {
-            setDetailData(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        data.tab === "instructor" ? (
+            axios
+            .get("http://127.0.0.1:8000/getInstructor/"+data.data.id)
+            .then((response) => {
+                setDetailData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        ) : data.tab === "trainer" && (
+            axios
+            .get("http://127.0.0.1:8000/getTrainer/"+data.data.id)
+            .then((response) => {
+                setDetailData(response.data);
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+        )
+       
     }
 
 	const handleChange = (value) => {
@@ -43,17 +55,30 @@ const DetailContents = ({data}) => {
 
     const deletePost = (id) => {
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
-            axios.delete("http://127.0.0.1:8000/deleteInstructor/"+id)
-            .then((response) => {
-                navigate(-1);
-                
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
+            if(data.tab === "instructor"){
+                axios.delete("http://127.0.0.1:8000/deleteInstructor/"+id)
+                .then((response) => {
+                    navigate(-1);
+                    
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            else if(data.tab === "trainer"){
+                axios.delete("http://127.0.0.1:8000/deleteTrainer/"+id)
+                .then((response) => {
+                    navigate(-1);
+                    
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
         }else{   //취소
             return false;
         }
+        
     }
 
 
@@ -104,12 +129,19 @@ const DetailContents = ({data}) => {
                         {detailData.title}
                     </Label>
                 </div>
-                <div>
+                <div className="flex">
                     <hr
                         className="w-[10vh] bg-black h-2 my-4"
                     />
+                    <div className="ml-auto flex space-x-4">
+                        <Label className="text-gray-400 text-sm ">작성일 : {moment(detailData.created_at).format('YYYY-MM-DD')}</Label>
+                        {detailData.updated_at && (
+                            <Label className="text-gray-400 text-sm ">수정일 : {moment(detailData.updated_at).format('YYYY-MM-DD')}</Label>
+                        )}
+                    </div>
+                    
                 </div>
-                <div className="min-h-[50vh] text-left border-[1px] rounded-lg p-10 " dangerouslySetInnerHTML={{__html: detailData.content}}>
+                <div className="min-h-[50vh] text-left border-y p-10 " dangerouslySetInnerHTML={{__html: detailData.content}}>
                 </div>
                 <div className="flex justify-end my-4 space-x-2">
                     <Button className="bg-yellow-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{navigate(-1)}}>뒤로가기</Button>
@@ -129,6 +161,7 @@ const DetailContents = ({data}) => {
                                     parentPageName:"아카데미",
                                     parent:"Academy",
                                     action: "edit",
+                                    tab:tab === "강사양성과정" ? "instructor" : tab === "트레이너교육과정" && "trainer",
                                     data: detailData,
                                 }
                             })

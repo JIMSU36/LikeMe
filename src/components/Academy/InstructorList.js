@@ -32,10 +32,12 @@ const InstructorList = () => {
             state:{
                 data:row,
                 parentPageName:"아카데미",
+                tab:"instructor",
                 parent:"Academy",
             }
         })
     }
+
 
     
     return(
@@ -49,6 +51,7 @@ const InstructorList = () => {
                             state:{
                                 parentPageName:"아카데미",
                                 parent:"Academy",
+                                tab:"instructor",
                                 action:"add"
                             }
                         })
@@ -59,7 +62,22 @@ const InstructorList = () => {
             </div>
             <Table responsive className='w-full h-full' >
                 <tbody className='border-t border-gray-500'>
-                    {rowData.map((row, index)=>{
+                    {/* {rowData.map((row, index)=>{
+                        return(
+                            <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
+                                <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>
+                                <td className='text-left px-6'>{row.title}</td>
+                                <td className='pr-6'>
+                                    <div className='w-full h-full text-center leading-[15vh] border'>
+                                        img
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    })} */}
+                    {rowData.sort((a, b) =>{
+                        return b.id - a.id
+                    }).map((row, index) =>{
                         return(
                             <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
                                 <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>

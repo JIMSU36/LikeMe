@@ -9,13 +9,15 @@ import {
     Input
 } from "reactstrap";
 import axios from "axios";
-import { GrEdit } from "react-icons/gr";
+import { GrEdit, GrUpload, GrTrash } from "react-icons/gr";
 import ReactQuill, { Quill } from "react-quill";
 import "react-quill/dist/quill.snow.css";
+import FileBase64 from "react-file-base64";
 
 import ImageResize from "quill-image-resize-module-react";
 import moment from "moment";
 import { useApplicationContext } from "../Contexts/TabContext";
+import useAxios from "../utils/useAxios";
 
 Quill.register("modules/imageResize", ImageResize);
 
@@ -48,14 +50,18 @@ const modules = {
 
 
 const EditorContents = ({parentPage}) => {
-    const navigate = useNavigate();
 
+    const navigate = useNavigate();
+    const [, updateState] = useState();
+    const forceUpdate = React.useCallback(() => updateState({}), []);
+    
     const { tab } = useApplicationContext();
     const { setTab } = useApplicationContext();
     const [detailData, setDetailData] = useState("");
 
     const [content, setContent] = useState("");
     const [title, setTitle] = useState("");
+    const [thumb, setThumb] = useState([]);
     
     useEffect(()=>{
         FetchData();
@@ -69,6 +75,11 @@ const EditorContents = ({parentPage}) => {
                     setDetailData(response.data);
                     setTitle(response.data.title);
                     setContent(response.data.content);
+                    thumb.push({
+                        base64: response.data.decodeImg
+                    });
+                    setThumb(thumb);
+                    console.log(thumb)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -88,8 +99,6 @@ const EditorContents = ({parentPage}) => {
         }
     }
 
-    console.log(parentPage)
-
 	const handleChange = (value) => {
 		setTab(value);
         navigate("/Academy")
@@ -98,9 +107,11 @@ const EditorContents = ({parentPage}) => {
     const addPost = () => {
         if(parentPage.parent === "Academy"){
             if(parentPage.tab === "instructor"){
+                
                 axios.post("http://127.0.0.1:8000/postInstructor/", {
                     title: title,
                     content: content,
+                    img:thumb[0].base64,
                     created_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -134,6 +145,7 @@ const EditorContents = ({parentPage}) => {
                 axios.put("http://127.0.0.1:8000/putInstructor/"+id, {
                     title: title,
                     content: content,
+                    img:thumb[0].base64,
                     updated_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -164,6 +176,20 @@ const EditorContents = ({parentPage}) => {
         }
     }
 
+    const getThumb = (files, index) => {
+        thumb.push(files)
+        setThumb(thumb);
+        forceUpdate();
+        console.log(thumb)
+      };
+
+    const deleteThumb = (index) => {
+        if (window.confirm("정말로 삭제 하시겠습니까?")) {
+            setThumb([]);
+            forceUpdate();
+            console.log(thumb)
+        }
+    };
 
 
     return(
@@ -228,6 +254,42 @@ const EditorContents = ({parentPage}) => {
                         <hr
                             className="w-[10vh] bg-black h-2 mb-4"
                         />
+                    </div>
+                    <div className="filebox my-6">
+                        {thumb.length > 0 ? (
+                            <>
+                            <div className="text-left">
+                                <Label className="font-bold text-xl">Thumbnail</Label>
+                                <div className="flex max-h-[30vh]">
+                                    <img
+                                        className="thumb-img"
+                                        src={thumb[0].base64}
+                                        alt="thumb"
+                                    />
+                                    <GrTrash size={25} className="trash-icon absolute translate-y-2 translate-x-2 fill-slate-50 cursor-pointer" onClick={()=>{deleteThumb()}}/>
+                                </div>
+                                
+                            </div>
+                            </>
+                        ) : (
+                            <>
+                            <FileBase64
+                                id="file"
+                                name="m_icon"
+                                multiple={false}
+                                accept="image/x-png,image/gif,image/jpeg"
+                                onDone={(files) => getThumb(files)}
+                            />
+
+                            <div className="dropzone border-2 border-dashed h-[200px]">
+                                <div className="w-[80vw] absolute translate-y-1/2">
+                                    <GrUpload size={50} className="m-auto mb-4"/>
+                                    <Label className="font-bold">Click To Upload Thumbnail.</Label>
+                                </div>
+                            </div>
+                            </>
+                        )}
+                        
                     </div>
                     <div className="min-h-[50vh] h-full">
                         <ReactQuill

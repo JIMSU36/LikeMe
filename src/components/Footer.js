@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import mainLogo from '../assets/images/main_logo.png';
 import {AiOutlineInstagram, AiFillYoutube} from "react-icons/ai";
@@ -7,8 +7,10 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 import {
     Label,
 } from "reactstrap";
+import AuthContext from '../Contexts/AuthContext';
 
 const Footer = () => {
+    const { user, logoutUser } = useContext(AuthContext);
     return(
         <>
         <div className="h-[20rem] p-6  bg-[#f0f0f0]">
@@ -22,7 +24,14 @@ const Footer = () => {
                     <Label className="text-xl ">라이크미PT&Pilates 전문센터</Label>
                 </div>
                 <div className="flex flex-col text-left ml-4 mt-6 text-sm text-gray-500">
-                    <span>상호명 : 라이크미PT&Pilates 전문센터 | 대표 : 김택규 | 사업자등록번호 : 192-50-00639 | 통신판매번호 : 2021-서울강서-3966</span>
+                    <div>
+                        <span>상호명 : 라이크미PT&Pilates 전문센터 | </span> 
+                        <Link to="/adminLogin" className={user ? "cursor-default" : "cursor-pointer"}>
+                            <span>대표 : 김택규</span>
+                        </Link>
+                        <span> | 사업자등록번호 : 192-50-00639 | 통신판매번호 : 2021-서울강서-3966</span>
+                    </div>
+                    
                     <span>주소 : 서울시 강서구 공항대로 168, 2층</span>
                 </div>
                 <div className="flex space-x-4 ml-4 mt-6">

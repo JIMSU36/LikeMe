@@ -58,7 +58,7 @@ const Company = () => {
                             </div>
                         </div>
                         <div className="flex flex-col mt-6 space-y-4">
-                            <hr className="h-2 bg-gray-400 w-[5vw]"/>
+                            <hr className="h-2 bg-[#93AEF9] w-[5vw]"/>
                             <Label className="font-bold text-xl">대표 김택규 올림</Label>
                         </div>
                     </div>

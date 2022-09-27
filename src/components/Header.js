@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link } from "react-router-dom";
 import mainLogo from '../assets/images/main_logo.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
@@ -9,9 +9,11 @@ import {AiOutlineInstagram, AiFillYoutube} from "react-icons/ai";
 import { SiNaver } from "react-icons/si";
 import { RiKakaoTalkFill } from "react-icons/ri";
 import ShowModal from "./ShowModal";
+import AuthContext from "../Contexts/AuthContext";
 
 
 const Header = () => {
+    const { user, logoutUser } = useContext(AuthContext);
     const {scrollNum} = useResultContext();
     const [selectPlace, setSelectPlace] = useState();
 
@@ -30,6 +32,7 @@ const Header = () => {
     ]
 
 
+    
     return(
         <>
         <ShowModal open={showModal} close={closeModal} data={selectPlace}/>
@@ -85,6 +88,7 @@ const Header = () => {
                         />
                     </div>
                 </div>
+               
                 <div className="flex space-x-2 p-0 m-0 w-[10%] m-4 ml-4 cursor-pointer">
                     <a href="https://instagram.com/likeme_pt_gym?igshid=YmMyMTA2M2Y=" target="_blank">
                         <AiOutlineInstagram size={30} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
@@ -98,6 +102,13 @@ const Header = () => {
                     <a href="https://talk.naver.com/ct/w4pont?frm=mnmb&frm=nmb_detail" target="_blank">
                         <SiNaver size={25} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
                     </a>
+                </div>
+                <div className="flex space-x-2 p-0 m-0 w-[10%] m-4 ml-4 cursor-pointer">
+                    {user && (
+                        <>
+                        <button onClick={logoutUser} className="font-bold">Logout</button>
+                        </>
+                    )}
                 </div>
             </div>
         </div>

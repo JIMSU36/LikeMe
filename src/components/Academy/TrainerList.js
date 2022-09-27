@@ -43,7 +43,7 @@ const TrainerList = () => {
         <div className="w-[70vw] h-full m-auto">
             <div className='flex'>
                 <Button 
-                    className='ml-auto my-4 px-4 py-2 bg-gray-400 rounded-lg text-white font-bold hover:bg-gray-500'
+                    className='ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
                     onClick={()=>{
                         navigate(thisPage+"/AddNewPost", {
                             state:{
@@ -65,7 +65,12 @@ const TrainerList = () => {
                     }).map((row, index) =>{
                         return(
                             <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
-                                <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>
+                                <td className='w-[20%]'>
+                                    <div className='w-full flex flex-col'>
+                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{moment(row.created_at).format('MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY')}</Label>
+                                    </div>
+                                </td>
                                 <td className='text-left px-6'>{row.title}</td>
                                 <td className='pr-6'>
                                     <div className='w-full h-full text-center leading-[15vh] border'>

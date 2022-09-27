@@ -112,11 +112,7 @@ code {
   text-align: center;
   background-color: transparent;
 }
-.modal > section > footer button {
-  color: white;
-  background-color: gray;
-  border-radius: 5px;
-}
+
 .modal.openModal {
   display: flex;
   align-items: center;
@@ -186,4 +182,33 @@ code {
   width: 30vw; 
   margin-bottom: 1vh;
   margin-left: 1vw;
+}
+
+.filebox > input[type="file"] {
+  width: 80vw;
+  height: 200px;
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  left: 50%;
+  z-index: 999;
+  transform: translate(-50%);
+}
+
+.row-img{
+  max-width: 100%;
+  max-height: 15vh;
+}
+.thumb-img{
+  max-height: 30vh;
+}
+
+tr:hover td .date-label{
+  color: #93AEF9;
+}
+.trash-icon path{
+  stroke: red;
+}
+.video-react-controls-enabled {
+  padding-top: 0% !important;
 }

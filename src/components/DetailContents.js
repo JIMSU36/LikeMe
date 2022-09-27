@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Label,
@@ -12,15 +12,17 @@ import moment from "moment";
 import { useApplicationContext } from "../Contexts/TabContext";
 import { BsBookmark } from "react-icons/bs";
 import axios from "axios";
+import AuthContext from "../Contexts/AuthContext";
 
 const DetailContents = ({data}) => {
+    const { user } = useContext(AuthContext);
     const [detailData, setDetailData] = useState("");
     const navigate = useNavigate();
     const { tab } = useApplicationContext();
     const { setTab } = useApplicationContext();
+    console.log(detailData)
     
     useEffect(()=>{
-        console.log({data})
         FetchData();
     },[])
 
@@ -145,30 +147,35 @@ const DetailContents = ({data}) => {
                 </div>
                 <div className="flex justify-end my-4 space-x-2">
                     <Button className="bg-yellow-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{navigate(-1)}}>뒤로가기</Button>
-                    <Button 
-                        className="bg-red-500 font-bold text-white py-2 px-5 rounded-lg" 
-                        onClick={()=>{
-                            deletePost(detailData.id);
-                        }}
-                    >
-                        삭제
-                    </Button>
-                    <Button 
-                        className="bg-green-500 font-bold text-white py-2 px-5 rounded-lg" 
-                        onClick={()=>{
-                            navigate("/"+data.parent+"/EditPost"+"/"+detailData.title, {
-                                state:{
-                                    parentPageName:"아카데미",
-                                    parent:"Academy",
-                                    action: "edit",
-                                    tab:tab === "강사양성과정" ? "instructor" : tab === "트레이너교육과정" && "trainer",
-                                    data: detailData,
-                                }
-                            })
-                        }}
-                    >
-                        수정
-                    </Button>
+                    {user && (
+                        <>
+                        <Button 
+                            className="bg-red-500 font-bold text-white py-2 px-5 rounded-lg" 
+                            onClick={()=>{
+                                deletePost(detailData.id);
+                            }}
+                        >
+                            삭제
+                        </Button>
+                        <Button 
+                            className="bg-green-500 font-bold text-white py-2 px-5 rounded-lg" 
+                            onClick={()=>{
+                                navigate("/"+data.parent+"/EditPost"+"/"+detailData.title, {
+                                    state:{
+                                        parentPageName:"아카데미",
+                                        parent:"Academy",
+                                        action: "edit",
+                                        tab:tab === "강사양성과정" ? "instructor" : tab === "트레이너교육과정" && "trainer",
+                                        data: detailData,
+                                    }
+                                })
+                            }}
+                        >
+                            수정
+                        </Button>
+                        </>
+                    )}
+                    
                 </div>
             </div>
         </div>

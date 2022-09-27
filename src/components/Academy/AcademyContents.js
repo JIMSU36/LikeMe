@@ -29,7 +29,7 @@ const AcademyContents = () => {
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
                     <NavItem className='px-6 py-[2vh] h-full'>
                         <NavLink 
-                            className={tab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
+                            className={tab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
                             onClick={() => {
                                 setTab("강사양성과정")
                             }}
@@ -39,7 +39,7 @@ const AcademyContents = () => {
                     </NavItem>
                     <NavItem className='px-6 py-[2vh]'>
                         <NavLink 
-                            className={tab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
+                            className={tab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
                             onClick={() => {
                                 setTab("트레이너교육과정")
                             }}

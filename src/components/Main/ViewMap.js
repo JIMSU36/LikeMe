@@ -8,6 +8,7 @@ import Select from 'react-select'
 
 //카카오 지도
 import { Map, MapMarker } from "react-kakao-maps-sdk";
+import ShowModal from '../ShowModal';
 
 const ViewMap = () => {
     const [zoomable, setZoomable] = useState(true)
@@ -17,9 +18,19 @@ const ViewMap = () => {
         { value: '우장산역점', label: '우장산역점', tel: '00-0000-0000', address:'address input' },
     ]
 
+    const [showModal, setShowModal] = useState(false);
+
+    const openModal = () => {
+        setShowModal(true);
+    };
+    const closeModal = () => {
+        setShowModal(false);
+    };
+
+
     return(
         <>
-        
+        <ShowModal open={showModal} close={closeModal} data={selectPlace}/>
         <div className='w-full h-[100vh]'>
             <Map
                 className='z-[99]'
@@ -58,14 +69,23 @@ const ViewMap = () => {
                         <div className='my-4 text-left px-4'>
                             <div className='flex'>
                                 <Label className='text-lg font-bold'>{selectPlace.label}</Label>
-                                <GrNext className='my-auto ml-auto'/>
+                                {selectPlace && (<GrNext className='my-auto ml-auto'/>)}
                             </div>
                             <div className='my-4 flex flex-col space-y-4'>
                                 <Label className='text-xl'>{selectPlace.tel}</Label>
                                 <Label>{selectPlace.address}</Label>
                             </div>
                             <div>
-                                <Button className='text-sm bg-gray-400 font-bold text-white w-full h-[5vh]'>지점 자세히 보기</Button>
+                                <Button 
+                                    className='text-sm bg-[#93AEF9] hover:bg-[#758BC7] font-bold text-white w-full h-[5vh]'
+                                    onClick={()=>{
+                                        return selectPlace !== "" && (
+                                            openModal()
+                                        )
+                                    }}
+                                >
+                                    지점 자세히 보기
+                                </Button>
                             </div>
                         </div>
                     </div>

@@ -29,7 +29,7 @@ const LiKeMeContents = () => {
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
                     <NavItem className='px-6 py-[2vh] h-full'>
                         <NavLink 
-                            className={selectTab === "회사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer "}
+                            className={selectTab === "회사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
                                 setSelectTab("회사소개")
                             }}
@@ -39,7 +39,7 @@ const LiKeMeContents = () => {
                     </NavItem>
                     <NavItem className='px-6 py-[2vh]'>
                         <NavLink 
-                            className={selectTab === "강사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer "}
+                            className={selectTab === "강사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
                                 setSelectTab("강사소개")
                             }}
@@ -49,7 +49,7 @@ const LiKeMeContents = () => {
                     </NavItem>
                     <NavItem className='px-6 py-[2vh]'>
                         <NavLink 
-                            className={selectTab === "협력업체" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer "}
+                            className={selectTab === "협력업체" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
                                 setSelectTab("협력업체")
                             }}

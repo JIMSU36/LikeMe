@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {
@@ -7,8 +7,10 @@ import {
     Table,
 } from "reactstrap";
 import moment from 'moment';
+import AuthContext from '../../Contexts/AuthContext';
 
 const InstructorList = () => {
+    const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
     const [rowData, setRowData] = useState([]);
@@ -38,28 +40,28 @@ const InstructorList = () => {
         })
     }
 
-
-    
     return(
         <>
         <div className="w-[70vw] h-full m-auto">
-            <div className='flex'>
-                <Button 
-                    className='ml-auto my-4 px-4 py-2 bg-gray-400 rounded-lg text-white font-bold hover:bg-gray-500'
-                    onClick={()=>{
-                        navigate(thisPage+"/AddNewPost", {
-                            state:{
-                                parentPageName:"아카데미",
-                                parent:"Academy",
-                                tab:"instructor",
-                                action:"add"
-                            }
-                        })
-                    }}
-                >
-                    + Add New
-                </Button>
-            </div>
+            {user && (
+                <div className='flex'>
+                    <Button 
+                        className='ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
+                        onClick={()=>{
+                            navigate(thisPage+"/AddNewPost", {
+                                state:{
+                                    parentPageName:"아카데미",
+                                    parent:"Academy",
+                                    tab:"instructor",
+                                    action:"add"
+                                }
+                            })
+                        }}
+                    >
+                        + Add New
+                    </Button>
+                </div>
+            )}
             <Table responsive className='w-full h-full' >
                 <tbody className='border-t border-gray-500'>
                     {/* {rowData.map((row, index)=>{
@@ -79,12 +81,23 @@ const InstructorList = () => {
                         return b.id - a.id
                     }).map((row, index) =>{
                         return(
-                            <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
-                                <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>
+                            <tr className='table-row h-[15vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
+                                <td className='w-[20%]'>
+                                    <div className='w-full flex flex-col'>
+                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{moment(row.created_at).format('MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY')}</Label>
+                                    </div>
+                                </td>
                                 <td className='text-left px-6'>{row.title}</td>
-                                <td className='pr-6'>
-                                    <div className='w-full h-full text-center leading-[15vh] border'>
-                                        img
+                                <td className='pr-6 w-[30%]'>
+                                    <div className='text-center leading-[15vh]'>
+                                        {row.img !== null && (
+                                            <img
+                                                className='m-auto row-img'
+                                                src={row.decodeImg}
+                                                alt="thumb"
+                                            />
+                                        )}
                                     </div>
                                 </td>
                             </tr>

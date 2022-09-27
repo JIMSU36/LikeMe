@@ -34,11 +34,11 @@ const ProgramContents = () => {
             <div className='w-full min-h-[100vh] bg-white relative '>
                 <div className='m-auto py-12 grid grid-cols-2 w-[70vw] h-full'>
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>오리엔테이션 프로그램 체험</Label>
                         
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 window.open('https://naver.me/FzHyeLd7', '_blank')
                             }}
@@ -55,7 +55,7 @@ const ProgramContents = () => {
                         <img src={typeDiet} className="h-full w-full"/>
                     </div>
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>8가지 비만유형에 따른 다이어트</Label>
                         <span className='mt-6 text-lg'>
                             8가지 비만 유형에 따라 
@@ -65,7 +65,7 @@ const ProgramContents = () => {
                         </span>
 
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 navigate(thisPage+"/"+"8가지 비만유형에 따른 다이어트", {
                                     state:{
@@ -81,11 +81,11 @@ const ProgramContents = () => {
 
                     
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>바디프로필 메이킹</Label>
                         
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 navigate(thisPage+"/"+"바디프로필 메이킹", {
                                     state:{
@@ -107,10 +107,10 @@ const ProgramContents = () => {
                         <img src={child} className="h-full w-full"/>
                     </div>
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>청소년 성장</Label>
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 navigate(thisPage+"/"+"청소년 성장", {
                                     state:{
@@ -126,11 +126,11 @@ const ProgramContents = () => {
 
 
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>통증관리 (근막이완)</Label>
 
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 navigate(thisPage+"/"+"통증관리", {
                                     state:{
@@ -152,11 +152,11 @@ const ProgramContents = () => {
                         <img src={worker} className="h-full w-full"/>
                     </div>
                     <div className='p-12 flex flex-col'>
-                        <hr className='w-[5vw] h-4 bg-[#C3D1F7] border-none m-auto mb-4'/>
+                        <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>직장인 일자목 + 허리 교정</Label>
                         
                         <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-[#6B6E78] bg-[#C3D1F7] hover:text-white hover:bg-[#8FAAEF]'
+                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 navigate(thisPage+"/"+"직장인 일자목 + 허리 교정", {
                                     state:{

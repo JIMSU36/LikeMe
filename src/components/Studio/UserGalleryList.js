@@ -56,6 +56,11 @@ const UserGalleryList = () => {
 
 
     useEffect(()=>{
+        console = {};
+        console.log = function(){};
+        console.warn = function(){};
+        console.error = function(){};
+        
         axios
         .get("http://127.0.0.1:8000/getGallery/")
         .then((response) => {
@@ -74,6 +79,7 @@ const UserGalleryList = () => {
             arrImg.push(row.decodeImg);
             setArrImg(arrImg);
             forceUpdate();
+            console.log()
         });
     }
 

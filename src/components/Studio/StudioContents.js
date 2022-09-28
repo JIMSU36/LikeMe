@@ -6,6 +6,7 @@ import {
     NavItem,
     NavLink
 } from "reactstrap";
+import UserGalleryList from './UserGalleryList';
 
 const StudioContents = () => {
     const [selectTab, setSelectTab] = useState("회원갤러리");
@@ -37,7 +38,7 @@ const StudioContents = () => {
             <div className='w-full h-full py-20 bg-white'>
                 <Label className='font-bold text-4xl'>{selectTab}</Label>
                 <div className='min-h-[100vh]'>
-                    
+                    <UserGalleryList/>
                 </div>
             </div>
         </div>

@@ -69,6 +69,7 @@ export const AuthProvider = ({ children }) => {
     setUser(null);
     localStorage.removeItem("authTokens");
     navigate("/");
+    window.location.replace("/")
   };
 
   const contextData = {

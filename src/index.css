@@ -48,33 +48,33 @@ code {
 }
 
 .slider1{
-  /* background-image: url(/src/assets/images/img1.jpg); */
+  background-image: url(/src/assets/images/1.png);
   background-color: gray;
   background-size: cover;
 }
 
 .slider2{
-  /* background-image: url(/src/assets/images/img2.jpg); */
+  background-image: url(/src/assets/images/2.png);
   background-color: gray;
   background-size: cover;
 }
 .slider3{
-  /* background-image: url(/src/assets/images/exercise-free-weights.jpg); */
+  background-image: url(/src/assets/images/3.png);
   background-color: gray;
   background-size: cover;
 }
 .slider4{
-  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-image: url(/src/assets/images/4.png);
   background-color: gray;
   background-size: cover;
 }
 .slider5{
-  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-image: url(/src/assets/images/5.png);
   background-color: gray;
   background-size: cover;
 }
 .slider6{
-  /* background-image: url(/src/assets/images/img4.jpg); */
+  background-image: url(/src/assets/images/6.png);
   background-color: gray;
   background-size: cover;
 }
@@ -211,4 +211,18 @@ tr:hover td .date-label{
 }
 .video-react-controls-enabled {
   padding-top: 0% !important;
+}
+
+.slide-label, .slide-text{
+  text-shadow : 3px 3px 3px #505F87;
+}
+
+.galleryImg{
+  max-height: 20vh;
+}
+
+.imgbox:hover .program-hover-buttons {
+  display: block;
+  background-color: #6f6f6fcc;
+  opacity: 0.5;
 }

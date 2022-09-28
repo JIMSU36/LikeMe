@@ -126,6 +126,7 @@ const EditorContents = ({parentPage}) => {
                 axios.post("http://127.0.0.1:8000/postTrainer/", {
                     title: title,
                     content: content,
+                    img:thumb[0].base64,
                     created_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -161,6 +162,7 @@ const EditorContents = ({parentPage}) => {
                 axios.put("http://127.0.0.1:8000/putTrainer/"+id, {
                     title: title,
                     content: content,
+                    img:thumb[0].base64,
                     updated_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {

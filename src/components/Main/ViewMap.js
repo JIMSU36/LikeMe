@@ -36,7 +36,7 @@ const ViewMap = () => {
                 className='z-[99]'
                 center={{ lat: selectPlace.lat !== undefined ? selectPlace.lat : 37.529567, lng: selectPlace.lng !== undefined ? selectPlace.lng : 126.983971 }}
                 style={{ width: "100%", height: "100%" }}
-                level={8}
+                level={selectPlace ? 3 : 8}
                 zoomable={false}
             >
                 <MapMarker position={{ lat: selectPlace.lat, lng:selectPlace.lng }}/>

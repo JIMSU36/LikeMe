@@ -1,5 +1,5 @@
 import React, { useContext, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import mainLogo from '../assets/images/main_logo.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
 import naverTalk from '../assets/images/naverTalkLogo.png';
@@ -11,9 +11,9 @@ import { RiKakaoTalkFill } from "react-icons/ri";
 import ShowModal from "./ShowModal";
 import AuthContext from "../Contexts/AuthContext";
 
-
 const Header = () => {
     const { user, logoutUser } = useContext(AuthContext);
+    const navigate = useNavigate();
     const {scrollNum} = useResultContext();
     const [selectPlace, setSelectPlace] = useState();
 
@@ -30,7 +30,6 @@ const Header = () => {
         { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', open: "평일 06:00 - 23:00  토요일 10:00 - 18:00", lat:37.559249, lng:126.826098},
         { value: '우장산역점', label: '우장산역점', tel: '00-0000-0000', address:'address input' },
     ]
-
 
     
     return(
@@ -103,10 +102,15 @@ const Header = () => {
                         <SiNaver size={25} color={scrollNum == 1 || scrollNum == 5 ? "white" : "black"} className="h-16 leading-[64px]"/>
                     </a>
                 </div>
-                <div className="flex space-x-2 p-0 m-0 w-[10%] m-4 ml-4 cursor-pointer">
+                <div className="flex space-x-2 p-0 m-0 w-[10%] m-4 ml-4">
                     {user && (
                         <>
-                        <button onClick={logoutUser} className="font-bold">Logout</button>
+                        <button 
+                            onClick={logoutUser} 
+                            className="font-bold cursor-pointer"
+                        >
+                            Logout
+                        </button>
                         </>
                     )}
                 </div>

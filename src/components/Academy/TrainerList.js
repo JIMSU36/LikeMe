@@ -72,9 +72,15 @@ const TrainerList = () => {
                                     </div>
                                 </td>
                                 <td className='text-left px-6'>{row.title}</td>
-                                <td className='pr-6'>
-                                    <div className='w-full h-full text-center leading-[15vh] border'>
-                                        img
+                                <td className='pr-6 w-[30%]'>
+                                    <div className='text-center leading-[15vh]'>
+                                        {row.img !== null && (
+                                            <img
+                                                className='m-auto row-img'
+                                                src={row.decodeImg}
+                                                alt="thumb"
+                                            />
+                                        )}
                                     </div>
                                 </td>
                             </tr>

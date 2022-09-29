@@ -8,15 +8,16 @@ const Worker = () => {
     return(
         <>
         <div className="w-full h-full ">
-            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-4 font-bold">
-                <Label className="text-sm text-left ml-[20%]">#Tag</Label>
-                <Label className="text-xl text-left -ml-20 mt-4">#Tag</Label>
-                <Label className="text-3xl text-left w-[120%]">#Tag</Label>
-                <Label className="text-lg text-center ">#Tag</Label>
-                <Label className="text-xl text-left mt-10">#Tag</Label>
-                <Label className="text-4xl text-left w-[120%] mt-2">#Tag</Label>
-                <Label className="text-base text-left text-center">#Tag</Label>
-                <Label className="text-5xl text-left -ml-16 mt-4">#Tag</Label>
+            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
+            <Label className="text-sm text-left ml-[20%]">#직업병_굿바이</Label>
+                <Label className="text-xl text-left -ml-10 mt-6">#직업별_자세분석</Label>
+                <Label className="text-2xl text-left -ml-14 -mt-4 w-[150%]">#일자목타파</Label>
+                <Label className="text-lg text-center ">#어깨뭉침</Label>
+                <Label className="text-xl text-left -ml-20 mt-8 mb-4">#잦은두통</Label>
+                <Label className="text-3xl text-left w-[150%] -ml-16 mt-2">#전형적_현대인</Label>
+                <Label className="text-base text-left text-center">#맨날_만성피로</Label>
+                <Label className="text-xl text-left w-[200%] mt-4">#자세가_틀어진_몸</Label>
+                <Label className="text-3xl w-[300%] text-left ml-32">#피로에_약한_몸</Label>
             </div>
 
             <div className="w-[50vw] m-auto h-full py-12">

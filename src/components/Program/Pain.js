@@ -8,15 +8,16 @@ const Pain = () => {
     return(
         <>
         <div className="w-full h-full ">
-            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-4 font-bold">
-                <Label className="text-sm text-left ml-[20%]">#Tag</Label>
-                <Label className="text-xl text-left -ml-20 mt-4">#Tag</Label>
-                <Label className="text-3xl text-left w-[120%]">#Tag</Label>
-                <Label className="text-lg text-center ">#Tag</Label>
-                <Label className="text-xl text-left mt-10">#Tag</Label>
-                <Label className="text-4xl text-left w-[120%] mt-2">#Tag</Label>
-                <Label className="text-base text-left text-center">#Tag</Label>
-                <Label className="text-5xl text-left -ml-16 mt-4">#Tag</Label>
+            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
+            <Label className="text-sm text-left ml-[20%]">#메디컬재활_특화</Label>
+                <Label className="text-xl text-left -ml-10 mt-6">#재활_필라테스</Label>
+                <Label className="text-2xl text-left -ml-14 -mt-4 w-[150%]">#재활_근력강화</Label>
+                <Label className="text-lg text-center ">#움직임_재학습</Label>
+                <Label className="text-xl text-left -ml-20 mt-8 mb-4">#밸런스_운동</Label>
+                <Label className="text-3xl text-left w-[150%] mt-2">#자세교정</Label>
+                <Label className="text-base text-left text-center">#이완프로그램</Label>
+                <Label className="text-xl text-left w-[200%] mt-4">#누적된_통증_타파</Label>
+                <Label className="text-3xl w-[300%] text-left ml-32">#우리엄마가_이제_허리_안아프데요</Label>
             </div>
 
             <div className="w-[50vw] m-auto h-full py-12">

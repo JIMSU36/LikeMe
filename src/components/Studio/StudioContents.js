@@ -25,7 +25,7 @@ const StudioContents = () => {
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
                     <NavItem className='px-6 py-[2vh] h-full'>
                         <NavLink 
-                            className={selectTab === "회원갤러리" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
+                            className={selectTab === "회원갤러리" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
                             onClick={() => {
                                 setSelectTab("회원갤러리")
                             }}

@@ -18,30 +18,13 @@ const UserGalleryList = () => {
     const [, updateState] = useState();
     const forceUpdate = React.useCallback(() => updateState({}), []);
     const navigate = useNavigate();
+    const thisPage = window.location.pathname;
 
+    console.log(thisPage)
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [arrImg, setArrImg] = useState([]);
     const [rowData, setRowData] = useState([]);
-
-    const [modalId, setModalId] = useState();
-    const [modalData, setModalData] = useState("");
-    const [showModal, setShowModal] = useState(false);
-    const [showEditModal, setShowEditModal] = useState(false);
-
-    const openModal = () => {
-        setShowModal(true);
-    };
-    const closeModal = () => {
-        setShowModal(false);
-    };
-
-    const openEditModal = () => {
-        setShowEditModal(true);
-    };
-    const closeEditModal = () => {
-        setShowEditModal(false);
-    };
 
 
     const openImageViewer = useCallback((index) => {
@@ -56,59 +39,42 @@ const UserGalleryList = () => {
 
 
     useEffect(()=>{
-        console = {};
-        console.log = function(){};
-        console.warn = function(){};
-        console.error = function(){};
-
         axios
         .get("http://127.0.0.1:8000/getGallery/")
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);
+     
+            response.data.sort((a, b)=>{
+                return b.id - a.id
+            }).map((row, idx)=>{
+                arrImg.push(row.decodeImg);
+                setArrImg(arrImg);
+                forceUpdate();
+            })
         })
         .catch(function (error) {
             console.log(error);
         });
-        fetchImgData();
     },[])
-    
 
-    const fetchImgData = () => {
-        rowData.map((row, index)=>{
-            arrImg.push(row.decodeImg);
-            setArrImg(arrImg);
-            forceUpdate();
-            console.log(arrImg)
-        });
-    }
-
-    const deletePhoto = (id) =>{
-        if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
-            axios.delete("http://127.0.0.1:8000/deleteGallery/"+id)
-            .then((response) => {
-                navigate(0);
-            })
-            .catch(function (error) {
-                console.log(error);
-            });
-        }else{   //취소
-            return false;
-        }
-    }
 
     return(
         <>
-        {/* <EditModal open={showEditModal} close={closeEditModal} row={modalId} /> */}
-        <ShowModal open={showModal} close={closeModal} data={modalData} />
         <div className="w-[70vw] h-full m-auto">
             {user && (
                 <div className='flex'>
                     <Button 
                         className='ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
                         onClick={()=>{
-                            setModalData("addGallery")
-                            openModal();
+                            navigate(thisPage+"/AddNewPost", {
+                                state:{
+                                    parentPageName:"스튜디오",
+                                    parent:"Studio",
+                                    tab:"gallery",
+                                    action:"add"
+                                }
+                            })
                         }}
                     >
                         + Add New
@@ -135,29 +101,26 @@ const UserGalleryList = () => {
                             {user && (
                                 <>
                                 <div className='flex space-x-1 justify-center my-4'>
-                                    {/* <Button
+                                    <Button
                                         className='bg-yellow-400 px-4 py-2 rounded-lg font-bold text-white'
                                         onClick={()=>{
-                                            setModalData("editGallery")
-                                            setModalId(row)
-                                            openEditModal();
+                                            navigate(thisPage+"/EditPost"+"/"+row.title, {
+                                                state:{
+                                                    parentPageName:"스튜디오",
+                                                    parent:"Studio",
+                                                    action: "edit",
+                                                    tab:"gallery",
+                                                    data: row,
+                                                }
+                                            })
                                         }}
                                     >
                                         수정
-                                    </Button> */}
-                                    <Button
-                                        className='bg-red-400 px-4 py-2 rounded-lg font-bold text-white'
-                                        onClick={()=>{
-                                            deletePhoto(row.id);
-                                        }}
-                                    >
-                                        삭제
                                     </Button>
                                 </div>
                                 </>
                             )}
                         </div>
-                        
                         </>
                     )
                 })}

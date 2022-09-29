@@ -10,12 +10,12 @@ const TypeDiet = () => {
             <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-4 font-bold">
                 <Label className="text-sm text-left ml-[20%]">#음식섭취비만</Label>
                 <Label className="text-xl text-left -ml-20 mt-4">#신경성 / 스트레스성 비만</Label>
-                <Label className="text-3xl text-left w-[120%]">#글루텐 과다형 비만</Label>
-                <Label className="text-lg text-center ">#대사성 비만</Label>
-                <Label className="text-xl text-left mt-10">#정맥 순환 장애형 비만</Label>
-                <Label className="text-4xl text-left w-[120%] mt-2">#비활동성 비만</Label>
-                <Label className="text-base text-left text-center">#통증성 비만</Label>
-                <Label className="text-5xl text-left -ml-16 mt-4">#마른 비만</Label>
+                <Label className="text-3xl text-left w-[120%]">#글루텐_과다형_비만</Label>
+                <Label className="text-lg text-center ">#대사성_비만</Label>
+                <Label className="text-xl text-left mt-10">#정맥_순환_장애형_비만</Label>
+                <Label className="text-4xl text-left w-[120%] mt-2">#비활동성_비만</Label>
+                <Label className="text-base text-left text-center">#통증성_비만</Label>
+                <Label className="text-5xl text-left -ml-16 mt-4">#마른_비만</Label>
             </div>
 
             <div className="w-[50vw] m-auto h-full py-12">

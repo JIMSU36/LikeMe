@@ -20,7 +20,7 @@ const MainSideDot = () => {
     <>
     
     <div className="relative z-[9999999]">
-        <div className="fixed w-[8%] inset-y-1/2 right-0">
+        <div className="fixed w-[10%] inset-y-1/2 right-0">
             <Link activeClass="active" className="1 grid grid-cols-2 text-left" to="1" spy={true} smooth={true} onSetActive={handleSetActive}>
                 <Label className={scrollNum == 1 || scrollNum == 2 ? "text-white font-bold cursor-pointer" : scrollNum == 4 ? "text-[#93AEF9] font-bold cursor-pointer" : "text-black font-bold cursor-pointer"}>Main</Label>
                 {scrollNum == 1 ? (

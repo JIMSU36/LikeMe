@@ -3,11 +3,25 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: 'KOHIBaeumOTF';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2201-2@1.0/KOHIBaeumOTF.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: 'GmarketSansMedium';
+  src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/GmarketSansMedium.woff') format('woff');
+  font-weight: normal;
+  font-style: normal;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  /* font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+    sans-serif; */
+    font-family: 'GmarketSansMedium';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
@@ -217,6 +231,7 @@ tr:hover td .date-label{
   text-shadow : 3px 3px 3px #505F87;
 }
 
+
 .galleryImg{
   max-height: 20vh;
 }
@@ -225,4 +240,8 @@ tr:hover td .date-label{
   display: block;
   background-color: #6f6f6fcc;
   opacity: 0.5;
+}
+
+.modal-img{
+  max-height: 45vh;
 }

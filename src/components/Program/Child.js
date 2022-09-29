@@ -8,15 +8,17 @@ const Child = () => {
     return(
         <>
         <div className="w-full h-full ">
-            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-4 font-bold">
-                <Label className="text-sm text-left ml-[20%]">#Tag</Label>
-                <Label className="text-xl text-left -ml-20 mt-4">#Tag</Label>
-                <Label className="text-3xl text-left w-[120%]">#Tag</Label>
-                <Label className="text-lg text-center ">#Tag</Label>
-                <Label className="text-xl text-left mt-10">#Tag</Label>
-                <Label className="text-4xl text-left w-[120%] mt-2">#Tag</Label>
-                <Label className="text-base text-left text-center">#Tag</Label>
-                <Label className="text-5xl text-left -ml-16 mt-4">#Tag</Label>
+            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
+                <Label className="text-sm text-left ml-[20%]">#키성장</Label>
+                <Label className="text-xl text-left -ml-10 mt-6">#성조숙증</Label>
+                <Label className="text-2xl text-left -ml-14 -mt-4 ">#체력관리</Label>
+                <Label className="text-lg text-center ">#짧고_굵게_운동</Label>
+                <Label className="text-xl text-left -ml-20 mt-8 mb-4">#최상의_컨디션</Label>
+                <Label className="text-3xl text-left w-[150%] mt-2">#집중력_업</Label>
+                <Label className="text-base text-left text-center">#다리교정</Label>
+                <Label className="text-base text-left text-center">#뇌과학</Label>
+                <Label className="text-xl text-left w-[200%]">#뇌_신경가소성_이용</Label>
+                <Label className="text-3xl w-[300%] text-left ml-[120%]">#균형잡기</Label>
             </div>
 
             <div className="w-[50vw] m-auto h-full py-12">

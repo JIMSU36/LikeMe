@@ -7,15 +7,16 @@ const BodyProfile = () => {
     return(
         <>
         <div className="w-full h-full ">
-            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-4 font-bold">
-                <Label className="text-sm text-left ml-[20%]">#Tag</Label>
-                <Label className="text-xl text-left -ml-20 mt-4">#Tag</Label>
-                <Label className="text-3xl text-left w-[120%]">#Tag</Label>
-                <Label className="text-lg text-center ">#Tag</Label>
-                <Label className="text-xl text-left mt-10">#Tag</Label>
-                <Label className="text-4xl text-left w-[120%] mt-2">#Tag</Label>
-                <Label className="text-base text-left text-center">#Tag</Label>
-                <Label className="text-5xl text-left -ml-16 mt-4">#Tag</Label>
+            <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
+                <Label className="text-sm text-left ml-[20%]">#카톡프사_30년치</Label>
+                <Label className="text-xl text-left -ml-10 mt-6">#바디쉐이프_디자인</Label>
+                <Label className="text-2xl text-left -ml-14 -mt-4 w-[150%]">#근성장촉진_테라피</Label>
+                <Label className="text-lg text-center ">#추억영상_제공</Label>
+                <Label className="text-xl text-left -ml-20 mt-8 mb-4">#개인체형_특성별_분류</Label>
+                <Label className="text-3xl text-left w-[150%] mt-2">#전문포징_훈련</Label>
+                <Label className="text-base text-left text-center">#단점_커버</Label>
+                <Label className="text-xl text-left w-[200%] mt-4">#촬영_서포트_전폭_지원</Label>
+                <Label className="text-3xl w-[300%] text-left ml-32">#최적의_근육_만드는_비법_대공개</Label>
             </div>
 
             <div className="w-[50vw] m-auto h-full py-12">

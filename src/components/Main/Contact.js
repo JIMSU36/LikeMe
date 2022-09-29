@@ -26,8 +26,8 @@ const Contact = () => {
     return (
         <div className="w-full min-h-[100vh] bg-white">
             <div className="my-auto h-full">
-                <div className="font-bold text-[40px] pt-[25vh] my-auto">
-                    <Label>Contact Us</Label>
+                <div className="font-bold pt-[25vh] my-auto">
+                    <Label className="text-5xl">Contact Us</Label>
                 </div>
 
                 <div className="py-12 w-[40%] m-auto">
@@ -40,14 +40,6 @@ const Contact = () => {
                                         type="text" 
                                         name="user_name" 
                                         placeholder="이름"
-                                    />
-                                </td>
-                                <td className="border border-[2px] border-black">
-                                    <input 
-                                        className="w-full h-[40px] p-4"
-                                        type="text" 
-                                        name="user_position" 
-                                        placeholder="직책"
                                     />
                                 </td>
                             </tr>

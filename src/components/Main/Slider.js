@@ -38,7 +38,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     window.open('https://naver.me/FzHyeLd7', '_blank')
                                 }}
@@ -58,7 +58,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     navigate("Program/8가지 비만유형에 따른 다이어트", {
                                         state:{
@@ -82,7 +82,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     navigate("Program/바디프로필 메이킹", {
                                         state:{
@@ -106,7 +106,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     navigate("Program/청소년 성장", {
                                         state:{
@@ -130,7 +130,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     navigate("Program/통증관리", {
                                         state:{
@@ -154,7 +154,7 @@ const Slider = () => {
                                 Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.
                             </span>
                             <Button 
-                                className="bg-white rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
+                                className="bg-white hover:bg-white/[0.6] hover:text-black rounded-lg font-bold text-[#93AEF9] w-[10vw] h-[5vh] my-auto"
                                 onClick={()=>{
                                     navigate("Program/직장인 일자목 + 허리 교정", {
                                         state:{

@@ -57,12 +57,12 @@ const ProgramContents = () => {
                     <div className='p-12 flex flex-col'>
                         <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>8가지 비만유형에 따른 다이어트</Label>
-                        <span className='mt-6 text-lg'>
+                        {/* <span className='mt-6 text-lg'>
                             8가지 비만 유형에 따라 
                         </span>
                         <span className='text-lg'>
                             유산소 + 복합 웨이트 트레이닝 / 식단 비율 조절 프로그램
-                        </span>
+                        </span> */}
 
                         <Button 
                             className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'

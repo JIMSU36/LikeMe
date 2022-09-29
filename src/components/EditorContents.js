@@ -67,6 +67,8 @@ const EditorContents = ({parentPage}) => {
         FetchData();
     },[])
 
+    console.log(detailData)
+
     const FetchData = () => {
         if(parentPage.action === "edit"){
             if(parentPage.tab === "instructor"){
@@ -91,6 +93,26 @@ const EditorContents = ({parentPage}) => {
                     setDetailData(response.data);
                     setTitle(response.data.title);
                     setContent(response.data.content);
+                    thumb.push({
+                        base64: response.data.decodeImg
+                    });
+                    setThumb(thumb);
+                    console.log(thumb)
+                })
+                .catch(function (error) {
+                    console.log(error);
+                });
+            }
+            else if(parentPage.tab === "gallery"){
+                return axios.get("http://127.0.0.1:8000/getGallery/"+parentPage.data.id)
+                .then((response)=>{
+                    setDetailData(response.data);
+                    setTitle(response.data.title);
+                    thumb.push({
+                        base64: response.data.decodeImg
+                    });
+                    setThumb(thumb);
+                    console.log(thumb)
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -137,6 +159,19 @@ const EditorContents = ({parentPage}) => {
                     alert("포스트 등록 오류")
                 });
             }
+        }else if(parentPage.parent === "Studio"){
+            axios.post("http://127.0.0.1:8000/postGallery/", {
+                title: title,
+                img:thumb[0].base64,
+                created_at: moment().format('YYYY-MM-DD')
+            })
+            .then(function (response) {
+                navigate(-1);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("포스트 등록 오류")
+            });
         }
     }
 
@@ -174,7 +209,34 @@ const EditorContents = ({parentPage}) => {
                     alert("포스트 수정 오류")
                 });
             }
-            
+        }
+        else if(parentPage.parent === "Studio"){
+            axios.put("http://127.0.0.1:8000/putGallery/"+id, {
+                title: title,
+                img:thumb[0].base64,
+                updated_at: moment().format('YYYY-MM-DD')
+            })
+            .then(function (response) {
+                console.log(response)
+                navigate(-1);
+            })
+            .catch(function (error) {
+                console.log(error);
+                alert("포스트 수정 오류")
+            });
+        }
+    }
+
+    const deletePost = (id) => {
+        if (window.confirm("정말로 삭제 하시겠습니까?")) {
+            axios.delete("http://127.0.0.1:8000/deleteGallery/"+id)
+            .then((response) => {
+                navigate(-1);
+                
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
         }
     }
 
@@ -193,7 +255,6 @@ const EditorContents = ({parentPage}) => {
         }
     };
 
-
     return(
         <>
         <div id="1" name="1" className='content'>
@@ -205,30 +266,47 @@ const EditorContents = ({parentPage}) => {
                     <Label className='w-full h-full m-auto text-center text-4xl text-white font-bold'>{parentPage.parentPageName}</Label>
                 </div>
             </div>
-            <div className='w-full h-full bg-white relative '>
-                <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
-                    <NavItem className='px-6 py-[2vh] h-full'>
-                        <NavLink 
-                            className={tab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
-                            onClick={() => {
-                                handleChange("강사양성과정")
-                            }}
-                        >
-                            강사양성과정
-                        </NavLink>
-                    </NavItem>
-                    <NavItem className='px-6 py-[2vh]'>
-                        <NavLink 
-                            className={tab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-gray-400" : "cursor-pointer " }
-                            onClick={() => {
-                                handleChange("트레이너교육과정")
-                            }}
-                        >
-                            트레이너교육과정
-                        </NavLink>
-                    </NavItem>
-                </Nav>
-            </div>
+            {parentPage.parent === "Academy" ? (
+                <div className='w-full h-full bg-white relative '>
+                    <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
+                        <NavItem className='px-6 py-[2vh] h-full'>
+                            <NavLink 
+                                className={tab === "강사양성과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
+                                onClick={() => {
+                                    handleChange("강사양성과정")
+                                }}
+                            >
+                                강사양성과정
+                            </NavLink>
+                        </NavItem>
+                        <NavItem className='px-6 py-[2vh]'>
+                            <NavLink 
+                                className={tab === "트레이너교육과정" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
+                                onClick={() => {
+                                    handleChange("트레이너교육과정")
+                                }}
+                            >
+                                트레이너교육과정
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                </div>
+            ) : parentPage.parent === "Studio" && (
+                <div className='w-full h-full bg-white relative '>
+                    <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
+                        <NavItem className='px-6 py-[2vh] h-full'>
+                            <NavLink 
+                                className={parentPage.tab === "gallery" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer " }
+                                onClick={() => {
+                                    navigate("/Studio")
+                                }}
+                            >
+                                회원갤러리
+                            </NavLink>
+                        </NavItem>
+                    </Nav>
+                </div>
+            )}
             <div className="w-[80vw] min-h-[100vh] h-full m-auto">
                 <div className="w-full">
                     <div className="pt-20 pb-10 text-left flex">
@@ -293,25 +371,32 @@ const EditorContents = ({parentPage}) => {
                         )}
                         
                     </div>
-                    <div className="min-h-[50vh] h-full">
-                        <ReactQuill
-                            className="editor text-left"
-                            defaultValue={detailData.content}
-                            value={content}
-                            onChange={(e)=>{
-                                setContent(e);
-                            }}
-                            theme="snow" 
-                            modules={modules}
-                        />
-                    </div>
+                    {parentPage.parent === "Academy" && (
+                        <div className="min-h-[50vh] h-full">
+                            <ReactQuill
+                                className="editor text-left"
+                                defaultValue={detailData.content}
+                                value={content}
+                                onChange={(e)=>{
+                                    setContent(e);
+                                }}
+                                theme="snow" 
+                                modules={modules}
+                            />
+                        </div>
+                    )}
+                    
                     <div className="flex justify-end my-4 space-x-2">
-                        <Button className="bg-red-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{navigate(-1)}}>취소</Button>
+                        <Button className="bg-yellow-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{navigate(-1)}}>취소</Button>
+                        {parentPage.tab === "gallery" && (
+                            <Button className="bg-red-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{deletePost(detailData.id)}}>삭제</Button>
+                        )}
                         {parentPage.action === "edit" ? (
                             <Button className="bg-green-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{editPost(detailData.id)}}>수정</Button>
                         ):(
                             <Button className="bg-green-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{addPost()}}>등록</Button>
                         )}
+
                     </div>
                 </div>
             </div>

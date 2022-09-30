@@ -5,6 +5,11 @@ module.exports = {
   ],
   theme: {
     extend: {},
+    fontFamily: {
+      aggro:["SBAggroB"],
+      kotra:["KOTRA_BOLD-Bold"],
+      kohi:["KOHIBaeumOTF"]
+    }
   },
   plugins: [],
 }

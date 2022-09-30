@@ -62,7 +62,7 @@ const InstructorList = () => {
                     </Button>
                 </div>
             )}
-            <Table responsive className='w-full h-full' >
+            <Table responsive className='w-full h-full mt-12' >
                 <tbody className='border-t border-gray-500'>
                     {/* {rowData.map((row, index)=>{
                         return(

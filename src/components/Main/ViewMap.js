@@ -12,6 +12,7 @@ import ujangsanImg from '../../assets/images/ujangsan.jpg'
 //카카오 지도
 import { Map, MapMarker } from "react-kakao-maps-sdk";
 import ShowModal from '../ShowModal';
+import imgMarker from '../../assets/images/마커.png'
 
 const ViewMap = () => {
     const [zoomable, setZoomable] = useState(true)
@@ -41,7 +42,22 @@ const ViewMap = () => {
                 level={selectPlace ? 3 : 8}
                 zoomable={false}
             >
-                <MapMarker position={{ lat: selectPlace.lat, lng:selectPlace.lng }}/>
+                <MapMarker 
+                    position={{ lat: selectPlace.lat, lng:selectPlace.lng }}
+                    image={{
+                        src: imgMarker,
+                        size:{
+                            width: 66,
+                            height: 82,
+                        }, 
+                        options:{
+                            offset:{
+                                x: 32,
+                                y: 82,
+                            }
+                        }
+                    }}
+                />
             </Map>
    
             <div className='w-[25%] max-h-[70%] h-auto z-[99] bg-white relative -top-[80vh] left-[5vw] shadow-xl'>

@@ -15,10 +15,17 @@ import child from '../../assets/images/청소년.jpg';
 import pain from '../../assets/images/통증.jpg';
 import worker from '../../assets/images/직장인.jpg';
 import mainLogo from '../../assets/images/main_logo.png';
+import Select from 'react-select';
 
 const ProgramContents = () => {
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
+    const [selectPlace, setSelectPlace] = useState("")
+
+    const places = [
+        { value: '마곡역점', label: '마곡역점'},
+        { value: '우장산역점', label: '우장산역점'},
+    ]
 
     return(
         <>
@@ -37,14 +44,42 @@ const ProgramContents = () => {
                         <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>오리엔테이션 프로그램 체험</Label>
                         
-                        <Button 
+                        <Select
+                            className='program-select mt-10 w-[10vw] h-[5vh] m-auto'
+                            placeholder='지점 선택' 
+                            options={places}  
+                            value={places.find((op)=>{
+                                return op.value === selectPlace;
+                            })}
+                            onChange={(e)=>{
+                                if(e.value === "마곡역점"){
+                                    window.open('https://naver.me/FzHyeLd7', '_blank')
+                                }else if(e.value === "우장산역점"){
+                                    window.open('https://naver.me/xagwCqkd', '_blank')
+                                }
+                            }}
+                            styles={{
+                                // Fixes the overlapping problem of the component
+                                menu: (places) => ({ ...places, zIndex: 99999 }),
+                                control: (base, state) => ({
+                                     ...base,
+                                     background: "#93AEF9", 
+                                     border:"none", 
+                                     width:"10vw", 
+                                     height:"5vh", 
+                                     color:"white",
+                                     boxShadow: "none"
+                                    }),
+                            }}
+                        />
+                        {/* <Button 
                             className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{
                                 window.open('https://naver.me/FzHyeLd7', '_blank')
                             }}
                         >
                             네이버 예약
-                        </Button>
+                        </Button> */}
                     </div>
                     <div className='img_area h-[50vh] relative flex justify-center items-center '>
                         <img src={mainLogo}/>

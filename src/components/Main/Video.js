@@ -1,6 +1,6 @@
 import React from "react";
 import ReactPlayer from 'react-player'
-import mainVideo from '../../assets/video/mainVideo.mp4'
+import mainVideo from '../../assets/video/main.mp4'
 
 const Video = () => {
     return(

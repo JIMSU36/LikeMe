@@ -11,6 +11,7 @@ import AuthContext from '../Contexts/AuthContext';
 
 const Footer = () => {
     const { user, logoutUser } = useContext(AuthContext);
+    
     return(
         <>
         <div className="h-[20rem] p-6  bg-[#f0f0f0]">
@@ -26,7 +27,7 @@ const Footer = () => {
                 <div className="flex flex-col text-left ml-4 mt-6 text-sm text-gray-500">
                     <div>
                         <span>상호명 : 라이크미PT&Pilates 전문센터 | </span> 
-                        <Link to="/adminLogin" className={user ? "cursor-default" : "cursor-pointer"}>
+                        <Link to={user ? "" : "/adminLogin"} className={user ? "cursor-default" : "cursor-pointer"}>
                             <span>대표 : 김택규</span>
                         </Link>
                         <span> | 사업자등록번호 : 192-50-00639 | 통신판매번호 : 2021-서울강서-3966</span>

@@ -22,7 +22,7 @@ const Pain = () => {
 
             <div className="w-[50vw] m-auto h-full py-12">
                 <div className="text-left w-full">
-                    <Label className="font-bold text-3xl after:h-[4px] after:content-[' '] after:bg-black after:w-[31vw] after:inline-block after:align-middle after:ml-4">어떤 사람이 하면 좋을까?</Label>
+                    <Label className="font-bold text-3xl text-[#93AEF9] after:h-[4px] after:content-[' '] after:bg-[#93AEF9] after:w-[31vw] after:inline-block after:align-middle after:ml-6">어떤 사람이 하면 좋을까?</Label>
                 </div>
                 <div className="flex-col flex text-left py-10 mt-10 text-lg font-semibold space-y-4">
                     <span>- 병원을 가도 이상은 없다고 하는데 계속 이유 없이 아프신 분.</span>
@@ -34,7 +34,7 @@ const Pain = () => {
 
 
                 <div className="text-left w-full py-20">
-                    <Label className="font-bold text-3xl before:h-[4px] before:content-[' '] before:bg-black before:w-[35vw] before:inline-block before:align-middle before:mr-4  after:h-[4px] after:content-[' '] after:bg-black after:w-[7vw] after:inline-block after:align-middle after:ml-4">프로세스</Label>
+                    <Label className="font-bold text-3xl text-[#93AEF9] before:h-[4px] before:content-[' '] before:bg-[#93AEF9] before:w-[35vw] before:inline-block before:align-middle before:mr-4  after:h-[4px] after:content-[' '] after:bg-[#93AEF9] after:w-[7vw] after:inline-block after:align-middle after:ml-4">프로세스</Label>
                 </div>
                 <div className="flex flex-col text-left ">
                     <Label className="font-bold text-xl">재활 필라테스와 매트 운동으로 움직임을 재학습합니다.</Label>

@@ -81,7 +81,7 @@ const UserGalleryList = () => {
                     </Button>
                 </div>
             )}
-            <div className='imgbox w-full h-full grid grid-cols-6 gap-4'>
+            <div className='imgbox w-full h-full mt-12 grid grid-cols-6 gap-4'>
                 {rowData.sort((a, b) => {
                     return b.id - a.id
                 }).map((row, index) => {

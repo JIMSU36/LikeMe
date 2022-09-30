@@ -30,7 +30,7 @@ const Contact = () => {
                     <Label className="text-5xl">Contact Us</Label>
                 </div>
 
-                <div className="py-12 w-[40%] m-auto">
+                <div className="py-12 md:w-[40%] w-[80%] m-auto">
                     <form ref={form} onSubmit={sendEmail}>
                         <Table className="border border-[2px] border-black m-auto w-[100%]">
                             <tr className="border border-[2px] border-black">
@@ -86,7 +86,7 @@ const Contact = () => {
                         <input 
                             type="submit" 
                             value="Send" 
-                            className="bg-[#93AEF9] w-[20%] h-[3rem] my-6 text-white text-[15px] font-bold rounded-lg cursor-pointer hover:text-white hover:bg-[#758BC7]"
+                            className="bg-[#93AEF9] md:w-[20%] w-[50%] h-[3rem] my-6 text-white text-[15px] font-bold rounded-lg cursor-pointer hover:text-white hover:bg-[#758BC7] focus:bg-[#758BC7]"
                         />
                     </form>
                 </div>

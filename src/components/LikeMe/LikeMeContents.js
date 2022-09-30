@@ -27,7 +27,7 @@ const LiKeMeContents = () => {
             </div>
             <div className='w-full h-full bg-white relative '>
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
-                    <NavItem className='px-6 py-[2vh] h-full'>
+                    <NavItem className='md:px-6 px-2 py-[2vh] h-full'>
                         <NavLink 
                             className={selectTab === "회사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
@@ -37,7 +37,7 @@ const LiKeMeContents = () => {
                             회사소개
                         </NavLink>
                     </NavItem>
-                    <NavItem className='px-6 py-[2vh]'>
+                    <NavItem className='md:px-6 px-2 py-[2vh]'>
                         <NavLink 
                             className={selectTab === "강사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
@@ -47,7 +47,7 @@ const LiKeMeContents = () => {
                             강사소개
                         </NavLink>
                     </NavItem>
-                    <NavItem className='px-6 py-[2vh]'>
+                    <NavItem className='md:px-6 px-2 py-[2vh]'>
                         <NavLink 
                             className={selectTab === "협력업체" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {

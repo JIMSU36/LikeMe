@@ -60,11 +60,11 @@ const ViewMap = () => {
                 />
             </Map>
    
-            <div className='w-[25%] max-h-[70%] h-auto z-[99] bg-white relative -top-[80vh] left-[5vw] shadow-xl'>
-                <div className='w-full h-[10vh] p-6 pt-12 text-left'>
+            <div className='md:w-[25%] w-[90%] md:max-h-[70%] max-h-[45%] md:overflow-auto overflow-auto z-[99] bg-white relative md:-top-[80%] -top-[45%] md:left-[5%] left-[5%] shadow-xl'>
+                <div className='w-full h-[5%] md:px-6 md:py-6 px-6 py-2 md:pt-12 pt-6 text-left'>
                     <Label className='text-3xl font-bold'>지점 위치</Label>
                 </div>
-                <div className='w-full max-h-[60vh] p-6 flex flex-col overflow-y-auto'>
+                <div className='w-full max-h-[60%] px-6 flex flex-col overflow-y-auto'>
                     <Select 
                         className="map-place-select text-black text-left"
                         placeholder='지점 선택' 
@@ -73,7 +73,6 @@ const ViewMap = () => {
                             return op.value === selectPlace;
                           })}
                           onChange={(e)=>{
-                            console.log(e)
                             setSelectPlace(e);
                           }}
                         styles={{
@@ -100,7 +99,7 @@ const ViewMap = () => {
                             </div>
                             <div className='my-4 flex flex-col space-y-4'>
                                 <Label className='text-xl'>{selectPlace.tel}</Label>
-                                <Label>{selectPlace.address}</Label>
+                                <Label className='text-sm'>{selectPlace.address}</Label>
                             </div>
                             <div>
                                 <Button 

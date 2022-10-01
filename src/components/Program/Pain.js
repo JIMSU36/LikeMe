@@ -7,7 +7,8 @@ import {
 const Pain = () => {
     return(
         <>
-        <div className="w-full h-full ">
+        {/* pc화면 */}
+        <div className="md:block hidden w-full h-full ">
             <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
             <Label className="text-sm text-left ml-[20%]">#메디컬재활_특화</Label>
                 <Label className="text-xl text-left -ml-10 mt-6">#재활_필라테스</Label>
@@ -57,6 +58,59 @@ const Pain = () => {
                     </div>
                 </div>
 
+            </div>
+        </div>
+
+
+        {/* 모바일 화면 */}
+        <div className="md:hidden block w-full h-full ">
+            <div className="w-[80vw] m-auto h-full py-10">
+                <div className="text-left w-full">
+                    <Label className="font-bold text-xl text-[#93AEF9]">어떤 사람이 하면 좋을까?</Label>
+                    <hr className='w-[40vw] h-1 bg-[#93AEF9] border-none'/>
+                </div>
+            </div>
+            <div className="flex-col flex text-left text-sm font-semibold">
+                <p>- 병원을 가도 이상은 없다고 하는데 </p>
+                <p className="indent-3">계속 이유 없이 아프신 분.</p>
+                <p className="mt-2">- 고질적인 허리, 목 통증이 있으신 분.</p>
+                <p className="mt-2">- 일상생활 중 조금만 앉아있거나 </p>
+                <p className="indent-3">움직여도 아프신 분. </p>
+                <p className="mt-2">- 디스크나 협착증 등을 진단 받으시고 </p>
+                <p className="indent-3">꾸준한 관리가 필요하신 분.</p>
+                <p className="mt-2">- 다치시거나 수술 이후 재활이 필요하신 분.</p>
+            </div>
+
+            <div className="w-[80vw] m-auto h-full py-10">
+                <div className="text-left w-full mt-12">
+                    <Label className="font-bold text-xl text-[#93AEF9]">프로세스</Label>
+                    <hr className='w-[40vw] h-1 bg-[#93AEF9] border-none'/>
+                </div>
+            </div>
+            <div className="flex-col flex text-left font-semibold">
+                <p>재활 필라테스와 매트 운동으로</p>
+                <p>움직임을 재학습합니다.</p>
+
+                <div className="flex flex-col py-12 font-semibold text-sm">
+                    <p>1. 반복적으로 아픈 관절 부위에서 </p>
+                    <p className="indent-4">해결해야 하는 첫 번째 요소를 배웁니다.</p>
+                    <p className="mt-2">2. 통증 분류와 원인에 따른 </p>
+                    <p className="indent-4">스트레칭과 근력, 밸런스 운동을 진행합니다.</p>
+                </div>
+
+                <div className="flex flex-col font-semibold text-sm">
+                    <Label className="font-bold text-base">&lt; 통증 원인 분류 &gt;</Label>
+                    <p>1. 과사용성 - 근막이완, 길항근/협력근 강화, </p>
+                    <p className="indent-4">효율적 움직임 교육.</p>
+                    <p className="mt-2">2. 저가동성 - 근에너지테크닉, 스트레칭.</p>
+                    <p className="mt-2">3. 근저하성(과가동성)</p>
+                    <p className="indent-4">열린사슬운동에서 닫힌사슬운동까지의 단계.</p>
+                </div>
+
+                <div className="text-right text-xs pt-12">
+                    <p>밴드, 짐볼, 덤벨, 필라테스 기구 이용.</p>
+                    <p>레슨 1회에 50분간 진행. (주 2회 이상 추천)</p>
+                </div>
             </div>
         </div>
         </>

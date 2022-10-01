@@ -40,36 +40,53 @@ code {
 
 
 /* 모바일 */
-@media (max-width: 768px) {
+@media (max-width: 769px) {
   .mobile-slider{
     background-color: #93AEF9;
+  }
+  .date-label{
+    color: #93AEF9;
+  }
+  .row-img{
+    max-width: 100%;
+    max-height: 20vh;
+  }
+  .add-btn {
+    margin: auto;
+    margin-top: 4vh;
   }
 }
 
 /* PC */
-@media (min-width: 992px) {
+@media (min-width: 1024px) {
   .slider1{
     background-image: url(/src/assets/images/1.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
   .slider2{
     background-image: url(/src/assets/images/2.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
   .slider3{
     background-image: url(/src/assets/images/3.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
   .slider4{
     background-image: url(/src/assets/images/4.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
   .slider5{
     background-image: url(/src/assets/images/5.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
   .slider6{
     background-image: url(/src/assets/images/6.png);
+    background-color: #93AEF9;
     background-size: cover;
   }
 
@@ -82,6 +99,10 @@ code {
     background-image: url(/src/assets/images/인사말.png);
     background-size: contain;
     background-repeat: no-repeat;
+  }
+  .row-img{
+    max-width: 100%;
+    max-height: 15vh;
   }
 }
 
@@ -215,13 +236,11 @@ code {
 /* editor */
 .ql-container{
   min-height: 50vh;
-  border: none !important;
 }
 .ql-editor{
   min-height: 50vh;
 }
 /* end editor */
-
 
 
 .banner{
@@ -252,10 +271,7 @@ code {
   transform: translate(-50%);
 }
 
-.row-img{
-  max-width: 100%;
-  max-height: 15vh;
-}
+
 .thumb-img{
   max-height: 30vh;
 }
@@ -274,7 +290,6 @@ tr:hover td .date-label{
   text-shadow : 3px 3px 3px #23293B;
 }
 
-
 .galleryImg{
   max-height: 20vh;
 }
@@ -283,4 +298,7 @@ tr:hover td .date-label{
   display: block;
   background-color: #6f6f6fcc;
   opacity: 0.5;
+}
+.label-shadow{
+  text-shadow : 3px 3px 3px #23293B;
 }

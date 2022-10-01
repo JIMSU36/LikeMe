@@ -42,11 +42,11 @@ const InstructorList = () => {
 
     return(
         <>
-        <div className="w-[70vw] h-full m-auto">
+        <div className="w-[80vw] h-full m-auto">
             {user && (
                 <div className='flex'>
                     <Button 
-                        className='ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
+                        className='add-btn md:ml-auto  my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
                         onClick={()=>{
                             navigate(thisPage+"/AddNewPost", {
                                 state:{
@@ -62,21 +62,9 @@ const InstructorList = () => {
                     </Button>
                 </div>
             )}
-            <Table responsive className='w-full h-full mt-12' >
+            {/* pc 테이블 */}
+            <Table responsive className='w-full h-full mt-12 md:table hidden' >
                 <tbody className='border-t border-gray-500'>
-                    {/* {rowData.map((row, index)=>{
-                        return(
-                            <tr className='h-[15vh] pl-6 border-b hover:bg-gray-200 cursor-pointer' onClick={()=>showDetail(row, index)}>
-                                <td className='w-[20%]'>{moment(row.created_at).format('YYYY-MM-DD')}</td>
-                                <td className='text-left px-6'>{row.title}</td>
-                                <td className='pr-6'>
-                                    <div className='w-full h-full text-center leading-[15vh] border'>
-                                        img
-                                    </div>
-                                </td>
-                            </tr>
-                        )
-                    })} */}
                     {rowData.sort((a, b) =>{
                         return b.id - a.id
                     }).map((row, index) =>{
@@ -88,10 +76,39 @@ const InstructorList = () => {
                                         <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY')}</Label>
                                     </div>
                                 </td>
-                                <td className='text-left px-6'>{row.title}</td>
+                                <td className='text-left px-12'>
+                                    <p className='max-w-[70%] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
+                                </td>
                                 <td className='pr-6 w-[30%]'>
                                     <div className='text-center leading-[15vh]'>
-                                        {row.img !== null && (
+                                        {row.decodeImg !== "" && (
+                                            <img
+                                                className='m-auto row-img'
+                                                src={row.decodeImg}
+                                                alt="thumb"
+                                            />
+                                        )}
+                                    </div>
+                                </td>
+                            </tr>
+                        )
+                    })}
+                </tbody>
+            </Table>
+
+            {/* 모바일 테이블 */}
+            <Table responsive className='w-full h-full mt-12 table-auto table md:hidden' >
+                <tbody className='border-t border-gray-500'>
+                    {rowData.sort((a, b) =>{
+                        return b.id - a.id
+                    }).map((row, index) =>{
+                        return(
+                            <tr className='table-row h-[20vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
+                                <td className=''>
+                                    <div className='w-full flex flex-col text-left my-12'>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY.MM.DD')}</Label>
+                                        <p className='max-w-[250px] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
+                                        {row.decodeImg !== "" && (
                                             <img
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}

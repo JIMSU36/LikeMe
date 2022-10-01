@@ -133,7 +133,7 @@ const EditorContents = ({parentPage}) => {
                 axios.post("http://127.0.0.1:8000/postInstructor/", {
                     title: title,
                     content: content,
-                    img:thumb[0].base64,
+                    img:thumb.length > 0 ? thumb[0].base64 : "",
                     created_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -148,7 +148,7 @@ const EditorContents = ({parentPage}) => {
                 axios.post("http://127.0.0.1:8000/postTrainer/", {
                     title: title,
                     content: content,
-                    img:thumb[0].base64,
+                    img:thumb.length > 0 ? thumb[0].base64 : "",
                     created_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -181,7 +181,7 @@ const EditorContents = ({parentPage}) => {
                 axios.put("http://127.0.0.1:8000/putInstructor/"+id, {
                     title: title,
                     content: content,
-                    img:thumb[0].base64,
+                    img:thumb.length > 0 ? thumb[0].base64 : "",
                     updated_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -197,7 +197,7 @@ const EditorContents = ({parentPage}) => {
                 axios.put("http://127.0.0.1:8000/putTrainer/"+id, {
                     title: title,
                     content: content,
-                    img:thumb[0].base64,
+                    img:thumb.length > 0 ? thumb[0].base64 : "",
                     updated_at: moment().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
@@ -263,7 +263,7 @@ const EditorContents = ({parentPage}) => {
         <div id="5" name="5" className='content'>
             <div className='banner h-[40vh]  w-full relative bg-gray-400'>
                 <div className='h-auto w-full absolute top-[50%] translate-y-1/2'>
-                    <Label className='w-full h-full m-auto text-center text-4xl text-white font-bold'>{parentPage.parentPageName}</Label>
+                    <Label className='label-shadow w-full h-full m-auto text-center text-4xl text-white font-bold'>{parentPage.parentPageName}</Label>
                 </div>
             </div>
             {parentPage.parent === "Academy" ? (
@@ -313,10 +313,10 @@ const EditorContents = ({parentPage}) => {
                             <GrEdit size={30} className="my-auto mr-4"/>
                             {parentPage.action === "edit" ? (
                                 <>
-                                <Label className="font-bold text-3xl">Edit Post From {parentPage.parent}</Label>
+                                <Label className="font-bold md:text-3xl text-xl">Edit Post From {parentPage.parent}</Label>
                                 </>
                             ):(
-                                <Label className="font-bold text-3xl">New Post From {parentPage.parent}</Label>
+                                <Label className="font-bold md:text-3xl text-xl">New Post From {parentPage.parent}</Label>
                             )}
                     </div>
                     <div className="w-full h-full">

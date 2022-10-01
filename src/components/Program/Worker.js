@@ -7,7 +7,8 @@ import {
 const Worker = () => {
     return(
         <>
-        <div className="w-full h-full ">
+        {/* pc화면 */}
+        <div className="md:block hidden w-full h-full ">
             <div className="w-[50vw] mb-14 py-10 m-auto typo grid grid-cols-6 font-bold">
             <Label className="text-sm text-left ml-[20%]">#직업병_굿바이</Label>
                 <Label className="text-xl text-left -ml-10 mt-6">#직업별_자세분석</Label>
@@ -49,6 +50,56 @@ const Worker = () => {
                         <p>밴드, 짐볼, 덤벨, 필라테스 기구 이용.</p>
                         <p>레슨 1회에 50분간 진행. (주 2회 이상 추천)</p>
                     </div>
+                </div>
+            </div>
+        </div>
+        
+
+        {/* 모바일 화면 */}
+        <div className="md:hidden block w-full h-full ">
+            <div className="w-[80vw] m-auto h-full py-10">
+                <div className="text-left w-full">
+                    <Label className="font-bold text-xl text-[#93AEF9]">어떤 사람이 하면 좋을까?</Label>
+                    <hr className='w-[40vw] h-1 bg-[#93AEF9] border-none'/>
+                </div>
+            </div>
+            <div className="flex-col flex text-left text-sm font-semibold">
+                <p>- 오랫동안 앉아있어서 목, 허리가 무거우신 </p>
+                <p className="indent-3">직장인.</p>
+                <p className="mt-2">- 장시간 운전하시면서 쌓여진 피로감이 크신 분.</p>
+                <p className="mt-2">- 몸에 활력이 떨어지신 직장인.</p>
+                <p className="mt-2">- 활동량이 적으신 분.</p>
+                <p className="mt-2">- 오래 서계시거나 걸으면서 </p>
+                <p className="indent-3">자세 불균형이 오신 분.</p>
+            </div>
+
+            <div className="w-[80vw] m-auto h-full py-10">
+                <div className="text-left w-full mt-12">
+                    <Label className="font-bold text-xl text-[#93AEF9]">프로세스</Label>
+                    <hr className='w-[40vw] h-1 bg-[#93AEF9] border-none'/>
+                </div>
+            </div>
+            
+            <div className="flex-col flex text-left font-semibold">
+                <p>누적된 피로감과 통증으로 </p>
+                <p>더 큰 질병이 찾아오지 않도록</p>
+                <p>직업 유형별로 나누어 </p>
+                <p>이완 프로그램을 진행합니다.</p>
+
+                <div className="flex flex-col py-12 font-semibold text-sm">
+                    <Label className="font-bold text-base">&lt; 직업 유형 분류 &gt;</Label>
+                    <p>1. 선 자세 - 족저근막염, 허리, 목 주변 근막, </p>
+                    <p className="indent-4">근육 위주로 젖산, 통증물질 침착</p>
+                    <p className="indent-4">(교사, 강사, 경호원, 판매업 등).</p>
+                    <p className="mt-2">2. 앉은 자세 - 가벼운 목, 허리 디스크, </p>
+                    <p className="indent-4">굽은 어깨, 일자목, 거북목, 일자 허리</p>
+                    <p className="indent-4">(공무원, 회사원, IT업계, 운전 관련,</p>
+                    <p className="indent-4">학생, 연구원 등).</p>
+                </div>
+
+                <div className="text-right text-xs pt-20">
+                    <p>밴드, 짐볼, 덤벨, 필라테스 기구 이용.</p>
+                    <p>레슨 1회에 50분간 진행. (주 2회 이상 추천)</p>
                 </div>
             </div>
         </div>

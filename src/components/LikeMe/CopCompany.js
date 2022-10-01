@@ -28,7 +28,7 @@ const CopCompany = () => {
       
     return(
         <>
-        <div className="w-[70vw] h-full m-auto grid grid-cols-3 gap-12 ">
+        <div className="w-[70vw] h-full m-auto grid md:grid-cols-3 grid-cols-1 gap-12 ">
             {images.map((src, index) => (
                 <img
                     src={ src }

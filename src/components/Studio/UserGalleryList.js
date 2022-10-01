@@ -11,7 +11,6 @@ import AuthContext from '../../Contexts/AuthContext';
 import ShowModal from '../ShowModal';
 import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
-import EditModal from '../EditModal';
 
 const UserGalleryList = () => {
     const { user } = useContext(AuthContext);
@@ -65,7 +64,7 @@ const UserGalleryList = () => {
             {user && (
                 <div className='flex'>
                     <Button 
-                        className='ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
+                        className='add-btn md:ml-auto my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
                         onClick={()=>{
                             navigate(thisPage+"/AddNewPost", {
                                 state:{
@@ -81,7 +80,7 @@ const UserGalleryList = () => {
                     </Button>
                 </div>
             )}
-            <div className='imgbox w-full h-full mt-12 grid grid-cols-6 gap-4'>
+            <div className='imgbox w-full h-full mt-12 grid md:grid-cols-6 grid-cols-1 gap-4'>
                 {rowData.sort((a, b) => {
                     return b.id - a.id
                 }).map((row, index) => {

@@ -92,7 +92,7 @@ const DetailContents = ({data}) => {
         <div id="5" name="5" className='content'>
             <div className='banner h-[40vh]  w-full relative bg-gray-400'>
                 <div className='h-auto w-full absolute top-[50%] translate-y-1/2'>
-                    <Label className='w-full h-full m-auto text-center text-4xl text-white font-bold'>{data.parentPageName}</Label>
+                    <Label className='label-shadow w-full h-full m-auto text-center text-4xl text-white font-bold'>{data.parentPageName}</Label>
                 </div>
             </div>
             <div className='w-full h-full bg-white relative '>
@@ -122,28 +122,28 @@ const DetailContents = ({data}) => {
             <div className="w-[80vw] min-h-[100vh] h-full m-auto pb-20">
                 <div className="pt-20 pb-10 text-left flex">
                         <BsBookmark size={30} className="my-auto mr-4"/>
-                        <Label className="font-bold text-3xl">Read Post From {data.parent}</Label>
+                        <Label className="font-bold md:text-3xl text-lg">Read Post From {data.parent}</Label>
                 </div>
                 <div className=" w-full h-full text-left">
-                    <Label
-                        className="w-full h-full h-[8vh] text-4xl font-bold"
+                    <p
+                        className="w-full h-full md:max-w-[80%] max-w-[250px] text-ellipsis overflow-hidden h-[8vh] md:text-4xl text-xl font-bold"
                     >
                         {detailData.title}
-                    </Label>
+                    </p>
                 </div>
                 <div className="flex">
                     <hr
-                        className="w-[10vh] bg-black h-2 my-4"
+                        className="w-[10vh] bg-[#93AEF9] h-2 my-4"
                     />
-                    <div className="ml-auto flex space-x-4">
-                        <Label className="text-gray-400 text-sm ">작성일 : {moment(detailData.created_at).format('YYYY-MM-DD')}</Label>
+                    <div className="ml-auto flex md:flex-row flex-col md:space-x-4">
+                        <Label className="text-gray-400 md:text-sm text-xs">작성일 : {moment(detailData.created_at).format('YYYY-MM-DD')}</Label>
                         {detailData.updated_at && (
-                            <Label className="text-gray-400 text-sm ">수정일 : {moment(detailData.updated_at).format('YYYY-MM-DD')}</Label>
+                            <Label className="text-gray-400 md:text-sm text-xs">수정일 : {moment(detailData.updated_at).format('YYYY-MM-DD')}</Label>
                         )}
                     </div>
                     
                 </div>
-                <div className="min-h-[50vh] text-left border-y p-10 " dangerouslySetInnerHTML={{__html: detailData.content}}>
+                <div className="min-h-[50vh] text-left border-y md:p-10 p-4 " dangerouslySetInnerHTML={{__html: detailData.content}}>
                 </div>
                 <div className="flex justify-end my-4 space-x-2">
                     <Button className="bg-yellow-500 font-bold text-white py-2 px-5 rounded-lg" onClick={()=>{navigate(-1)}}>뒤로가기</Button>

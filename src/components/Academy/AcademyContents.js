@@ -22,7 +22,7 @@ const AcademyContents = () => {
         <div id="5" name="5" className='content'>
             <div className='banner h-[40vh]  w-full relative bg-gray-400'>
                 <div className='h-auto w-full absolute top-[50%] translate-y-1/2'>
-                    <Label className='w-full h-full m-auto text-center text-4xl text-white font-bold'>아카데미</Label>
+                    <Label className='label-shadow w-full h-full m-auto text-center text-4xl text-white font-bold'>아카데미</Label>
                 </div>
             </div>
             <div className='w-full h-full bg-white relative '>

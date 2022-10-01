@@ -35,11 +35,10 @@ const formats = [
 
 const ShowModal = (props) => {
     const { open, close, data } = props;
-
     return (
         <div className={open ? 'openModal modal' : 'modal'}>
         {open ? (
-            <section className="w-full max-w-[30%] max-h-[90vh]">
+            <section className="w-full md:max-w-[30%] max-w-[80vw] max-h-[90vh]">
                 <header className="flex p-4">
                     <div className="flex">
                         <BiMap size={40} className="mr-2"/>
@@ -62,24 +61,29 @@ const ShowModal = (props) => {
                     <div className="w-full mt-6">
                         <Table className="w-full h-[25vh]">
                             <tr className="border-y-2 ">
-                                <td className="w-[20%] font-bold border-r">지점명</td>
-                                <td className="text-left px-4">{data.label}</td>
+                                <td className="md:w-[20%] w-[30%] font-bold border-r">지점명</td>
+                                <td className="text-left px-4 md:text-base text-sm">{data.label}</td>
                             </tr>
                             <tr className="border-y-2">
                                 <td className="w-[20%] font-bold border-r">전화번호</td>
-                                <td className="text-left px-4">{data.tel}</td>
+                                <td className="text-left px-4 md:text-base text-sm">{data.tel}</td>
                             </tr>
                             <tr className="border-y-2">
                                 <td className="w-[20%] font-bold border-r">주소</td>
-                                <td className="text-left px-4">{data.address}</td>
+                                <td className="text-left px-4 md:text-base text-sm">
+                                    {data.address}
+                                </td>
                             </tr>
                             <tr className="border-y-2">
                                 <td className="w-[20%] font-bold border-r">운영시간</td>
-                                <td className="text-left px-4">{data.open}</td>
+                                <td className="text-left px-4 md:text-base text-sm">
+                                    <p className="break-normal">{data.dayOpen}</p>
+                                    <p className="break-normal">{data.weekOpen}</p>
+                                </td>
                             </tr>
                             <tr className="border-y-2">
                                 <td className="w-[20%] font-bold border-r">주차정보</td>
-                                <td className="text-left px-4"></td>
+                                <td className="text-left px-4 md:text-base text-sm"></td>
                             </tr>
                         </Table>
                     </div>

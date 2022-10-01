@@ -11,7 +11,7 @@ import {
 
 //viedo
 import ReactPlayer from 'react-player'
-import typeDiet from '../assets/video/다이어트.mp4';
+import typeDiet from '../assets/video/다이어트1.mp4';
 import bodyprofile from '../assets/video/바디프로필.mp4';
 import child from '../assets/video/청소년.mp4';
 import pain from '../assets/video/통증.mp4';
@@ -40,14 +40,14 @@ const ProgramDetail = () => {
                 <div id="5" name="5" className='content'>
                     <div className='banner h-[40vh] w-full relative bg-gray-400'>
                         <div className='h-auto w-full absolute top-[50%] translate-y-1/2'>
-                            <Label className='w-full h-full m-auto text-center text-4xl text-white font-bold'>{parent}</Label>
+                            <Label className='label-shadow w-full h-full m-auto text-center text-4xl text-white font-bold'>{parent}</Label>
                         </div>
                     </div>
-                    <div className='w-full min-h-[100vh] py-20 bg-white'>
-                        <Label className='font-bold text-4xl'>{programName}</Label>
+                    <div className='w-[80vw] min-h-[100vh] py-20 bg-white m-auto'>
+                        <Label className='font-bold md:text-4xl text-xl'>{programName}</Label>
                         
-                        <div className="w-full h-full pt-20 ">
-                            <div className="w-[50vw] bg-blue-300 m-auto">
+                        <div className="w-full h-full md:pt-20 pt-10">
+                            <div className="md:w-[50vw] w-[80vw] m-auto">
                                 <ReactPlayer
                                     className=""
                                     width={'100%'}

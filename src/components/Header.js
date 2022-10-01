@@ -32,8 +32,8 @@ const Header = () => {
     };
 
     const places = [
-        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', open: "평일 06:00 - 23:00  토요일 10:00 - 18:00", parking: "2시간 무료",img: mogokImg,  lat:37.559249, lng:126.826098},
-        { value: '우장산역점', label: '우장산역점', tel: '0507-1461-0285', address:'서울 강서구 강서로45길 49-4 B1층 (내발산동, 태승훼미리아파트 5차)', open: "평일 06:00 - 24:00  토요일 10:00 - 18:00", img: ujangsanImg, lat:37.547880, lng:126.832767 },
+        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: mogokImg,  lat:37.559249, lng:126.826098},
+        { value: '우장산역점', label: '우장산역점', tel: '0507-1461-0285', address:'서울 강서구 강서로45길 49-4 B1층 (내발산동, 태승훼미리아파트 5차)', dayOpen: "평일 06:00 - 24:00", weekOpen:"토요일 10:00 - 18:00", img: ujangsanImg, lat:37.547880, lng:126.832767 },
     ]
     
     return(
@@ -140,9 +140,9 @@ const Header = () => {
             {/* Hamburger Menu */}
             <div className="w-full h-[4rem] md:hidden block border-b-[2px]">
                 <div className="flex">
-                    <div className="p-0 m-0 w-full h-6 m-4 cursor-pointer ">
+                    <div className="p-0 m-0 w-20 h-6 m-4 cursor-pointer ">
                         <Link to ="/">
-                            <img className="object-cover h-6" alt="main_logo" src={mainLogo } />
+                            <img className="object-cover h-6" alt="main_logo" src={mainLogo} />
                         </Link>
                     </div>
                     <Button className="ml-auto m-4" onClick={()=>{setMenuToggle(!menuToggle)}}>

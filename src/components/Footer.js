@@ -14,7 +14,7 @@ const Footer = () => {
     
     return(
         <>
-        <div className="h-[20rem] p-6 bg-[#f0f0f0]">
+        <div className="h-full p-6 bg-[#f0f0f0]">
             <div className="md:w-[65%] w-[100%] m-auto">
                 <div className="p-0 m-0 md:w-[10%] w-[20%] m-4 ml-4 cursor-pointer">
                     <Link to="/">

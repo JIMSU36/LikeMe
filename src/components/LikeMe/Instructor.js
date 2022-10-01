@@ -292,13 +292,12 @@ const Instructor = () => {
                     <div className="text-sm mt-4">
                         <div className="flex flex-col">
                             <p>- 생활스포츠 지도자 공인자격 취득</p>
-                            <p className="mt-2">- 축구선수 트레이닝 전문강사</p>
-                            <p className="mt-2">- 기능성 운동 및 운동재활 처방사</p>
-                            <p className="mt-2">- 스포츠의학 트레이닝 아카데미 교육 강사</p>
-                            <p className="mt-2">- 고혈압, 당뇨질환 및 대사 개선 전문강사</p>
-                            <p className="mt-2">- 바디프로필, 웨이트트레이닝 전문가사</p>
-                            <p className="mt-2">- 선수, 일반인 컨디셔닝 전문가</p>
-                            <p className="mt-2">- 바디쉐입, 바디 디자인 전문가</p>
+                            <p className="mt-2">- 인천 연수구청 씨름단 의무 트레이너</p>
+                            <p className="mt-2">- 국가대표 마라토너 전담 의무 트레이너</p>
+                            <p className="mt-2">- 마곡 LG사이언스 임직원 건강 트레이너</p>
+                            <p className="mt-2">- 강서구 선발 수영선수 전담 트레이너</p>
+                            <p className="mt-2">- 서울시 인증 건강 운동 강사</p>
+                            <p className="mt-2">- 호주 BMW 임직원 건강 관리사</p>
                         </div>
                     </div>
                     </>

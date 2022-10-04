@@ -76,6 +76,7 @@ const Header = () => {
                         <Select 
                             className="place-select text-black"
                             placeholder='지점 선택' 
+                            isSearchable={ false } 
                             options={places}  
                             value={places.find((op)=>{
                                 return op.value === selectPlace;

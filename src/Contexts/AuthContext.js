@@ -41,7 +41,7 @@ export const AuthProvider = ({ children }) => {
       navigate("/")
       
     } else {
-      alert("Something went wrong!");
+      alert("관리자 계정이 아닙니다.");
     }
   };
   

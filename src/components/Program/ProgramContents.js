@@ -48,6 +48,7 @@ const ProgramContents = () => {
                         <Select
                             className='program-select mt-10 w-[10vw] h-[5vh] m-auto'
                             placeholder='지점 선택' 
+                            isSearchable={ false } 
                             options={places}  
                             value={places.find((op)=>{
                                 return op.value === selectPlace;

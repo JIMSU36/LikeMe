@@ -67,7 +67,8 @@ const ViewMap = () => {
                 <div className='w-full max-h-[60%] px-6 flex flex-col overflow-y-auto'>
                     <Select 
                         className="map-place-select text-black text-left"
-                        placeholder='지점 선택' 
+                        placeholder='지점 선택'
+                        isSearchable={ false } 
                         options={places}  
                         value={places.find((op)=>{
                             return op.value === selectPlace;

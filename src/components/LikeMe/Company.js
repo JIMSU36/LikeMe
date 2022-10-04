@@ -106,21 +106,14 @@ const Company = () => {
                 </div>
 
                 {/* 모바일 화면 */}
+                {/* 사진 넣기 */}
                 <div className="md:hidden company-group w-full h-full flex text-left">
                     <div className="">
                         <div className="py-10 text-sm">
-                            <p>'집에서 키우는 강아지라도 평생을 함께할 </p>
-                            <p>반려견이라 생각하고 키우는지</p>
-                            <p>잡아먹으려고 키우는지 아는데,</p>
-                            <p>하물며, 만물의 영장인 인간이</p>
-                            <p>진심으로 대하는지 아닌지를 모르겠는가?'</p>
-                            <p className="mt-6">안녕하세요</p>
+                            <p>안녕하세요</p>
                             <p>라이크미 피트니스 솔루션</p>
                             <p>김택규 대표이사 입니다.</p>
-                            <p className="mt-6">오랜시간동안 운동레슨에 종사하면서</p>
-                            <p>가장 크게 깨달은 것은</p>
-                            <p>고객에게 진심을 다할 때</p>
-                            <p>고객이 먼저 내 진심을 알아준다는 것입니다.</p>
+                           
                             <p className="mt-6">저희 라이크미는</p>
                             <p>항상 진심으로 고객님들에게 다가설 것이고,</p>
                             <p>어떤 만족을 드릴 수 있는지</p>

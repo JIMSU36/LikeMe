@@ -9,6 +9,8 @@ import {
 import moment from 'moment';
 import AuthContext from '../../Contexts/AuthContext';
 
+import Config from "../../config";
+
 const InstructorList = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -18,7 +20,7 @@ const InstructorList = () => {
 
     useEffect(()=>{
         axios
-        .get("http://127.0.0.1:8000/getInstructor/")
+        .get(`${Config.restApi}/getInstructor`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);

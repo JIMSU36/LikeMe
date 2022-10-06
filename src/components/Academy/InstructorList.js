@@ -20,7 +20,7 @@ const InstructorList = () => {
 
     useEffect(()=>{
         axios
-        .get(`${Config.restApi}/getInstructor`)
+        .get(`${Config.restApi}/getInstructor/`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);

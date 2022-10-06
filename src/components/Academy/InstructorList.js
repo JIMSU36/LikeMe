@@ -37,7 +37,6 @@ const InstructorList = () => {
             }
 
             setRowData(row);
-            console.log(rowData)
         } catch (error) {
           const { data, status } = error.response;
           console.log(status);
@@ -56,6 +55,7 @@ const InstructorList = () => {
             }
         })
     }
+    console.log(rowData)
 
     return(
         <>

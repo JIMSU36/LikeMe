@@ -19,17 +19,31 @@ const InstructorList = () => {
 
 
     useEffect(()=>{
-        axios
-        .get(`${Config.restApi}/getInstructor`)
-        .then((response) => {
-            setRowData([...response.data]);
-            console.log(response.data);
-        })
-        .catch(function (error) {
-            console.log(error);
-        });
+        fetchData();
     },[])
 
+    async function fetchData() {
+        try {
+            let result = await axios.get(
+                `${Config.restApi}/getInstructor`
+            );
+
+            const data = result.data;
+            const row = [];
+    
+            for (let index = 0; index < data.length; index++) {
+                const element = data[index];
+                row.push({element});
+            }
+
+            setRowData(row);
+        } catch (error) {
+          const { data, status } = error.response;
+          console.log(status);
+          console.log(data);
+          alert(data.message);
+        }
+    }
 
     const showDetail = (row, idx) => {
         navigate(thisPage+"/"+row.title, {

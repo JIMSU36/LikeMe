@@ -41,6 +41,7 @@ const ViewMap = () => {
                 style={{ width: "100%", height: "100%" }}
                 level={selectPlace ? 3 : 8}
                 zoomable={false}
+                draggable={false}
             >
                 <MapMarker 
                     position={{ lat: selectPlace.lat, lng:selectPlace.lng }}

@@ -6,7 +6,6 @@ import {
     Nav,
     NavItem,
     NavLink,
-    Input
 } from "reactstrap";
 import moment from "moment";
 import { useApplicationContext } from "../Contexts/TabContext";
@@ -25,10 +24,6 @@ const DetailContents = ({data}) => {
     console.log(detailData)
     
     useEffect(()=>{
-        FetchData();
-    },[])
-
-    const FetchData = () => {
         data.tab === "instructor" ? (
             axios
             .get(`${Config.restApi}/getInstructor/`+data.data.id)
@@ -48,8 +43,8 @@ const DetailContents = ({data}) => {
                 console.log(error);
             })
         )
-       
-    }
+    },[])
+
 
 	const handleChange = (value) => {
 		setTab(value);

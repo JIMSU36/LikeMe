@@ -1,37 +1,10 @@
-import React, { useEffect, useState } from "react"
+import React from "react"
 import {
     Label,
     Button,
     Table,
-    Input,
 } from "reactstrap";
 import { BiMap, BiX, BiImage } from "react-icons/bi";
-import { GrUpload, GrTrash } from "react-icons/gr";
-import FileBase64 from "react-file-base64";
-import axios from "axios";
-import moment from "moment";
-import { Navigate, useNavigate } from "react-router-dom";
-
-const modules = {
-    toolbar: [
-        //[{ 'font': [] }],
-        [{ 'header': [1, 2, false] }],
-        ['bold', 'italic', 'underline','strike', 'blockquote'],
-        [{'list': 'ordered'}, {'list': 'bullet'}, {'indent': '-1'}, {'indent': '+1'}],
-        ['link', 'image'],
-        [{ 'align': [] }, { 'color': [] }, { 'background': [] }],          // dropdown with defaults from theme
-        ['clean']
-    ],
-}
-
-const formats = [
-    //'font',
-    'header',
-    'bold', 'italic', 'underline', 'strike', 'blockquote',
-    'list', 'bullet', 'indent',
-    'link', 'image',
-    'align', 'color', 'background',        
-]
 
 const ShowModal = (props) => {
     const { open, close, data } = props;

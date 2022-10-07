@@ -1,11 +1,8 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import {
     Label,
     Button,
-    Nav,
-    NavItem,
-    NavLink
 } from "reactstrap";
 
 //images

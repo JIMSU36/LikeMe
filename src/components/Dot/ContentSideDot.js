@@ -1,11 +1,10 @@
-import React, { useState } from "react"
+import React from "react"
 import { Link } from "react-scroll"
 
 import { useResultContext } from "../../Contexts/ScrollNumContext";
 
 const ContentSideDot = () => {
     const { setScrollNum } = useResultContext();
-    const { scrollNum } = useResultContext();
 
     const handleSetActive = to => {
         setScrollNum(to);

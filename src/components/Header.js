@@ -1,8 +1,7 @@
 import React, { useContext, useEffect, useRef, useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import mainLogo from '../assets/images/main_logo.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
-import naverTalk from '../assets/images/naverTalkLogo.png';
 import { useResultContext } from "../Contexts/ScrollNumContext";
 import Select from 'react-select'
 import {AiOutlineInstagram, AiFillYoutube, AiOutlineMenu} from "react-icons/ai";
@@ -17,7 +16,6 @@ import { Button, Label } from "reactstrap";
 
 const Header = () => {
     const { user, logoutUser } = useContext(AuthContext);
-    const navigate = useNavigate();
     const {scrollNum} = useResultContext();
     const [selectPlace, setSelectPlace] = useState();
 

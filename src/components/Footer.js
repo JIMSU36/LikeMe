@@ -10,7 +10,7 @@ import {
 import AuthContext from '../Contexts/AuthContext';
 
 const Footer = () => {
-    const { user, logoutUser } = useContext(AuthContext);
+    const { user } = useContext(AuthContext);
     
     return(
         <>

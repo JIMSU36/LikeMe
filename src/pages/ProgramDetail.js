@@ -6,7 +6,6 @@ import Header from "../components/Header";
 import { ResultContextProvider } from '../Contexts/ScrollNumContext';
 import {
     Label,
-    Button,
 } from "reactstrap";
 
 //viedo

@@ -17,7 +17,6 @@ import FileBase64 from "react-file-base64";
 import ImageResize from "quill-image-resize-module-react";
 import moment from "moment";
 import { useApplicationContext } from "../Contexts/TabContext";
-import useAxios from "../utils/useAxios";
 import Config from "../config";
 
 Quill.register("modules/imageResize", ImageResize);

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import {
     Label,
-    Button,
     Nav,
     NavItem,
     NavLink
 } from "reactstrap";
-import { ApplicationContextProvider, useApplicationContext } from '../../Contexts/TabContext';
+import { useApplicationContext } from '../../Contexts/TabContext';
 import InstructorList from './InstructorList';
 import TrainerList from './TrainerList';
 

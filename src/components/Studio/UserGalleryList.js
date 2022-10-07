@@ -2,14 +2,9 @@ import React, { useCallback, useContext, useEffect, useState } from 'react';
 import ImageViewer from 'react-simple-image-viewer';
 import axios from "axios";
 import {
-    Label,
     Button,
-    Table,
 } from "reactstrap";
-import moment from 'moment';
 import AuthContext from '../../Contexts/AuthContext';
-import ShowModal from '../ShowModal';
-import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 
 import Config from '../../config';

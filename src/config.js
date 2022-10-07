@@ -1,4 +1,4 @@
 export default {
-    restApi: "https://api.likeme-fs.com", // API
+    restApi: "api.likeme-fs.com", // API
   };
   

@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext, useEffect, useRef, useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import mainLogo from '../assets/images/main_logo.png';
 import mainWhiteLogo from '../assets/images/logo_white.png';
@@ -23,6 +23,20 @@ const Header = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [menuToggle, setMenuToggle] = useState(false);
+    const hamburger = useRef();
+
+    useEffect(()=>{
+        document.addEventListener('mousedown', handleCloseToggle);
+        return () => {
+            document.removeEventListener('mousedown', handleCloseToggle);
+        }
+    },[])
+
+    const handleCloseToggle = (e) => {
+        if (!hamburger.current.contains(e.target)) { //현재 클릭한 곳이 메뉴 컴포넌트 안이 아니면 닫기      
+            setMenuToggle(false);    
+        }
+    }
 
     const openModal = () => {
         setShowModal(true);
@@ -154,6 +168,7 @@ const Header = () => {
 
             {/* Hamburger Menu Item */}
             <div
+                ref={hamburger}
                 className={classNames(
                     "md:hidden absolute text-center bg-white shadow-lg z-[999] w-60 right-0 top-[4rem] h-[60vh] overflow-y-auto",
                     { hidden: !menuToggle }

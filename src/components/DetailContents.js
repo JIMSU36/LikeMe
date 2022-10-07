@@ -14,6 +14,8 @@ import { BsBookmark } from "react-icons/bs";
 import axios from "axios";
 import AuthContext from "../Contexts/AuthContext";
 
+import Config from '../config'
+
 const DetailContents = ({data}) => {
     const { user } = useContext(AuthContext);
     const [detailData, setDetailData] = useState("");
@@ -29,7 +31,7 @@ const DetailContents = ({data}) => {
     const FetchData = () => {
         data.tab === "instructor" ? (
             axios
-            .get("http://127.0.0.1:8000/getInstructor/"+data.data.id)
+            .get(`${Config.restApi}/getInstructor/`+data.data.id)
             .then((response) => {
                 setDetailData(response.data);
             })
@@ -38,7 +40,7 @@ const DetailContents = ({data}) => {
             })
         ) : data.tab === "trainer" && (
             axios
-            .get("http://127.0.0.1:8000/getTrainer/"+data.data.id)
+            .get(`${Config.restApi}/getTrainer/`+data.data.id)
             .then((response) => {
                 setDetailData(response.data);
             })
@@ -58,7 +60,7 @@ const DetailContents = ({data}) => {
     const deletePost = (id) => {
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
             if(data.tab === "instructor"){
-                axios.delete("http://127.0.0.1:8000/deleteInstructor/"+id)
+                axios.delete(`${Config.restApi}/deleteInstructor/`+id)
                 .then((response) => {
                     navigate(-1);
                     
@@ -68,7 +70,7 @@ const DetailContents = ({data}) => {
                 });
             }
             else if(data.tab === "trainer"){
-                axios.delete("http://127.0.0.1:8000/deleteTrainer/"+id)
+                axios.delete(`${Config.restApi}/deleteTrainer/`+id)
                 .then((response) => {
                     navigate(-1);
                     

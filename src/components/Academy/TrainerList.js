@@ -9,6 +9,10 @@ import {
 import moment from 'moment';
 import AuthContext from '../../Contexts/AuthContext';
 
+
+import Config from "../../config";
+
+
 const TrainerList = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
@@ -17,7 +21,7 @@ const TrainerList = () => {
 
     useEffect(()=>{
         axios
-        .get("http://127.0.0.1:8000/getTrainer/")
+        .get(`${Config.restApi}/getTrainer/`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);

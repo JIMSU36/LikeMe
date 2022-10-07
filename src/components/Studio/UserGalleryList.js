@@ -12,6 +12,8 @@ import ShowModal from '../ShowModal';
 import { AiOutlineEye } from "react-icons/ai";
 import { useNavigate } from 'react-router-dom';
 
+import Config from '../../config';
+
 const UserGalleryList = () => {
     const { user } = useContext(AuthContext);
     const [, updateState] = useState();
@@ -39,7 +41,7 @@ const UserGalleryList = () => {
 
     useEffect(()=>{
         axios
-        .get("http://127.0.0.1:8000/getGallery/")
+        .get(`${Config.restApi}/getGallery/`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);

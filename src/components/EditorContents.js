@@ -18,6 +18,7 @@ import ImageResize from "quill-image-resize-module-react";
 import moment from "moment";
 import { useApplicationContext } from "../Contexts/TabContext";
 import useAxios from "../utils/useAxios";
+import Config from "../config";
 
 Quill.register("modules/imageResize", ImageResize);
 
@@ -72,7 +73,7 @@ const EditorContents = ({parentPage}) => {
     const FetchData = () => {
         if(parentPage.action === "edit"){
             if(parentPage.tab === "instructor"){
-                return axios.get("http://127.0.0.1:8000/getInstructor/"+parentPage.data.id)
+                return axios.get(`${Config.restApi}/getInstructor/`+parentPage.data.id)
                 .then((response)=>{
                     setDetailData(response.data);
                     setTitle(response.data.title);
@@ -88,7 +89,7 @@ const EditorContents = ({parentPage}) => {
                 });
             }
             else if(parentPage.tab === "trainer"){
-                return axios.get("http://127.0.0.1:8000/getTrainer/"+parentPage.data.id)
+                return axios.get(`${Config.restApi}/getTrainer/`+parentPage.data.id)
                 .then((response)=>{
                     setDetailData(response.data);
                     setTitle(response.data.title);
@@ -104,7 +105,7 @@ const EditorContents = ({parentPage}) => {
                 });
             }
             else if(parentPage.tab === "gallery"){
-                return axios.get("http://127.0.0.1:8000/getGallery/"+parentPage.data.id)
+                return axios.get(`${Config.restApi}/getGallery/`+parentPage.data.id)
                 .then((response)=>{
                     setDetailData(response.data);
                     setTitle(response.data.title);
@@ -130,7 +131,7 @@ const EditorContents = ({parentPage}) => {
         if(parentPage.parent === "Academy"){
             if(parentPage.tab === "instructor"){
                 
-                axios.post("http://127.0.0.1:8000/postInstructor/", {
+                axios.post(`${Config.restApi}/postInstructor/`, {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
@@ -145,7 +146,7 @@ const EditorContents = ({parentPage}) => {
                 });
             }
             else if(parentPage.tab === "trainer"){
-                axios.post("http://127.0.0.1:8000/postTrainer/", {
+                axios.post(`${Config.restApi}/postTrainer/`, {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
@@ -160,7 +161,7 @@ const EditorContents = ({parentPage}) => {
                 });
             }
         }else if(parentPage.parent === "Studio"){
-            axios.post("http://127.0.0.1:8000/postGallery/", {
+            axios.post(`${Config.restApi}/postGallery/`, {
                 title: title,
                 img:thumb[0].base64,
                 created_at: moment().format('YYYY-MM-DD')
@@ -178,7 +179,7 @@ const EditorContents = ({parentPage}) => {
     const editPost = (id) => {
         if(parentPage.parent === "Academy"){
             if(parentPage.tab === "instructor"){
-                axios.put("http://127.0.0.1:8000/putInstructor/"+id, {
+                axios.put(`${Config.restApi}/putInstructor/`+id, {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
@@ -194,7 +195,7 @@ const EditorContents = ({parentPage}) => {
                 });
             }
             else if(parentPage.tab === "trainer"){
-                axios.put("http://127.0.0.1:8000/putTrainer/"+id, {
+                axios.put(`${Config.restApi}/putTrainer/`+id, {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
@@ -211,7 +212,7 @@ const EditorContents = ({parentPage}) => {
             }
         }
         else if(parentPage.parent === "Studio"){
-            axios.put("http://127.0.0.1:8000/putGallery/"+id, {
+            axios.put(`${Config.restApi}/putGallery/`+id, {
                 title: title,
                 img:thumb[0].base64,
                 updated_at: moment().format('YYYY-MM-DD')
@@ -229,7 +230,7 @@ const EditorContents = ({parentPage}) => {
 
     const deletePost = (id) => {
         if (window.confirm("정말로 삭제 하시겠습니까?")) {
-            axios.delete("http://127.0.0.1:8000/deleteGallery/"+id)
+            axios.delete(`${Config.restApi}/deleteGallery/`+id)
             .then((response) => {
                 navigate(-1);
                 

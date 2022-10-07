@@ -1,5 +1,5 @@
-import React from "react";
-import { Link } from "react-scroll";
+import React, { useState } from "react"
+import { Link } from "react-scroll"
 
 import { useResultContext } from "../../Contexts/ScrollNumContext";
 

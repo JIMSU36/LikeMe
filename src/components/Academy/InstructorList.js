@@ -88,7 +88,7 @@ const InstructorList = () => {
                                             <img
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}
-                                                alt="thumb"
+                                                alt={row.decodeImg !== "" ? row.title+" thumb" : ""}
                                             />
                                         )}
                                     </div>

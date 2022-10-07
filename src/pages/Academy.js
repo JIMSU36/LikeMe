@@ -1,10 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import ContentSideDot from '../components/Dot/ContentSideDot';
 import { ResultContextProvider } from '../Contexts/ScrollNumContext';
 import AcademyContents from '../components/Academy/AcademyContents';
-import { useLocation } from 'react-router-dom';
 
 const Academy = () => {
     return(

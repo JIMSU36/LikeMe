@@ -1,16 +1,11 @@
-import React, { useEffect, useState } from "react"
+import React, { useState } from "react"
 import {
     Label,
     Button,
-    Table,
     Input,
 } from "reactstrap";
-import { BiMap, BiX, BiImage } from "react-icons/bi";
-import { GrUpload, GrTrash } from "react-icons/gr";
-import FileBase64 from "react-file-base64";
-import axios from "axios";
-import moment from "moment";
-import { Navigate, useNavigate } from "react-router-dom";
+import { BiX, BiImage } from "react-icons/bi";
+import { useNavigate } from "react-router-dom";
 
 
 const EditModal = (props) => {

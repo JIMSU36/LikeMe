@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { GrNext } from "react-icons/gr";
 import {
     Label,
@@ -15,7 +15,6 @@ import ShowModal from '../ShowModal';
 import imgMarker from '../../assets/images/마커.png'
 
 const ViewMap = () => {
-    const [zoomable, setZoomable] = useState(true)
     const [selectPlace, setSelectPlace] = useState("");
     const places = [
         { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: mogokImg,  lat:37.559249, lng:126.826098},
@@ -41,6 +40,7 @@ const ViewMap = () => {
                 style={{ width: "100%", height: "100%" }}
                 level={selectPlace ? 3 : 8}
                 zoomable={false}
+                draggable={false}
             >
                 <MapMarker 
                     position={{ lat: selectPlace.lat, lng:selectPlace.lng }}

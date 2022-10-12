@@ -5,13 +5,18 @@ import {
     NavItem,
     NavLink
 } from "reactstrap";
+import { useLikeMeTabContext } from '../../Contexts/LikeMeTabContext';
 import Company from './Company';
 import CopCompany from './CopCompany';
 import Instructor from './Instructor';
 
 
 const LiKeMeContents = () => {
-    const [selectTab, setSelectTab] = useState("회사소개");
+    const { ltab } = useLikeMeTabContext();
+    const { setlTab } = useLikeMeTabContext();
+
+    console.log(ltab)
+
 
     return(
         <>
@@ -28,9 +33,9 @@ const LiKeMeContents = () => {
                 <Nav className='w-full h-full flex space-x-6 text-lg justify-center border-b-2'>
                     <NavItem className='md:px-6 py-[2vh] h-full'>
                         <NavLink 
-                            className={selectTab === "회사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
+                            className={ltab === "회사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
-                                setSelectTab("회사소개")
+                                setlTab("회사소개")
                             }}
                         >
                             회사소개
@@ -38,9 +43,9 @@ const LiKeMeContents = () => {
                     </NavItem>
                     <NavItem className='md:px-6 py-[2vh]'>
                         <NavLink 
-                            className={selectTab === "강사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
+                            className={ltab === "강사소개" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
-                                setSelectTab("강사소개")
+                                setlTab("강사소개")
                             }}
                         >
                             강사소개
@@ -48,9 +53,9 @@ const LiKeMeContents = () => {
                     </NavItem>
                     <NavItem className='md:px-6 py-[2vh]'>
                         <NavLink 
-                            className={selectTab === "협력업체" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
+                            className={ltab === "협력업체" ? "active cursor-pointer font-bold py-[2vh] border-b-4 border-[#93AEF9]" : "cursor-pointer "}
                             onClick={() => {
-                                setSelectTab("협력업체")
+                                setlTab("협력업체")
                             }}
                         >
                             협력업체
@@ -59,17 +64,17 @@ const LiKeMeContents = () => {
                 </Nav>
             </div>
             <div className='w-full h-full py-20 bg-white'>
-                <Label className='font-bold text-4xl'>{selectTab}</Label>
+                <Label className='font-bold text-4xl'>{ltab}</Label>
                 <div className='w-full h-full py-20'>
-                    {selectTab === "회사소개" ? (
+                    {ltab === "회사소개" ? (
                         <>
                         <Company/>
                         </>
-                    ) : selectTab === "강사소개" ? (
+                    ) : ltab === "강사소개" ? (
                         <>
                         <Instructor/>
                         </>
-                    ) : selectTab === "협력업체" && (
+                    ) : ltab === "협력업체" && (
                         <>
                         <CopCompany/>
                         </>

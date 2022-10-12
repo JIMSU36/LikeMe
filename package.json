@@ -19,6 +19,7 @@
     "netlify-cli": "^11.5.1",
     "quill-image-resize-module-react": "^3.0.0",
     "react": "^18.2.0",
+    "react-color-palette": "^6.2.0",
     "react-cookie": "^4.1.1",
     "react-dom": "^18.2.0",
     "react-file-base64": "^1.0.3",

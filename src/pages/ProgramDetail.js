@@ -10,7 +10,7 @@ import {
 
 //viedo
 import ReactPlayer from 'react-player'
-import typeDiet from '../assets/video/다이어트1.mp4';
+import typeDiet from '../assets/video/유지어터.mp4';
 import bodyprofile from '../assets/video/바디프로필.mp4';
 import child from '../assets/video/청소년.mp4';
 import pain from '../assets/video/통증.mp4';

@@ -5,7 +5,7 @@ import {
     NavItem,
     NavLink
 } from "reactstrap";
-import { useApplicationContext } from '../../Contexts/TabContext';
+import { useApplicationContext } from '../../Contexts/ListTabContext';
 import InstructorList from './InstructorList';
 import TrainerList from './TrainerList';
 

@@ -11,7 +11,8 @@ import Studio from './pages/Studio';
 import AddNewPost from './pages/AddNewPost';
 import ProgramDetail from './pages/ProgramDetail';
 import DetailPost from './pages/DetailPost';
-import { ApplicationContextProvider } from './Contexts/TabContext';
+import { ApplicationContextProvider } from './Contexts/ListTabContext';
+import { LikeMeTabContextProvider } from './Contexts/LikeMeTabContext';
 import { AuthProvider } from './Contexts/AuthContext';
 import LoginPage from './pages/LoginPage';
 import PrivateRoute from './utils/PrivateRoute';
@@ -20,6 +21,7 @@ function App() {
   return (
     <div className="App">
       <ApplicationContextProvider>
+        <LikeMeTabContextProvider>
           <BrowserRouter>
             <AuthProvider>
               <ScrollToTop/>
@@ -42,7 +44,8 @@ function App() {
               </Routes>
             </AuthProvider>
           </BrowserRouter>
-        </ApplicationContextProvider>
+        </LikeMeTabContextProvider>
+      </ApplicationContextProvider>
     </div>
   );
 }

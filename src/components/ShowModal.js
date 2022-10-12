@@ -4,7 +4,7 @@ import {
     Button,
     Table,
 } from "reactstrap";
-import { BiMap, BiX, BiImage } from "react-icons/bi";
+import { BiMap, BiX } from "react-icons/bi";
 
 const ShowModal = (props) => {
     const { open, close, data } = props;
@@ -82,26 +82,6 @@ const ShowModal = (props) => {
                     >
                         네이버 예약
                     </Button>
-                    {/* {data.label === "마곡역점" ? (
-                        <Button 
-                            className="close px-4 py-2 rounded-lg text-white font-bold bg-[#93AEF9] hover:bg-[#758BC7]"
-                            onClick={()=>{
-                                window.open('https://naver.me/FzHyeLd7', '_blank')
-                                
-                            }}
-                        >
-                            네이버 예약
-                        </Button>
-                    ) : data.label === "우장산역점" && (
-                        <Button 
-                            className="close px-4 py-2 rounded-lg text-white font-bold bg-[#93AEF9] hover:bg-[#758BC7]"
-                            onClick={()=>{
-                                window.open('https://naver.me/xagwCqkd', '_blank')
-                            }}
-                        >
-                            네이버 상담
-                        </Button>
-                    )} */}
                 </footer>
             </section>
         ) : null}

@@ -1,10 +1,8 @@
-import React, { useCallback, useContext, useEffect, useMemo, useState } from "react"
+import React, { useCallback, useContext, useEffect, useState } from "react"
 import ImageViewer from 'react-simple-image-viewer';
 import { useNavigate } from 'react-router-dom';
 import {
-    Label,
     Button,
-    Table,
 } from "reactstrap";
 import axios from "axios";
 import AuthContext from "../../Contexts/AuthContext";
@@ -17,7 +15,6 @@ const CopCompany = () => {
     const forceUpdate = React.useCallback(() => updateState({}), []);
 
     const { user } = useContext(AuthContext);
-    const { ltab } = useLikeMeTabContext();
     const { setlTab } = useLikeMeTabContext();
     
     const navigate = useNavigate();

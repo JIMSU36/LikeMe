@@ -58,7 +58,6 @@ const ProgramContents = () => {
                                 }
                             }}
                             styles={{
-                                // Fixes the overlapping problem of the component
                                 menu: (places) => ({ ...places, zIndex: 99999 }),
                                 control: (base, state) => ({
                                      ...base,
@@ -71,14 +70,6 @@ const ProgramContents = () => {
                                     }),
                             }}
                         />
-                        {/* <Button 
-                            className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
-                            onClick={()=>{
-                                window.open('https://naver.me/FzHyeLd7', '_blank')
-                            }}
-                        >
-                            네이버 예약
-                        </Button> */}
                     </div>
                     <div className='img_area h-[50vh] relative flex justify-center items-center '>
                         <img src={mainLogo}/>
@@ -91,13 +82,7 @@ const ProgramContents = () => {
                     <div className='p-12 flex flex-col'>
                         <hr className='w-[5vw] h-4 bg-[#93AEF9] border-none m-auto mb-4'/>
                         <Label className='font-bold text-3xl'>8가지 비만유형에 따른 다이어트</Label>
-                        {/* <span className='mt-6 text-lg'>
-                            8가지 비만 유형에 따라 
-                        </span>
-                        <span className='text-lg'>
-                            유산소 + 복합 웨이트 트레이닝 / 식단 비율 조절 프로그램
-                        </span> */}
-
+                       
                         <Button 
                             className='mt-10 rounded-lg w-[10vw] m-auto h-[5vh] font-bold text-white bg-[#93AEF9] hover:text-white hover:bg-[#758BC7]'
                             onClick={()=>{

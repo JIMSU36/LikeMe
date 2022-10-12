@@ -46,22 +46,6 @@ const TypeDiet = () => {
                     <span className="text-base font-normal pl-4">
                         중량 웨이트 트레이닝과 코어 운동을 병행하여 근력 향상 및 균형을 위한 밸런스 트레이닝을 지도해 드리고 있습니다.
                     </span>
-                    {/* <table>
-                        <tr>
-                            <th className="w-[50vw]">여성 회원</th>
-                            <th className="w-[50vw]">남성 회원</th>
-                        </tr>
-                        <tr className="text-sm font-normal">
-                            <td className="p-4">
-                                <p>필라테스를 기반 코어 운동과 맨몸 웨이트 트레이닝으로 </p>
-                                <p>체형교정 및 체지방 감량 목적을 둔 운동 방법을 알려드립니다.</p>
-                            </td>
-                            <td className="p-4">
-                                <p>중량 웨이트 트레이닝과 코어 운동을 병행하여</p>
-                                <p>근력 향상 및 균형을 위한 밸런스 트레이닝을 지도해 드리고 있습니다.</p>
-                            </td>
-                        </tr>
-                    </table> */}
                 </div>
                 <div className="text-right text-base pt-20">
                     <p>밴드, 짐볼, 멀티 렉, 케틀벨, 바벨, 덤벨, 스텝박스 등 소도구 및 웨이트 장비 이용.</p>

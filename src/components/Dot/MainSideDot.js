@@ -11,11 +11,9 @@ const MainSideDot = () => {
 
     const handleSetActive = to => {
         setScrollNum(to);
-        // parentFunction(rollNum);
 
     };
 
-    // console.log(rollNum)
   return (
     <>
     

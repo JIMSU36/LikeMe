@@ -102,7 +102,6 @@ const Company = () => {
                 </div>
 
                 {/* 모바일 화면 */}
-                {/* 사진 넣기 */}
                 <div className="md:hidden company-group w-full h-full flex text-left">
                     <div className="">
                         <div className="py-10 text-sm">

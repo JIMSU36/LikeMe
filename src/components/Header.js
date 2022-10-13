@@ -1,18 +1,21 @@
-import React, { useContext, useEffect, useRef, useState } from "react";
+import React, { Suspense, lazy, useContext, useEffect, useRef, useState } from "react";
 import { Link } from "react-router-dom";
-import mainLogo from '../assets/images/main_logo.png';
-import mainWhiteLogo from '../assets/images/logo_white.png';
-import { useResultContext } from "../Contexts/ScrollNumContext";
 import Select from 'react-select'
+import classNames from "classnames";
+import { Button, Label } from "reactstrap";
 import {AiOutlineInstagram, AiFillYoutube, AiOutlineMenu} from "react-icons/ai";
 import { SiNaver } from "react-icons/si";
 import { RiKakaoTalkFill } from "react-icons/ri";
-import ShowModal from "./ShowModal";
 import AuthContext from "../Contexts/AuthContext";
-import classNames from "classnames";
-import mogokImg from '../assets/images/magok.jpg'
+import { useResultContext } from "../Contexts/ScrollNumContext";
+import magokImg from '../assets/images/magok.jpg';
 import ujangsanImg from '../assets/images/ujangsan.jpg'
-import { Button, Label } from "reactstrap";
+import mainLogo from '../assets/images/main_logo.png';
+import mainWhiteLogo from '../assets/images/logo_white.png';
+
+const showmodal = import("./ShowModal");
+const ShowModal = lazy(() => showmodal);
+
 
 const Header = () => {
     const { user, logoutUser } = useContext(AuthContext);
@@ -44,13 +47,15 @@ const Header = () => {
     };
 
     const places = [
-        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: mogokImg,  lat:37.559249, lng:126.826098},
+        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: magokImg,  lat:37.559249, lng:126.826098},
         { value: '우장산역점', label: '우장산역점', tel: '0507-1461-0285', address:'서울 강서구 강서로45길 49-4 B1층 (내발산동, 태승훼미리아파트 5차)', dayOpen: "평일 06:00 - 24:00", weekOpen:"토요일 10:00 - 18:00", img: ujangsanImg, lat:37.547880, lng:126.832767 },
     ]
     
     return(
         <>
-        <ShowModal open={showModal} close={closeModal} data={selectPlace}/>
+        <Suspense>
+            <ShowModal open={showModal} close={closeModal} data={selectPlace}/>
+        </Suspense>
         <div
             data-text-content="true"
             className={(scrollNum == 1 ? "md:basic-menu white-menu md:text-white text-black md:bg-transparent bg-white" : scrollNum == 5 ? "md:basic-menu white-menu md:bg-black/[0.4] bg-white md:text-white text-black border-none" : "white-menu bg-white shadow-md") +" !z-[99999] fixed border-b border-white inset-x-0 top-0 m-auto text-base text-lg whitespace-pre-wrap break-all w-full md:h-[6rem] h-[4rem]"}

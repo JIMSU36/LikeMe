@@ -6,7 +6,7 @@ import {
     Button,
     Table,
 } from "reactstrap";
-import moment from 'moment';
+import dayjs from 'dayjs';
 import AuthContext from '../../Contexts/AuthContext';
 
 
@@ -77,8 +77,8 @@ const TrainerList = () => {
                             <tr className='h-[15vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
                                 <td className='w-[20%]'>
                                     <div className='w-full flex flex-col'>
-                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{moment(row.created_at).format('MM.DD')}</Label>
-                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{dayjs(row.created_at).format('MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{dayjs(row.created_at).format('YYYY')}</Label>
                                     </div>
                                 </td>
                                 <td className='text-left px-6'>{row.title}</td>
@@ -108,7 +108,7 @@ const TrainerList = () => {
                             <tr className='table-row h-[20vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
                                 <td className=''>
                                     <div className='w-full flex flex-col text-left my-12'>
-                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY.MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{dayjs(row.created_at).format('YYYY.MM.DD')}</Label>
                                         <p className='max-w-[250px] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
                                         {row.decodeImg !== "" && (
                                             <img
@@ -129,4 +129,4 @@ const TrainerList = () => {
     )
 }
 
-export default TrainerList
+export default TrainerList;

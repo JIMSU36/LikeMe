@@ -7,7 +7,7 @@ import {
     NavItem,
     NavLink,
 } from "reactstrap";
-import moment from "moment";
+import dayjs from 'dayjs';
 import { useApplicationContext } from "../Contexts/ListTabContext";
 import { BsBookmark } from "react-icons/bs";
 import axios from "axios";
@@ -133,9 +133,9 @@ const DetailContents = ({data}) => {
                         className="w-[10vh] bg-[#93AEF9] h-2 my-4"
                     />
                     <div className="ml-auto flex md:flex-row flex-col md:space-x-4">
-                        <Label className="text-gray-400 md:text-sm text-xs">작성일 : {moment(detailData.created_at).format('YYYY-MM-DD')}</Label>
+                        <Label className="text-gray-400 md:text-sm text-xs">작성일 : {dayjs(detailData.created_at).format('YYYY-MM-DD')}</Label>
                         {detailData.updated_at && (
-                            <Label className="text-gray-400 md:text-sm text-xs">수정일 : {moment(detailData.updated_at).format('YYYY-MM-DD')}</Label>
+                            <Label className="text-gray-400 md:text-sm text-xs">수정일 : {dayjs(detailData.updated_at).format('YYYY-MM-DD')}</Label>
                         )}
                     </div>
                     

@@ -6,9 +6,8 @@ import {
     Button,
     Table,
 } from "reactstrap";
-import moment from 'moment';
+import dayjs from 'dayjs'
 import AuthContext from '../../Contexts/AuthContext';
-
 import Config from "../../config";
 
 const InstructorList = () => {
@@ -16,7 +15,6 @@ const InstructorList = () => {
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
     const [rowData, setRowData] = useState([]);
-
 
     useEffect(()=>{
         axios
@@ -30,8 +28,6 @@ const InstructorList = () => {
         });
     },[])
 
-    console.log(rowData)
-    
     const showDetail = (row, idx) => {
         navigate(thisPage+"/"+row.title, {
             state:{
@@ -75,20 +71,25 @@ const InstructorList = () => {
                             <tr className='table-row h-[15vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
                                 <td className='w-[20%]'>
                                     <div className='w-full flex flex-col'>
-                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{moment(row.created_at).format('MM.DD')}</Label>
-                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-4xl'>{dayjs(row.created_at).format('MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{dayjs(row.created_at).format('YYYY')}</Label>
                                     </div>
                                 </td>
                                 <td className='text-left px-12'>
-                                    <p className='max-w-[70%] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
+                                    <p className='max-w-[80%] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
                                 </td>
-                                <td className='pr-6 w-[30%]'>
+                                <td className='pr-6 w-[20%]'>
                                     <div className='text-center leading-[15vh]'>
                                         {row.decodeImg !== "" && (
                                             <img
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}
                                                 alt={row.decodeImg !== "" ? row.title+" thumb" : ""}
+                                                fetchpriority="high"
+                                                loading='lazy'
+                                                decoding='async'
+                                                width={"100%"}
+                                                height={"100%"}
                                             />
                                         )}
                                     </div>
@@ -109,7 +110,7 @@ const InstructorList = () => {
                             <tr className='table-row h-[20vh] pl-6 border-b cursor-pointer' onClick={()=>showDetail(row, index)}>
                                 <td className=''>
                                     <div className='w-full flex flex-col text-left my-12'>
-                                        <Label className='date-label font-bold text-gray-300 text-xl'>{moment(row.created_at).format('YYYY.MM.DD')}</Label>
+                                        <Label className='date-label font-bold text-gray-300 text-xl'>{dayjs(row.created_at).format('YYYY.MM.DD')}</Label>
                                         <p className='max-w-[250px] my-4 text-ellipsis overflow-hidden'>{row.title}</p>
                                         {row.decodeImg !== "" && (
                                             <img

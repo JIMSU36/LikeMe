@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { lazy, Suspense, useState } from 'react';
 import {
     Label,
     Nav,
@@ -6,16 +6,16 @@ import {
     NavLink
 } from "reactstrap";
 import { useLikeMeTabContext } from '../../Contexts/LikeMeTabContext';
-import Company from './Company';
-import CopCompany from './CopCompany';
-import Instructor from './Instructor';
-
+const company = import("./Company");
+const Company = lazy(() => company);
+const coCompany = import("./CopCompany");
+const CopCompany = lazy(() => coCompany);
+const instructor = import("./Instructor");
+const Instructor = lazy(() => instructor);
 
 const LiKeMeContents = () => {
     const { ltab } = useLikeMeTabContext();
     const { setlTab } = useLikeMeTabContext();
-
-    console.log(ltab)
 
 
     return(
@@ -66,19 +66,21 @@ const LiKeMeContents = () => {
             <div className='w-full h-full py-20 bg-white'>
                 <Label className='font-bold text-4xl'>{ltab}</Label>
                 <div className='w-full h-full py-20'>
-                    {ltab === "회사소개" ? (
-                        <>
-                        <Company/>
-                        </>
-                    ) : ltab === "강사소개" ? (
-                        <>
-                        <Instructor/>
-                        </>
-                    ) : ltab === "협력업체" && (
-                        <>
-                        <CopCompany/>
-                        </>
-                    )}
+                    <Suspense fallback={<div></div>}>
+                        {ltab === "회사소개" ? (
+                            <>
+                            <Company/>
+                            </>
+                        ) : ltab === "강사소개" ? (
+                            <>
+                            <Instructor/>
+                            </>
+                        ) : ltab === "협력업체" && (
+                            <>
+                            <CopCompany/>
+                            </>
+                        )}
+                    </Suspense>
                 </div>
             </div>
         </div>

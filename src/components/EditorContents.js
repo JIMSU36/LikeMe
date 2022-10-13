@@ -18,7 +18,7 @@ import FileBase64 from "react-file-base64";
 import { ColorPicker, useColor } from "react-color-palette";
 import "react-color-palette/lib/css/styles.css";
 import ImageResize from "quill-image-resize-module-react";
-import moment from "moment";
+import dayjs from 'dayjs'
 import { useApplicationContext } from "../Contexts/ListTabContext";
 import { useLikeMeTabContext } from "../Contexts/LikeMeTabContext";
 import Config from "../config";
@@ -259,7 +259,7 @@ const EditorContents = ({parentPage}) => {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
-                    created_at: moment().format('YYYY-MM-DD')
+                    created_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
                     navigate(-1);
@@ -274,7 +274,7 @@ const EditorContents = ({parentPage}) => {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
-                    created_at: moment().format('YYYY-MM-DD')
+                    created_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
                     navigate(-1);
@@ -288,7 +288,7 @@ const EditorContents = ({parentPage}) => {
             axios.post(`${Config.restApi}/postGallery/`, {
                 title: title,
                 img:thumb[0].base64,
-                created_at: moment().format('YYYY-MM-DD')
+                created_at: dayjs().format('YYYY-MM-DD')
             })
             .then(function (response) {
                 navigate(-1);
@@ -336,7 +336,7 @@ const EditorContents = ({parentPage}) => {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
-                    updated_at: moment().format('YYYY-MM-DD')
+                    updated_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
                     console.log(response)
@@ -352,7 +352,7 @@ const EditorContents = ({parentPage}) => {
                     title: title,
                     content: content,
                     img:thumb.length > 0 ? thumb[0].base64 : "",
-                    updated_at: moment().format('YYYY-MM-DD')
+                    updated_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
                     console.log(response)
@@ -368,7 +368,7 @@ const EditorContents = ({parentPage}) => {
             axios.put(`${Config.restApi}/putGallery/`+id, {
                 title: title,
                 img:thumb[0].base64,
-                updated_at: moment().format('YYYY-MM-DD')
+                updated_at: dayjs().format('YYYY-MM-DD')
             })
             .then(function (response) {
                 console.log(response)

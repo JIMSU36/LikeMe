@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { lazy, Suspense } from 'react';
 import {
     Label,
     Nav,
@@ -6,8 +6,11 @@ import {
     NavLink
 } from "reactstrap";
 import { useApplicationContext } from '../../Contexts/ListTabContext';
-import InstructorList from './InstructorList';
-import TrainerList from './TrainerList';
+
+const instructorlist = import("./InstructorList");
+const InstructorList = lazy(() => instructorlist);
+const trainerlist = import("./TrainerList");
+const TrainerList = lazy(() => trainerlist);
 
 const AcademyContents = () => {
     const { tab } = useApplicationContext();
@@ -51,15 +54,17 @@ const AcademyContents = () => {
             <div className='w-full h-full py-20 bg-white'>
                 <Label className='font-bold text-4xl'>{tab}</Label>
                 <div className='w-full h-full py-10'>
-                    {tab === "강사양성과정" ? (
-                        <>
-                            <InstructorList/>
-                        </>
-                    ) : tab === "트레이너교육과정" && (
-                        <>
-                            <TrainerList/>
-                        </>
-                    )}
+                    <Suspense fallback={<div></div>}>
+                        {tab === "강사양성과정" ? (
+                            <>
+                                <InstructorList/>
+                            </>
+                        ) : tab === "트레이너교육과정" && (
+                            <>
+                                <TrainerList/>
+                            </>
+                        )}
+                    </Suspense>
                 </div>
             </div>
         </div>

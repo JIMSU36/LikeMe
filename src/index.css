@@ -60,43 +60,43 @@ code {
 /* PC */
 @media (min-width: 1024px) {
   .slider1{
-    background-image: url(/src/assets/images/1.png);
+    background-image: url(/src/assets/images/1.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
   .slider2{
-    background-image: url(/src/assets/images/2.png);
+    background-image: url(/src/assets/images/2.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
   .slider3{
-    background-image: url(/src/assets/images/3.png);
+    background-image: url(/src/assets/images/3.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
   .slider4{
-    background-image: url(/src/assets/images/4.png);
+    background-image: url(/src/assets/images/4.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
   .slider5{
-    background-image: url(/src/assets/images/5.png);
+    background-image: url(/src/assets/images/5.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
   .slider6{
-    background-image: url(/src/assets/images/6.png);
+    background-image: url(/src/assets/images/6.jpg);
     background-color: #93AEF9;
     background-size: cover;
   }
 
   .company-group{
-    background-image: url(/src/assets/images/단체배경.png);
+    background-image: url(/src/assets/images/단체배경.jpg);
     background-size: contain;
     background-repeat: no-repeat;
   }
   .greeting{
-    background-image: url(/src/assets/images/인사말.png);
+    background-image: url(/src/assets/images/인사말.jpg);
     background-size: contain;
     background-repeat: no-repeat;
   }

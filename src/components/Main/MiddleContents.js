@@ -4,7 +4,6 @@ import Slider from './Slider';
 import Video from './Video';
 import ViewMap from './ViewMap';
 
-
 const MiddleContents = () => {
     return(
         <>

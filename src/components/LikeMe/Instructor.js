@@ -3,7 +3,11 @@ import {
     Label,
     Button,
     List,
+    Collapse, 
+    CardBody,
+    Card
 } from "reactstrap";
+import { AiOutlineDown } from "react-icons/ai";
 import axios from "axios";
 import Config from "../../config";
 import { useNavigate } from "react-router-dom"
@@ -18,6 +22,22 @@ const Instructor = () => {
     const thisPage = window.location.pathname;
     const [rowData, setRowData] = useState([]);
     const [arrInstructor, setArrInstructor] = useState([]);
+
+
+    const [isOpen, setIsOpen] = useState({index:'' , state: false});
+
+    const toggle = (index) => {
+        if(isOpen.index === index){
+            if(isOpen.state === false){
+                return setIsOpen({index: index, state:true});
+            }else{
+                return setIsOpen({index: index, state:false});
+            }
+        }else{
+            return setIsOpen({index:index, state:true})
+        }
+        
+    }
 
     useEffect(()=>{
         axios
@@ -39,7 +59,6 @@ const Instructor = () => {
         });
     },[arrInstructor]);
 
-    console.log(rowData)
 
     const deleteInstructor = (id) => {
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
@@ -58,25 +77,28 @@ const Instructor = () => {
 
     return(
         <>
-        {user && (
-            <div className='w-[80vw] flex'>
-                <Button 
-                    className='add-btn md:ml-auto  my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
-                    onClick={()=>{
-                        navigate(thisPage+"/AddNewPost", {
-                            state:{
-                                parentPageName:"라이크미",
-                                parent:"LikeMe",
-                                tab:"teachers",
-                                action:"add"
-                            }
-                        })
-                    }}
-                >
-                    + Add New
-                </Button>
-            </div>
-        )}
+        <div className="w-[80vw] h-full m-auto">
+            {user && (
+                <div className='flex mb-12'>
+                    <Button 
+                        className='add-btn md:ml-auto  my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
+                        onClick={()=>{
+                            navigate(thisPage+"/AddNewPost", {
+                                state:{
+                                    parentPageName:"라이크미",
+                                    parent:"LikeMe",
+                                    tab:"teachers",
+                                    action:"add"
+                                }
+                            })
+                        }}
+                    >
+                        + Add New
+                    </Button>
+                </div>
+            )}
+        </div>
+
         {/* pc화면 */}
         <div className="w-[80vw] h-full m-auto hidden md:grid grid-cols-2 gap-y-12 ">
             
@@ -195,6 +217,57 @@ const Instructor = () => {
                         </div>
                         </>
                     )
+                )
+            })}
+        </div>
+
+
+        {/* 모바일화면 */}
+        <div className="w-[80vw] h-full m-auto grid md:hidden grid-cols-1">
+            {rowData.map((row, index)=>{
+                return(
+                    <>
+                    <div className="m-auto mt-12">
+                        <img src={row.decodeImg} />
+                    </div>
+                    <div className="text-left text-lg font-semibold my-auto ">
+                        <hr className="w-[40%] my-4 h-1" style={{backgroundColor:row.color_code.hex}}/>
+                        <div className="flex">
+                            <div className="grid grid-col-1 ">
+                                <Label className="font-bold text-2xl">{row.trainer_name}</Label>
+                                <Button 
+                                    className="ml-auto flex my-auto mt-6 whitespace-nowrap"
+                                    onClick={()=>{
+                                        toggle(index)
+                                    }}
+                                >
+                                    상세 경력
+                                    <AiOutlineDown className="my-auto ml-2"/>
+                                </Button>
+                            </div>
+                            <div className="ml-4 flex flex-col font-bold text-sm whitespace-pre">
+                                {row.history_arr.map((row, index)=>{
+                                    return <Label>{row}</Label>
+                                })}
+                            </div>
+                        </div>
+                        <div className="text-sm mt-4">
+                            {index === isOpen.index && isOpen.state === true && (
+                                <Collapse>
+                                    <Card>
+                                        <CardBody>
+                                            <List className="space-y-2">
+                                                {row.qualification_arr.map((row, index)=>{
+                                                    return <li>- {row}</li>
+                                                })}
+                                            </List>
+                                        </CardBody>
+                                    </Card>
+                                </Collapse>
+                            )}
+                        </div>
+                    </div>
+                    </>
                 )
             })}
         </div>

@@ -608,11 +608,14 @@ const EditorContents = ({parentPage}) => {
                     )}
                     {parentPage.parent === "LikeMe" && parentPage.tab === "teachers" && (
                         <>
-                        <div className="flex">
-                            <div>
-                            <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSV dark />
+                        <div className="flex md:flex-row flex-col">
+                            <div className="md:block hidden">
+                                <ColorPicker width={456} height={228} color={color} onChange={setColor} hideHSV dark />
                             </div>
-                            <div className="flex flex-col w-full pl-12 text-left">
+                            <div className="block mb-12 md:hidden">
+                                <ColorPicker width={300} height={228} color={color} onChange={setColor} hideHSV dark />
+                            </div>
+                            <div className="flex flex-col w-full md:pl-12 text-left">
                                 <div>
                                     <Input
                                         className="w-full h-full text-lg border-b font-bold focus:outline-0"

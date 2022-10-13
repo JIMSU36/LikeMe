@@ -79,7 +79,7 @@ const CopCompany = () => {
         <>
         <div className="w-[80vw] h-full m-auto">
             {user && (
-                <div className='flex'>
+                <div className='flex mb-12'>
                     <Button 
                         className='add-btn md:ml-auto  my-4 px-4 py-2 bg-[#93AEF9] rounded-lg text-white font-bold hover:bg-[#758BC7]'
                         onClick={()=>{

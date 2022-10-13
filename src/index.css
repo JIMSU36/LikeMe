@@ -104,6 +104,12 @@ code {
     max-width: 100%;
     max-height: 15vh;
   }
+  .rcp {
+    width: 456px;
+  }
+  .rcp-saturation{
+    height: 228px;
+  }
 }
 
 /* start slide */

@@ -46,13 +46,12 @@ const UserGalleryList = () => {
             }).map((row, idx)=>{
                 arrImg.push(row.decodeImg);
                 setArrImg(arrImg);
-                forceUpdate();
             })
         })
         .catch(function (error) {
             console.log(error);
         });
-    },[])
+    },[arrImg])
 
 
     return(

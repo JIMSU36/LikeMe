@@ -91,7 +91,7 @@ code {
   }
 
   .company-group{
-    background-image: url(/src/assets/images/단체배경.webp);
+    background-image: url(/src/assets/images/단체배경.png);
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -245,7 +245,7 @@ code {
 
 
 .banner{
-  background-image: url(/src/assets/images/sport-lifestyle-fitness-male-training.jpg);
+  background-image: url(/src/assets/images/banner.webp);
   background-repeat: no-repeat;
   background-position: 50% 50%;
   background-size: cover;

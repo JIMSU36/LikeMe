@@ -3,7 +3,6 @@ import {
     Label,
 } from "reactstrap";
 
-
 const Company = () => {
     return(
         <>
@@ -11,7 +10,7 @@ const Company = () => {
             <div className="w-[80vw] h-full m-auto">
                 {/* pc화면 */}
                 <div className="md:flex hidden company-group w-full h-full flex text-left">
-                    <div className="ml-auto mr-[8vw] py-20">
+                    <div className="ml-auto mr-[8vw] py-20 z-[999]">
                         <div className="flex">
                             <span className="my-auto">안녕하세요.</span>
                             <Label className="company-label text-3xl ml-2 font-kohi">라이크미</Label>

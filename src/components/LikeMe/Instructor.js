@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react"
+import React, { lazy, useContext, useEffect, useState } from "react"
 import {
     Label,
     Button,
@@ -12,6 +12,8 @@ import axios from "axios";
 import Config from "../../config";
 import { useNavigate } from "react-router-dom"
 import AuthContext from "../../Contexts/AuthContext"
+const loading = import("../Loading");
+const Loading = lazy(() => loading);
 
 const Instructor = () => {
     const [, updateState] = useState();
@@ -20,6 +22,7 @@ const Instructor = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
+    const [loading, setLoading] = useState(true);
     const [rowData, setRowData] = useState([]);
     const [arrInstructor, setArrInstructor] = useState([]);
 
@@ -40,6 +43,8 @@ const Instructor = () => {
     }
 
     useEffect(()=>{
+        setLoading(true);
+        document.body.style.overflow = "hidden";
         axios
         .get(`${Config.restApi}/getTrainerList/`)
         .then((response) => {
@@ -52,6 +57,8 @@ const Instructor = () => {
                 arrInstructor.push(row.decodeImg);
                 setArrInstructor(arrInstructor);
                 forceUpdate();
+                setLoading(false)
+                document.body.style.overflow = "unset";
             })
         })
         .catch(function (error) {
@@ -62,10 +69,14 @@ const Instructor = () => {
 
     const deleteInstructor = (id) => {
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
+            setLoading(true);
+            document.body.style.overflow = "hidden";
             axios.delete(`${Config.restApi}/deleteTrainerList/`+id)
             .then((response) => {
                 setArrInstructor([]);
                 forceUpdate();
+                setLoading(false)
+                document.body.style.overflow = "unset";
             })
             .catch(function (error) {
                 console.log(error);
@@ -98,7 +109,9 @@ const Instructor = () => {
                 </div>
             )}
         </div>
-
+        {loading && 
+            <Loading/>
+        }
         {/* pc화면 */}
         <div className="w-[80vw] h-full m-auto hidden md:grid grid-cols-2 gap-y-12 ">
             
@@ -251,6 +264,38 @@ const Instructor = () => {
                                 })}
                             </div>
                         </div>
+                        {user && (
+                                    <>
+                                    <div className="">
+                                        <div className="flex justify-center space-x-2">
+                                            <Button 
+                                                className="bg-yellow-400 hover:bg-yellow-300 px-4 py-2 rounded-lg text-white"
+                                                onClick={()=>{
+                                                    navigate(thisPage+"/AddNewPost", {
+                                                        state:{
+                                                            parentPageName:"라이크미",
+                                                            parent:"LikeMe",
+                                                            tab:"teachers",
+                                                            action:"edit",
+                                                            data: row.id
+                                                        }
+                                                    })
+                                                }}
+                                            >
+                                                수정
+                                            </Button>
+                                            <Button 
+                                                className="bg-red-400 hover:bg-red-300 px-4 py-2 rounded-lg text-white"
+                                                onClick={()=>{
+                                                    deleteInstructor(row.id);
+                                                }}
+                                            >
+                                                삭제
+                                            </Button>
+                                        </div>
+                                    </div>
+                                    </>
+                                )}
                         <div className="text-sm mt-4">
                             {index === isOpen.index && isOpen.state === true && (
                                 <Collapse>

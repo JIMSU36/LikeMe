@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from "react"
+import React, { lazy, useCallback, useContext, useEffect, useState } from "react"
 import ImageViewer from 'react-simple-image-viewer';
 import { useNavigate } from 'react-router-dom';
 import {
@@ -8,7 +8,8 @@ import axios from "axios";
 import AuthContext from "../../Contexts/AuthContext";
 import Config from "../../config";
 import { useLikeMeTabContext } from "../../Contexts/LikeMeTabContext";
-
+const loading = import("../Loading");
+const Loading = lazy(() => loading);
 
 const CopCompany = () => {
     const [, updateState] = useState();
@@ -19,11 +20,13 @@ const CopCompany = () => {
     
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
-
+    const [loading, setLoading] = useState(true);
     const [images, setImages] = useState([]);
     const [arrImg, setArrImg] = useState([]);
 
     useEffect(()=>{
+        setLoading(true);
+        document.body.style.overflow = "hidden";
         axios
         .get(`${Config.restApi}/getCoCompany/`)
         .then((response) => {
@@ -37,6 +40,8 @@ const CopCompany = () => {
                 setArrImg(arrImg);
                 forceUpdate();
             })
+            setLoading(false)
+            document.body.style.overflow = "unset";
         })
         .catch(function (error) {
             console.log(error);
@@ -60,11 +65,15 @@ const CopCompany = () => {
     
     const deleteCop = (id) => {
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
+            setLoading(true);
+            document.body.style.overflow = "hidden";
             axios.delete(`${Config.restApi}/deleteCoCompany/`+id)
             .then((response) => {
                 setlTab("협력업체");
                 setArrImg([]);
                 forceUpdate();
+                setLoading(false)
+                document.body.style.overflow = "unset";
             })
             .catch(function (error) {
                 console.log(error);
@@ -77,6 +86,9 @@ const CopCompany = () => {
 
     return(
         <>
+        {loading && 
+            <Loading/>
+        }
         <div className="w-[80vw] h-full m-auto">
             {user && (
                 <div className='flex mb-12'>

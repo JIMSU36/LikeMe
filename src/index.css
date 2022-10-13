@@ -91,7 +91,7 @@ code {
   }
 
   .company-group{
-    background-image: url(/src/assets/images/단체배경.png);
+    background-image: url(/src/assets/images/단체배경.webp);
     background-size: contain;
     background-repeat: no-repeat;
   }
@@ -104,12 +104,7 @@ code {
     max-width: 100%;
     max-height: 15vh;
   }
-  .rcp {
-    width: 456px;
-  }
-  .rcp-saturation{
-    height: 228px;
-  }
+
 }
 
 /* start slide */

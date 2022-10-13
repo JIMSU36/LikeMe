@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { lazy, useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {
@@ -9,19 +9,26 @@ import {
 import dayjs from 'dayjs'
 import AuthContext from '../../Contexts/AuthContext';
 import Config from "../../config";
+const loading = import("../Loading");
+const Loading = lazy(() => loading);
 
 const InstructorList = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
+    const [loading, setLoading] = useState(true);
     const [rowData, setRowData] = useState([]);
 
     useEffect(()=>{
+        setLoading(true);
+        document.body.style.overflow = "hidden";
         axios
         .get(`${Config.restApi}/getInstructor/`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);
+            setLoading(false)
+            document.body.style.overflow = "unset";
         })
         .catch(function (error) {
             console.log(error);
@@ -61,6 +68,9 @@ const InstructorList = () => {
                     </Button>
                 </div>
             )}
+            {loading && 
+                <Loading/>
+            }
             {/* pc 테이블 */}
             <Table responsive className='w-full h-full mt-12 md:table hidden' >
                 <tbody className='border-t border-gray-500'>
@@ -82,7 +92,7 @@ const InstructorList = () => {
                                     <div className='text-center leading-[15vh]'>
                                         {row.decodeImg !== "" && (
                                             <img
-                                                className='m-auto row-img'
+                                                className='m-auto row-img p-2'
                                                 src={row.decodeImg}
                                                 alt={row.decodeImg !== "" ? row.title+" thumb" : ""}
                                                 fetchpriority="high"
@@ -117,6 +127,11 @@ const InstructorList = () => {
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}
                                                 alt="thumb"
+                                                fetchpriority="high"
+                                                loading='lazy'
+                                                decoding='async'
+                                                width={"100%"}
+                                                height={"100%"}
                                             />
                                         )}
                                     </div>

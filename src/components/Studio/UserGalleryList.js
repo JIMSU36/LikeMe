@@ -1,4 +1,4 @@
-import React, { useCallback, useContext, useEffect, useState } from 'react';
+import React, { lazy, useCallback, useContext, useEffect, useState } from 'react';
 import ImageViewer from 'react-simple-image-viewer';
 import axios from "axios";
 import {
@@ -6,8 +6,9 @@ import {
 } from "reactstrap";
 import AuthContext from '../../Contexts/AuthContext';
 import { useNavigate } from 'react-router-dom';
-
 import Config from '../../config';
+const loading = import("../Loading");
+const Loading = lazy(() => loading);
 
 const UserGalleryList = () => {
     const { user } = useContext(AuthContext);
@@ -20,6 +21,7 @@ const UserGalleryList = () => {
     const [currentImage, setCurrentImage] = useState(0);
     const [isViewerOpen, setIsViewerOpen] = useState(false);
     const [arrImg, setArrImg] = useState([]);
+    const [loading, setLoading] = useState(true);
     const [rowData, setRowData] = useState([]);
 
 
@@ -35,6 +37,8 @@ const UserGalleryList = () => {
 
 
     useEffect(()=>{
+        setLoading(true)
+        document.body.style.overflow = "hidden";
         axios
         .get(`${Config.restApi}/getGallery/`)
         .then((response) => {
@@ -47,6 +51,8 @@ const UserGalleryList = () => {
                 arrImg.push(row.decodeImg);
                 setArrImg(arrImg);
             })
+            setLoading(false)
+            document.body.style.overflow = "unset";
         })
         .catch(function (error) {
             console.log(error);
@@ -76,6 +82,9 @@ const UserGalleryList = () => {
                     </Button>
                 </div>
             )}
+            {loading && 
+                <Loading/>
+            }
             <div className='imgbox w-full h-full mt-12 grid md:grid-cols-6 grid-cols-1 gap-4'>
                 {rowData.sort((a, b) => {
                     return b.id - a.id
@@ -90,6 +99,11 @@ const UserGalleryList = () => {
                                     alt={row.title}
                                     onClick={ () => openImageViewer(index) }
                                     key={ index }
+                                    fetchpriority="high"
+                                    loading='lazy'
+                                    decoding='async'
+                                    width={"100%"}
+                                    height={"100%"}
                                 />
                             </div>
                             

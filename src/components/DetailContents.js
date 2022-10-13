@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { lazy, useContext, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Label,
@@ -12,8 +12,9 @@ import { useApplicationContext } from "../Contexts/ListTabContext";
 import { BsBookmark } from "react-icons/bs";
 import axios from "axios";
 import AuthContext from "../Contexts/AuthContext";
-
 import Config from '../config'
+const loading = import("./Loading");
+const Loading = lazy(() => loading);
 
 const DetailContents = ({data}) => {
     const { user } = useContext(AuthContext);
@@ -21,14 +22,18 @@ const DetailContents = ({data}) => {
     const navigate = useNavigate();
     const { tab } = useApplicationContext();
     const { setTab } = useApplicationContext();
-    console.log(detailData)
+    const [loading, setLoading] = useState(true);
     
     useEffect(()=>{
+        setLoading(true)
+        document.body.style.overflow = "hidden";
         data.tab === "instructor" ? (
             axios
             .get(`${Config.restApi}/getInstructor/`+data.data.id)
             .then((response) => {
                 setDetailData(response.data);
+                setLoading(false)
+                document.body.style.overflow = "unset";
             })
             .catch(function (error) {
                 console.log(error);
@@ -38,6 +43,8 @@ const DetailContents = ({data}) => {
             .get(`${Config.restApi}/getTrainer/`+data.data.id)
             .then((response) => {
                 setDetailData(response.data);
+                setLoading(false)
+                document.body.style.overflow = "unset";
             })
             .catch(function (error) {
                 console.log(error);
@@ -53,12 +60,15 @@ const DetailContents = ({data}) => {
 	};
 
     const deletePost = (id) => {
+        setLoading(true);
+        document.body.style.overflow = "hidden";
         if (window.confirm("정말 삭제하시겠습니까??") == true){    //확인
             if(data.tab === "instructor"){
                 axios.delete(`${Config.restApi}/deleteInstructor/`+id)
                 .then((response) => {
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                     navigate(-1);
-                    
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -67,8 +77,9 @@ const DetailContents = ({data}) => {
             else if(data.tab === "trainer"){
                 axios.delete(`${Config.restApi}/deleteTrainer/`+id)
                 .then((response) => {
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                     navigate(-1);
-                    
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -83,6 +94,9 @@ const DetailContents = ({data}) => {
 
     return(
         <>
+        {loading && 
+            <Loading/>
+        }
         <div id="1" name="1" className='content'>
             <div className='h-[1px] bg-transparent'></div>
         </div>

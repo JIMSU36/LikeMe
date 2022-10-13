@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { lazy, useContext, useEffect, useState } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {
@@ -8,23 +8,27 @@ import {
 } from "reactstrap";
 import dayjs from 'dayjs';
 import AuthContext from '../../Contexts/AuthContext';
-
-
 import Config from "../../config";
-
+const loading = import("../Loading");
+const Loading = lazy(() => loading);
 
 const TrainerList = () => {
     const { user } = useContext(AuthContext);
     const navigate = useNavigate();
     const thisPage = window.location.pathname;
+    const [loading, setLoading] = useState(true);
     const [rowData, setRowData] = useState([]);
 
     useEffect(()=>{
+        setLoading(true);
+        document.body.style.overflow = "hidden";
         axios
         .get(`${Config.restApi}/getTrainer/`)
         .then((response) => {
             setRowData([...response.data]);
             console.log(response.data);
+            setLoading(false)
+            document.body.style.overflow = "unset";
         })
         .catch(function (error) {
             console.log(error);
@@ -66,7 +70,9 @@ const TrainerList = () => {
                     </Button>
                 </div>
             )}
-           
+            {loading && 
+                <Loading/>
+            }
             {/* pc 테이블 */}
             <Table responsive className='w-full h-full mt-12 md:table hidden' >
                 <tbody className='border-t border-gray-500'>
@@ -82,13 +88,18 @@ const TrainerList = () => {
                                     </div>
                                 </td>
                                 <td className='text-left px-6'>{row.title}</td>
-                                <td className='pr-6 w-[30%]'>
-                                    <div className='text-center leading-[15vh]'>
+                                <td className='pr-6 w-[20%]'>
+                                    <div className='text-center leading-[15vh] p-2'>
                                         {row.img !== null && (
                                             <img
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}
                                                 alt={row.decodeImg !== "" ? row.title+" thumb" : ""}
+                                                fetchpriority="high"
+                                                loading='lazy'
+                                                decoding='async'
+                                                width={"100%"}
+                                                height={"100%"}
                                             />
                                         )}
                                     </div>
@@ -115,6 +126,11 @@ const TrainerList = () => {
                                                 className='m-auto row-img'
                                                 src={row.decodeImg}
                                                 alt="thumb"
+                                                fetchpriority="high"
+                                                loading='lazy'
+                                                decoding='async'
+                                                width={"100%"}
+                                                height={"100%"}
                                             />
                                         )}
                                     </div>

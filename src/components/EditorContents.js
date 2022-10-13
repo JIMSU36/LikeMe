@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { lazy, useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import {
     Label,
@@ -51,13 +51,15 @@ const modules = {
     },
 };
 
-
+const loading = import("./Loading");
+const Loading = lazy(() => loading);
 
 const EditorContents = ({parentPage}) => {
 
     const navigate = useNavigate();
     const [, updateState] = useState();
     const forceUpdate = React.useCallback(() => updateState({}), []);
+    const [loading, setLoading] = useState(false);
 
     //academy tab
     const { tab } = useApplicationContext();
@@ -171,6 +173,8 @@ const EditorContents = ({parentPage}) => {
 
     const FetchData = () => {
         if(parentPage.action === "edit"){
+            setLoading(true);
+            document.body.style.overflow = "hidden";
             if(parentPage.tab === "instructor"){
                 return axios.get(`${Config.restApi}/getInstructor/`+parentPage.data.id)
                 .then((response)=>{
@@ -182,6 +186,8 @@ const EditorContents = ({parentPage}) => {
                     });
                     setThumb(thumb);
                     console.log(thumb)
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -198,6 +204,8 @@ const EditorContents = ({parentPage}) => {
                     });
                     setThumb(thumb);
                     console.log(thumb)
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -213,6 +221,8 @@ const EditorContents = ({parentPage}) => {
                     });
                     setThumb(thumb);
                     console.log(thumb)
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -231,6 +241,8 @@ const EditorContents = ({parentPage}) => {
                     setQualification(response.data.qualification_arr);
                     setHistory(response.data.history_arr);
                     setColor(response.data.color_code);
+                    setLoading(false)
+                    document.body.style.overflow = "unset";
                 })
                 .catch(function (error) {
                     console.log(error);
@@ -252,6 +264,7 @@ const EditorContents = ({parentPage}) => {
 	};
 
     const addPost = () => {
+        setLoading(true)
         if(parentPage.parent === "Academy"){
             if(parentPage.tab === "instructor"){
                 
@@ -262,6 +275,7 @@ const EditorContents = ({parentPage}) => {
                     created_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -277,6 +291,7 @@ const EditorContents = ({parentPage}) => {
                     created_at: dayjs().format('YYYY-MM-DD')
                 })
                 .then(function (response) {
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -291,6 +306,7 @@ const EditorContents = ({parentPage}) => {
                 created_at: dayjs().format('YYYY-MM-DD')
             })
             .then(function (response) {
+                setLoading(false)
                 navigate(-1);
             })
             .catch(function (error) {
@@ -303,6 +319,7 @@ const EditorContents = ({parentPage}) => {
                     img:thumb[0].base64,
                 })
                 .then(function (response) {
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -318,6 +335,7 @@ const EditorContents = ({parentPage}) => {
                     color: JSON.stringify(color),
                 })
                 .then(function (response) {
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -330,6 +348,7 @@ const EditorContents = ({parentPage}) => {
     }
 
     const editPost = (id) => {
+        setLoading(true)
         if(parentPage.parent === "Academy"){
             if(parentPage.tab === "instructor"){
                 axios.put(`${Config.restApi}/putInstructor/`+id, {
@@ -340,6 +359,7 @@ const EditorContents = ({parentPage}) => {
                 })
                 .then(function (response) {
                     console.log(response)
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -356,6 +376,7 @@ const EditorContents = ({parentPage}) => {
                 })
                 .then(function (response) {
                     console.log(response)
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -372,6 +393,7 @@ const EditorContents = ({parentPage}) => {
             })
             .then(function (response) {
                 console.log(response)
+                setLoading(false)
                 navigate(-1);
             })
             .catch(function (error) {
@@ -390,6 +412,7 @@ const EditorContents = ({parentPage}) => {
                 })
                 .then(function (response) {
                     console.log(response)
+                    setLoading(false)
                     navigate(-1);
                 })
                 .catch(function (error) {
@@ -401,11 +424,12 @@ const EditorContents = ({parentPage}) => {
     }
 
     const deletePost = (id) => {
+        setLoading(true)
         if (window.confirm("정말로 삭제 하시겠습니까?")) {
             axios.delete(`${Config.restApi}/deleteGallery/`+id)
             .then((response) => {
+                setLoading(false)
                 navigate(-1);
-                
             })
             .catch(function (error) {
                 console.log(error);
@@ -434,6 +458,9 @@ const EditorContents = ({parentPage}) => {
             <div className='h-[1px] bg-transparent'></div>
         </div>
         <div id="5" name="5" className='content'>
+            {loading && 
+                <Loading/>
+            }
             <div className='banner h-[40vh]  w-full relative bg-gray-400'>
                 <div className='h-auto w-full absolute top-[50%] translate-y-1/2'>
                     <Label className='label-shadow w-full h-full m-auto text-center text-4xl text-white font-bold'>{parentPage.parentPageName}</Label>

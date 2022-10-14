@@ -129,10 +129,54 @@ code {
     to{opacity:1};
   }
   /* spinner */
+  .mobile-table >div >div>div>div:nth-child(2)>div{
+    display: flex;
+    flex-direction: column;
+  }
+  .mobile-table > div > div > div > div:nth-child(2) > div > div:first-child{
+    margin-top: 30px;
+  }
+  .mobile-table > div > div > div > div:nth-child(2) > div > div:last-child{
+    margin-top: 12px;
+    margin-bottom: 30px;
+  }
+  div nav[class*="rdt_Pagination"] > div > div {
+    display: none;
+  }
+
 }
 
 /* PC */
 @media (min-width: 1024px) {
+  div[role*="row"]:hover > div > div > div > .date-label{
+    color: #93AEF9;
+  }
+  div nav[class*="rdt_Pagination"] > span:first-child {
+    display: none;
+  }
+  div nav[class*="rdt_Pagination"] > span:nth-child(3) {
+    display: none;
+  }
+  div nav[class*="rdt_Pagination"] > div:nth-child(2) {
+    margin-top: 20px;
+    position: absolute;
+    right: 10vw;
+    border: solid 1px;
+    border-radius: 5px;
+    padding: 4px;
+  }
+  div nav[class*="rdt_Pagination"] > div:nth-child(4) {
+    margin-top: 20px;
+    position: absolute;
+    left: 0;
+    transform:translateX(46vw)
+  }
+
+  div nav[class*="rdt_Pagination"] > div > button[id*="pagination"]:hover {
+    background:#93AEF9;
+    opacity: 0.6;
+    fill: white;
+  }
   .slider1{
     background-image: url(/src/assets/images/1.jpg);
     background-color: #93AEF9;
@@ -252,8 +296,16 @@ code {
     to{opacity:1};
   }
   /* spinner */
+
+  /* table */
 }
 
+/* pagination */
+.pagination{
+  display: flex;
+  
+}
+/* pagination */
 
 
 /* start slide */
@@ -420,6 +472,7 @@ code {
   z-index: 999;
   transform: translate(-50%);
 }
+
 
 
 .thumb-img{

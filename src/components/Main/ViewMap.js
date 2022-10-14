@@ -6,7 +6,7 @@ import {
 } from "reactstrap";
 import Select from 'react-select'
 
-import mogokImg from '../../assets/images/magok.jpg'
+import magokImg from '../../assets/images/magok.jpg'
 import ujangsanImg from '../../assets/images/ujangsan.jpg'
 
 //카카오 지도
@@ -17,8 +17,8 @@ import imgMarker from '../../assets/images/마커.png'
 const ViewMap = () => {
     const [selectPlace, setSelectPlace] = useState("");
     const places = [
-        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: mogokImg,  lat:37.559249, lng:126.826098},
-        { value: '우장산역점', label: '우장산역점', tel: '0507-1461-0285', address:'서울 강서구 강서로45길 49-4 B1층 (내발산동, 태승훼미리아파트 5차)', dayOpen: "평일 06:00 - 24:00", weekOpen:"토요일 10:00 - 18:00", img: ujangsanImg, lat:37.547880, lng:126.832767 },
+        { value: '마곡역점', label: '마곡역점', tel: '02-2666-0191', address:'서울 강서구 공항대로 168 스타벅스 건물 2층', dayOpen: "평일 06:00 - 23:00 ", weekOpen: "토요일 10:00 - 18:00", parking: "2시간 무료",img: magokImg,  lat:37.559249, lng:126.826098},
+        { value: '우장산역점', label: '우장산역점', tel: '02-2601-0191', address:'서울 강서구 강서로45길 49-4 B1층 (내발산동, 태승훼미리아파트 5차)', dayOpen: "평일 06:00 - 23:00", weekOpen:"토요일 10:00 - 18:00", img: ujangsanImg, lat:37.547880, lng:126.832767 },
     ]
     const [showModal, setShowModal] = useState(false);
 
